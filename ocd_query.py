@@ -136,16 +136,17 @@ TABLES = """
     ocd_relation
     """.split()
 
+
 def _querie_tables(articles: list, cursor: MySQLCursor):
     global QUERIES
     placeholders = ', '.join(['%s'] * len(articles))
     c: MySQLCursor
-    for i, c in  enumerate(cursor.execute(QUERIES.format(placeholders), articles, multi=True)):
+    for i, c in enumerate(cursor.execute(QUERIES.format(placeholders), articles, multi=True)):
         if c.statement.startswith("SELECT"):
             table_name = c.statement.split()[3].replace("_TEMP_LOCAL_1", "").replace("_TEMP", "")
             yield c.fetchall(), table_name
-            
-        
+
+
 def _create_temp_table(table_name: str, programs: list, cursor: MySQLCursor):
     placeholders = ', '.join(['%s'] * len(programs))
 
@@ -153,23 +154,25 @@ def _create_temp_table(table_name: str, programs: list, cursor: MySQLCursor):
     CREATE TEMPORARY TABLE {table_name}_TEMP
     AS SELECT *
     FROM {table_name}
-    WHERE __sql__program__ IN ({placeholders});
+    WHERE sql_db_program IN ({placeholders});
     """
     cursor.execute(sql, programs)
 
-def _create_temporary_tables(programs: list, cursor: MySQLCursor):
 
+def _create_temporary_tables(programs: list, cursor: MySQLCursor):
     for table_name in TABLES:
         _create_temp_table(table_name, programs, cursor)
+
 
 def _get_programs(articles: list, cursor: MySQLCursor):
     placeholders = ', '.join(['%s'] * len(articles))
     sql = f"""
-    SELECT DISTINCT __sql__program__ FROM ocd_article WHERE article_nr IN ({placeholders})
+    SELECT DISTINCT sql_db_program FROM ocd_article WHERE article_nr IN ({placeholders})
     """
     cursor.execute(sql, articles)
-    result = list(map(lambda x: x['__sql__program__'], cursor.fetchall()))
-    return result 
+    result = list(map(lambda x: x['sql_db_program'], cursor.fetchall()))
+    return result
+
 
 def execute(articles: list, cursor: MySQLCursor):
     programs = _get_programs(articles, cursor)
