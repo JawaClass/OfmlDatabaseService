@@ -10,12 +10,16 @@ def create_app():
     """Construct the core application."""
     app = Flask(__name__)
 
+    # important so jsonify keeps the order we want
+    app.json.sort_keys = False
+
     app.config.from_mapping(
         SECRET_KEY="dev",
         SQLALCHEMY_DATABASE_URI="mysql+mysqlconnector://root:@pdf2obs01/ofml"
     )
 
     CORS(app)
+
     from Service.api import oap
     from Service.api import ocd
     from Service.api import oam

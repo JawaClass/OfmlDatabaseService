@@ -12,12 +12,15 @@ Base = db.Model
 
 
 def to_json(self):
+    """
+    returns a ordered json/dict of class by class attribute order
+    """
     json = {}
-
-    for k, v in self.__dict__.items():
-        if not k.startswith("_"):
-            json[k] = v
-
+    ordered_values = self.__class__.__dict__
+    attributes = self.__dict__
+    for k in ordered_values:
+        if k in attributes and not k.startswith("_"):
+            json[k] = attributes[k]
     return json
 
 
