@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, abort
 from Service.tables import OamArticle2ofml
-from Service.tables import TABLE_NAME_2_CLASS
+from .handler import handle_table
 
 bp = Blueprint("oam", __name__, url_prefix="/oam")
 
@@ -12,16 +12,9 @@ def programs():
     return jsonify(res)
 
 
-@bp.route('/table/<program>/<name>')
-def table(program, name):
-
-    if not str(name).startswith("oam_"):
-        abort(404, description=f"Table {name} not part of OAM.")
-
-    table_class = TABLE_NAME_2_CLASS[name]
-
-    res = table_class.query.filter(table_class.sql_db_program == program).all()
-
-    res = [_.to_json() for _ in res]
-
-    return jsonify(res)
+@bp.route('/table/<program>/<table_name>/<column>/<value>')
+@bp.route('/table/<program>/<table_name>')
+def table(program, table_name, column=None, value=None):
+    if not str(table_name).startswith("oam_"):
+        abort(404, description=f"Table {table_name} not part of OAM.")
+    return handle_table(program, table_name, column, value)

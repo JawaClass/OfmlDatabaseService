@@ -18,7 +18,10 @@ def create_app():
         SQLALCHEMY_DATABASE_URI="mysql+mysqlconnector://root:@pdf2obs01/ofml"
     )
 
-    CORS(app)
+    CORS(app, origins=[
+        "http://0.0.0.0:4201", "http://localhost:4201", "http://127.0.0.1:4201", "http://172.22.15.238:4201",
+        "http://0.0.0.0:4200", "http://localhost:4200", "http://127.0.0.1:4200", "http://172.22.15.238:4200",
+    ])
 
     from Service.api import oap
     from Service.api import ocd

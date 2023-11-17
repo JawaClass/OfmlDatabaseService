@@ -2337,7 +2337,7 @@ class OcdArticle(Base):
 
     db_key: int = db.Column(Integer, primary_key=True)
     index: int = db.Column(BigInteger)
-    article_nr: str = db.Column(Text)
+    article_nr = db.Column(Text)
     art_type: str = db.Column(Text)
     manufacturer: str = db.Column(Text)
     series: str = db.Column(Text)

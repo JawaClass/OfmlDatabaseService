@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, abort
 from Service.tables import Article
-from Service.tables import TABLE_NAME_2_CLASS
+from .handler import handle_table
 
 bp = Blueprint("oas", __name__, url_prefix="/oas")
 
@@ -12,16 +12,9 @@ def programs():
     return jsonify(res)
 
 
-@bp.route('/table/<program>/<name>')
-def table(program, name):
-
-    if name not in "text article resource structure variant".split():
-        abort(404, description=f"Table {name} not part of OAS.")
-
-    table_class = TABLE_NAME_2_CLASS[name]
-
-    res = table_class.query.filter(table_class.sql_db_program == program).all()
-
-    res = [_.to_json() for _ in res]
-
-    return jsonify(res)
+@bp.route('/table/<program>/<table_name>/<column>/<value>')
+@bp.route('/table/<program>/<table_name>')
+def table(program, table_name, column=None, value=None):
+    if table_name not in "text article resource structure variant".split():
+        abort(404, description=f"Table {table_name} not part of OAS.")
+    return handle_table(program, table_name, column, value)

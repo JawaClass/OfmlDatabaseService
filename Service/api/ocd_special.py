@@ -42,14 +42,25 @@ def stream_all_tables_get():
     return Response(stream(), mimetype='text/event-stream')
 
 
-@bp.route('/article_data', methods=['POST'])
+@bp.route('/article_data', methods=['POST', "GET"])
 def article_info():
     """
     expects JSON list as body, eg. ["TLTN16880A", "TLTN18880A", "TLTN20880A"]
     """
     print("article_info called!")
-    data = request.get_json()
+
+    if request.method == 'POST':
+        data = request.get_json()
+
+    elif request.method == 'GET':
+        data = ["TLTN16880A"]
+    else:
+        return abort(404)
+    
     assert type(data) is list
+
+    #rt = jsonify(db.article_table(articlenumbers=data))
+    print("article_info returns")
     return jsonify(db.article_table(articlenumbers=data))
 
 
