@@ -1,7 +1,9 @@
+import re
+
 from mysql.connector.cursor import MySQLCursor
 
 QUERIES = """
-SELECT format_version
+SELECT ocd_version_TEMP.*
 FROM ocd_version_TEMP
 ORDER BY format_version DESC
 LIMIT 1
@@ -97,20 +99,85 @@ SELECT ocd_propvaluetext_TEMP.*
 FROM ocd_propvaluetext_TEMP
 JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.pval_textnr = ocd_propvaluetext_TEMP.textnr
 ;
+
+
+
+
+
+
+-- START: make ocd_relationobj_TEMP_LOCAL_1
+
+-- create table by inserting entries from article
 CREATE TEMPORARY TABLE ocd_relationobj_TEMP_LOCAL_1
 SELECT ocd_relationobj_TEMP.*
 FROM ocd_relationobj_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
-JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
-JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
 ;
+-- insert entries from property 
+-- TODO: duplicates
+INSERT INTO ocd_relationobj_TEMP_LOCAL_1
+SELECT ocd_relationobj_TEMP.*
+FROM ocd_relationobj_TEMP
+JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj;
+
+
+-- insert entries from values
+-- TODO: duplicates
+INSERT INTO ocd_relationobj_TEMP_LOCAL_1
+SELECT ocd_relationobj_TEMP.*
+FROM ocd_relationobj_TEMP
+JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj;
+
+
+-- END: make ocd_relationobj_TEMP_LOCAL_1
+
+
+
+
+
+
+
+
 SELECT * FROM ocd_relationobj_TEMP_LOCAL_1
 ;
 SELECT ocd_relation_TEMP.*
 FROM ocd_relation_TEMP
 JOIN ocd_relationobj_TEMP_LOCAL_1 ON ocd_relationobj_TEMP_LOCAL_1.rel_name = ocd_relation_TEMP.rel_name
 ;
+
+
+
+
+CREATE TEMPORARY TABLE optproperty_dat_TEMP_LOCAL_1
+SELECT optproperty_dat_TEMP.*
+FROM optproperty_dat_TEMP
+JOIN ocd_propertyclass_TEMP_LOCAL_1 ON optproperty_dat_TEMP.prop_class = ocd_propertyclass_TEMP_LOCAL_1.prop_class
+;
+
+SELECT * FROM optproperty_dat_TEMP_LOCAL_1
+;
+
+
+
+SELECT optpropvalue_txt_TEMP.*
+FROM optpropvalue_txt_TEMP
+JOIN (SELECT DISTINCT optproperty_dat_TEMP_LOCAL_1.prop_textnr FROM optproperty_dat_TEMP_LOCAL_1) AS prop_text_numbers
+ON optpropvalue_txt_TEMP.textnr = prop_text_numbers.prop_textnr
+;
+
+
 """
+# remove lines that start with -- (sql comments)
+# and lines that only contain whitespace
+QUERIES = re.sub(r'\s*--.*?\n', '\n', QUERIES, flags=re.MULTILINE)
+
+# CREATE TEMPORARY TABLE ocd_relationobj_TEMP_LOCAL_1
+# SELECT ocd_relationobj_TEMP.*
+# FROM ocd_relationobj_TEMP
+# JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
+# LEFT JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
+# LEFT JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
+# ;
 
 TABLES = """
     ocd_version
@@ -134,6 +201,9 @@ TABLES = """
     ocd_propvaluetext 
     ocd_relationobj 
     ocd_relation
+    
+    optproperty_dat
+    optpropvalue_txt
     """.split()
 
 
@@ -174,7 +244,12 @@ def _get_programs(articles: list, cursor: MySQLCursor):
     return result
 
 
-def execute(articles: list, cursor: MySQLCursor):
-    programs = _get_programs(articles, cursor)
+def execute(articles: list, cursor: MySQLCursor, programs: list = None):
+    """
+    if not program string list is given we fetch all programs where articles is present
+    if programs is given we search articles in only these given programs
+    """
+    if programs is None:
+        programs = _get_programs(articles, cursor)
     _create_temporary_tables(programs, cursor)
     return _querie_tables(articles, cursor)

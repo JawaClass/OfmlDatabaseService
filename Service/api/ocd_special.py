@@ -1,5 +1,5 @@
 import json
-import db
+from . import db
 import time
 from flask import Response, request, jsonify, session, abort, Blueprint
 
@@ -47,20 +47,14 @@ def article_info():
     """
     expects JSON list as body, eg. ["TLTN16880A", "TLTN18880A", "TLTN20880A"]
     """
-    print("article_info called!")
 
     if request.method == 'POST':
         data = request.get_json()
-
-    elif request.method == 'GET':
-        data = ["TLTN16880A"]
     else:
         return abort(404)
     
     assert type(data) is list
 
-    #rt = jsonify(db.article_table(articlenumbers=data))
-    print("article_info returns")
     return jsonify(db.article_table(articlenumbers=data))
 
 

@@ -40,7 +40,7 @@ class Art2aclassMap(Base):
     params = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Art2typeMap(Base):
@@ -57,7 +57,7 @@ class Art2typeMap(Base):
     params = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Article(Base):
@@ -77,7 +77,7 @@ class Article(Base):
     program = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenAeraTbl(Base):
@@ -93,7 +93,7 @@ class FarbenAeraTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenApothekerTbl(Base):
@@ -109,7 +109,7 @@ class FarbenApothekerTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenAsStuehleTbl(Base):
@@ -125,7 +125,7 @@ class FarbenAsStuehleTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenAstra4Tbl(Base):
@@ -141,7 +141,7 @@ class FarbenAstra4Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenAstraDeltaTbl(Base):
@@ -157,7 +157,7 @@ class FarbenAstraDeltaTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenBetaTbl(Base):
@@ -173,7 +173,7 @@ class FarbenBetaTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenBtTbl(Base):
@@ -189,7 +189,7 @@ class FarbenBtTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenContainerTbl(Base):
@@ -205,7 +205,7 @@ class FarbenContainerTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenContainerXTbl(Base):
@@ -221,7 +221,7 @@ class FarbenContainerXTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenContinentalTbl(Base):
@@ -237,7 +237,7 @@ class FarbenContinentalTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenDaimlerDcTbl(Base):
@@ -253,7 +253,7 @@ class FarbenDaimlerDcTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenDoitD4Tbl(Base):
@@ -269,7 +269,7 @@ class FarbenDoitD4Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenEBodenTbl(Base):
@@ -285,7 +285,7 @@ class FarbenEBodenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenEconomyTbl(Base):
@@ -301,7 +301,7 @@ class FarbenEconomyTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenInside25Tbl(Base):
@@ -317,7 +317,7 @@ class FarbenInside25Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenInside50Tbl(Base):
@@ -333,7 +333,7 @@ class FarbenInside50Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenLamigaTbl(Base):
@@ -349,7 +349,7 @@ class FarbenLamigaTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenMemosTbl(Base):
@@ -365,7 +365,7 @@ class FarbenMemosTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenMmTbl(Base):
@@ -381,7 +381,7 @@ class FarbenMmTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenMxTbl(Base):
@@ -397,7 +397,7 @@ class FarbenMxTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenMyTbl(Base):
@@ -413,7 +413,7 @@ class FarbenMyTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenNoTbl(Base):
@@ -429,7 +429,7 @@ class FarbenNoTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenOkTbl(Base):
@@ -445,7 +445,7 @@ class FarbenOkTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenOkayTbl(Base):
@@ -461,7 +461,7 @@ class FarbenOkayTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenOptimaPlusTbl(Base):
@@ -477,7 +477,7 @@ class FarbenOptimaPlusTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenPasoTbl(Base):
@@ -493,7 +493,7 @@ class FarbenPasoTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenReelingTbl(Base):
@@ -509,7 +509,7 @@ class FarbenReelingTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenS6SchrankTbl(Base):
@@ -525,7 +525,7 @@ class FarbenS6SchrankTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenS8MobileTbl(Base):
@@ -541,7 +541,7 @@ class FarbenS8MobileTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenS8SchrankTbl(Base):
@@ -557,7 +557,7 @@ class FarbenS8SchrankTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenS9GehrungTbl(Base):
@@ -573,7 +573,7 @@ class FarbenS9GehrungTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenSiemensTbl(Base):
@@ -589,7 +589,7 @@ class FarbenSiemensTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenSummaTbl(Base):
@@ -605,7 +605,7 @@ class FarbenSummaTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTabletTbl(Base):
@@ -621,7 +621,7 @@ class FarbenTabletTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTalosTbl(Base):
@@ -637,7 +637,7 @@ class FarbenTalosTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTensaNTbl(Base):
@@ -653,7 +653,7 @@ class FarbenTensaNTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTensaTbl(Base):
@@ -669,7 +669,7 @@ class FarbenTensaTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTisch01Tbl(Base):
@@ -685,7 +685,7 @@ class FarbenTisch01Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTwsTbl(Base):
@@ -701,7 +701,7 @@ class FarbenTwsTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenTwsTdf(Base):
@@ -716,7 +716,7 @@ class FarbenTwsTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenUnosTbl(Base):
@@ -732,7 +732,7 @@ class FarbenUnosTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class FarbenUoSchrankTbl(Base):
@@ -748,7 +748,7 @@ class FarbenUoSchrankTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewInside30PlTbl(Base):
@@ -764,7 +764,7 @@ class GewInside30PlTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewKabelfuehrungTbl(Base):
@@ -780,7 +780,7 @@ class GewKabelfuehrungTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewKupplungskabelTbl(Base):
@@ -796,7 +796,7 @@ class GewKupplungskabelTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewTbestueProfbTbl(Base):
@@ -812,7 +812,7 @@ class GewTbestueProfbTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewTbestueckungTbl(Base):
@@ -828,7 +828,7 @@ class GewTbestueckungTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewTzufuehrkabelTbl(Base):
@@ -844,7 +844,7 @@ class GewTzufuehrkabelTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpPlattenTbl(Base):
@@ -860,7 +860,7 @@ class GewWpPlattenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpSeitenTbl(Base):
@@ -876,7 +876,7 @@ class GewWpSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpapgraPlarahTbl(Base):
@@ -892,7 +892,7 @@ class GewWpapgraPlarahTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptdbPlaraTbl(Base):
@@ -908,7 +908,7 @@ class GewWpaptdbPlaraTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptdbPlattformTbl(Base):
@@ -924,7 +924,7 @@ class GewWpaptdbPlattformTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptdbSeitenTbl(Base):
@@ -940,7 +940,7 @@ class GewWpaptdbSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptnAdapterTbl(Base):
@@ -956,7 +956,7 @@ class GewWpaptnAdapterTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptnPlFreiTbl(Base):
@@ -972,7 +972,7 @@ class GewWpaptnPlFreiTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptnPlaraTbl(Base):
@@ -988,7 +988,7 @@ class GewWpaptnPlaraTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptnPlattfoTbl(Base):
@@ -1004,7 +1004,7 @@ class GewWpaptnPlattfoTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptnSeitenTbl(Base):
@@ -1020,7 +1020,7 @@ class GewWpaptnSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptraPlattfTbl(Base):
@@ -1036,7 +1036,7 @@ class GewWpaptraPlattfTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpaptraSeitenTbl(Base):
@@ -1052,7 +1052,7 @@ class GewWpaptraSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpbgnPlarahTbl(Base):
@@ -1068,7 +1068,7 @@ class GewWpbgnPlarahTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpbtbSeitenTbl(Base):
@@ -1084,7 +1084,7 @@ class GewWpbtbSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpbtnPlattforTbl(Base):
@@ -1100,7 +1100,7 @@ class GewWpbtnPlattforTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpbtnSeitenTbl(Base):
@@ -1116,7 +1116,7 @@ class GewWpbtnSeitenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWpltravTbl(Base):
@@ -1132,7 +1132,7 @@ class GewWpltravTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWptzdbgsblTbl(Base):
@@ -1148,7 +1148,7 @@ class GewWptzdbgsblTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWptzdbsblTbl(Base):
@@ -1164,7 +1164,7 @@ class GewWptzdbsblTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWptzdbswTbl(Base):
@@ -1180,7 +1180,7 @@ class GewWptzdbswTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GewWptzrwbldTbl(Base):
@@ -1196,7 +1196,7 @@ class GewWptzrwbldTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoActions(Base):
@@ -1218,7 +1218,7 @@ class GoActions(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoArticles(Base):
@@ -1237,7 +1237,7 @@ class GoArticles(Base):
     chprm_key = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoAttpt(Base):
@@ -1258,7 +1258,7 @@ class GoAttpt(Base):
     rot_y = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoAttptgeo(Base):
@@ -1282,7 +1282,7 @@ class GoAttptgeo(Base):
     arg3 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoAttptsorder(Base):
@@ -1299,7 +1299,7 @@ class GoAttptsorder(Base):
     number = Column(SmallInteger)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoChildmoving(Base):
@@ -1318,7 +1318,7 @@ class GoChildmoving(Base):
     parameter = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoChildprops(Base):
@@ -1335,7 +1335,7 @@ class GoChildprops(Base):
     child_key = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoChildren(Base):
@@ -1360,7 +1360,7 @@ class GoChildren(Base):
     condition = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoClasses(Base):
@@ -1375,7 +1375,7 @@ class GoClasses(Base):
     class_ = Column('class', Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoFeedback(Base):
@@ -1395,7 +1395,7 @@ class GoFeedback(Base):
     parameter = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoFreenumeric(Base):
@@ -1416,7 +1416,7 @@ class GoFreenumeric(Base):
     mode = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoInfo(Base):
@@ -1431,7 +1431,7 @@ class GoInfo(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoInhproperties(Base):
@@ -1447,7 +1447,7 @@ class GoInhproperties(Base):
     property = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoInteractors(Base):
@@ -1469,7 +1469,7 @@ class GoInteractors(Base):
     hint = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoItemplates(Base):
@@ -1490,7 +1490,7 @@ class GoItemplates(Base):
     rot_y = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoMetainfo(Base):
@@ -1511,7 +1511,7 @@ class GoMetainfo(Base):
     value_2 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoNativeproperties(Base):
@@ -1530,7 +1530,7 @@ class GoNativeproperties(Base):
     value2 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoNoproperties(Base):
@@ -1545,7 +1545,7 @@ class GoNoproperties(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoPropclasses(Base):
@@ -1561,7 +1561,7 @@ class GoPropclasses(Base):
     prop_class = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoProperties(Base):
@@ -1580,7 +1580,7 @@ class GoProperties(Base):
     variant_value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoProporder(Base):
@@ -1595,7 +1595,7 @@ class GoProporder(Base):
     number = Column(Integer)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoPropvalues(Base):
@@ -1612,7 +1612,7 @@ class GoPropvalues(Base):
     condition = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoResetnativeprops(Base):
@@ -1628,7 +1628,7 @@ class GoResetnativeprops(Base):
     trigger = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoSetup(Base):
@@ -1644,7 +1644,7 @@ class GoSetup(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoTexts(Base):
@@ -1660,7 +1660,7 @@ class GoTexts(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class GoTypes(Base):
@@ -1679,7 +1679,7 @@ class GoTypes(Base):
     filter = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class KdGruppeRabattTbl(Base):
@@ -1695,7 +1695,7 @@ class KdGruppeRabattTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class KdgruppeTbl(Base):
@@ -1711,7 +1711,7 @@ class KdgruppeTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class KundenTbl(Base):
@@ -1727,7 +1727,7 @@ class KundenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class MasseAusfr01Tbl(Base):
@@ -1743,7 +1743,7 @@ class MasseAusfr01Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class MasseFrKastenKtTbl(Base):
@@ -1759,7 +1759,7 @@ class MasseFrKastenKtTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class MaterialhauptgruppTbl(Base):
@@ -1775,7 +1775,7 @@ class MaterialhauptgruppTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OamArticle2odbparams(Base):
@@ -1792,7 +1792,7 @@ class OamArticle2odbparams(Base):
     params = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OamArticle2ofml(Base):
@@ -1809,7 +1809,7 @@ class OamArticle2ofml(Base):
     params = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OamProperty2mat(Base):
@@ -1827,7 +1827,7 @@ class OamProperty2mat(Base):
     material = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapAction(Base):
@@ -1845,7 +1845,7 @@ class OapAction(Base):
     objects = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapActionchoice(Base):
@@ -1863,7 +1863,7 @@ class OapActionchoice(Base):
     list_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapActionlist(Base):
@@ -1882,7 +1882,7 @@ class OapActionlist(Base):
     image_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapArticle2type(Base):
@@ -1901,7 +1901,7 @@ class OapArticle2type(Base):
     type_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapAttacharea(Base):
@@ -1920,7 +1920,7 @@ class OapAttacharea(Base):
     linked_areas = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapAttareamatch(Base):
@@ -1949,7 +1949,7 @@ class OapAttareamatch(Base):
     detach_actions = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapCreateobj(Base):
@@ -1972,7 +1972,7 @@ class OapCreateobj(Base):
     pos_rot_arg3 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapDimchange(Base):
@@ -1993,7 +1993,7 @@ class OapDimchange(Base):
     precision = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapExtmedia(Base):
@@ -2009,7 +2009,7 @@ class OapExtmedia(Base):
     media = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapImage(Base):
@@ -2026,7 +2026,7 @@ class OapImage(Base):
     file = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapInteractor(Base):
@@ -2045,7 +2045,7 @@ class OapInteractor(Base):
     symbol_size = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapMessage(Base):
@@ -2061,7 +2061,7 @@ class OapMessage(Base):
     argument = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapMetatype2type(Base):
@@ -2080,7 +2080,7 @@ class OapMetatype2type(Base):
     type_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
     prop_var_code = Column(String(255))
 
 
@@ -2099,7 +2099,7 @@ class OapMethodcall(Base):
     arguments = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapNumtripel(Base):
@@ -2116,7 +2116,7 @@ class OapNumtripel(Base):
     z = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapObject(Base):
@@ -2134,7 +2134,7 @@ class OapObject(Base):
     argument3 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapPropchange(Base):
@@ -2151,7 +2151,7 @@ class OapPropchange(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapPropedit(Base):
@@ -2169,7 +2169,7 @@ class OapPropedit(Base):
     classes = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
     staterestr = Column(String(255))
 
 
@@ -2187,7 +2187,7 @@ class OapPropedit2(Base):
     classes = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapPropeditclasses(Base):
@@ -2204,7 +2204,7 @@ class OapPropeditclasses(Base):
     state_restr = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapPropeditprops(Base):
@@ -2221,7 +2221,7 @@ class OapPropeditprops(Base):
     state_restr = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapSymboldisplay(Base):
@@ -2240,7 +2240,7 @@ class OapSymboldisplay(Base):
     orientation_x = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
     hidden_mode = Column(String(255))
 
 
@@ -2257,7 +2257,7 @@ class OapText(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapTransformobj(Base):
@@ -2274,7 +2274,7 @@ class OapTransformobj(Base):
     argument2 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapType(Base):
@@ -2293,7 +2293,7 @@ class OapType(Base):
     interactors = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OapVersion(Base):
@@ -2307,7 +2307,7 @@ class OapVersion(Base):
     format_version: str = Column(Text)
     sql_db_program: str = Column(Text)
     sql_db_timestamp_modified: float = Column(Float(asdecimal=True))
-    sql_db_timestamp_read: float = Column(Float(asdecimal=True))
+    sql_db_timestamp_read: str = Column(Text)
 
 
 class OcdArtbase(Base):
@@ -2325,7 +2325,7 @@ class OcdArtbase(Base):
     prop_value: str = Column(Text)
     sql_db_program: str = Column(Text)
     sql_db_timestamp_modified: float = Column(Float(asdecimal=True))
-    sql_db_timestamp_read: float = Column(Float(asdecimal=True))
+    sql_db_timestamp_read: str = Column(Text)
 
 
 class OcdArticle(Base):
@@ -2350,7 +2350,7 @@ class OcdArticle(Base):
     scheme_id: str = db.Column(Text)
     sql_db_program: str = db.Column(Text)
     sql_db_timestamp_modified: float = db.Column(Float(asdecimal=True))
-    sql_db_timestamp_read: float = db.Column(Float(asdecimal=True))
+    sql_db_timestamp_read: str = db.Column(Text)
 
 
 class OcdArticletaxes(Base):
@@ -2368,7 +2368,7 @@ class OcdArticletaxes(Base):
     date_to: str = Column(Text)
     sql_db_program: str = Column(Text)
     sql_db_timestamp_modified: int = Column(Float(asdecimal=True))
-    sql_db_timestamp_read: int = Column(Float(asdecimal=True))
+    sql_db_timestamp_read: str = Column(Text)
 
 
 class OcdArtlongtext(Base):
@@ -2387,7 +2387,7 @@ class OcdArtlongtext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdArtshorttext(Base):
@@ -2406,7 +2406,7 @@ class OcdArtshorttext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdCodescheme(Base):
@@ -2429,7 +2429,7 @@ class OcdCodescheme(Base):
     mo_bracket = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdIdentificationCsv(Base):
@@ -2446,7 +2446,7 @@ class OcdIdentificationCsv(Base):
     ident_nr = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPackaging(Base):
@@ -2473,7 +2473,7 @@ class OcdPackaging(Base):
     pack_units = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPrice(Base):
@@ -2500,7 +2500,7 @@ class OcdPrice(Base):
     rounding_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPricetext(Base):
@@ -2519,7 +2519,7 @@ class OcdPricetext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPropclasstext(Base):
@@ -2538,7 +2538,7 @@ class OcdPropclasstext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdProperty(Base):
@@ -2567,7 +2567,7 @@ class OcdProperty(Base):
     hint_text_id = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPropertyclass(Base):
@@ -2586,7 +2586,7 @@ class OcdPropertyclass(Base):
     rel_obj = Column(BigInteger)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPropertytext(Base):
@@ -2605,7 +2605,7 @@ class OcdPropertytext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPropertyvalue(Base):
@@ -2631,7 +2631,7 @@ class OcdPropertyvalue(Base):
     raster = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdProphinttext(Base):
@@ -2650,7 +2650,7 @@ class OcdProphinttext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdPropvaluetext(Base):
@@ -2668,7 +2668,7 @@ class OcdPropvaluetext(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdRelation(Base):
@@ -2685,7 +2685,7 @@ class OcdRelation(Base):
     rel_block = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdRelationobj(Base):
@@ -2704,7 +2704,7 @@ class OcdRelationobj(Base):
     rel_domain = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdRounding(Base):
@@ -2726,7 +2726,7 @@ class OcdRounding(Base):
     add_after = Column(Float(asdecimal=True))
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdSetCsv(Base):
@@ -2742,7 +2742,7 @@ class OcdSetCsv(Base):
     article_nr = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdTaxscheme(Base):
@@ -2761,7 +2761,7 @@ class OcdTaxscheme(Base):
     tax_category = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdUsermessageCsv(Base):
@@ -2779,7 +2779,7 @@ class OcdUsermessageCsv(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OcdVersion(Base):
@@ -2802,7 +2802,7 @@ class OcdVersion(Base):
     comment = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OpenAkustikMatnrTbl(Base):
@@ -2818,7 +2818,7 @@ class OpenAkustikMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OpenGestellMatnrTbl(Base):
@@ -2834,7 +2834,7 @@ class OpenGestellMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OpenMg1MatnrTbl(Base):
@@ -2850,7 +2850,7 @@ class OpenMg1MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OptpropertyDat(Base):
@@ -2866,7 +2866,7 @@ class OptpropertyDat(Base):
     prop_textnr = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class OptpropvalueTxt(Base):
@@ -2884,7 +2884,7 @@ class OptpropvalueTxt(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class ParametersMap(Base):
@@ -2899,7 +2899,7 @@ class ParametersMap(Base):
     params = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Replacement(Base):
@@ -2916,7 +2916,7 @@ class Replacement(Base):
     replacement = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Resource(Base):
@@ -2934,7 +2934,7 @@ class Resource(Base):
     resource_path = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class SonderstoffW1Tbl(Base):
@@ -2950,7 +2950,7 @@ class SonderstoffW1Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Structure(Base):
@@ -2968,7 +2968,7 @@ class Structure(Base):
     param5 = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class StsUmst19MatnrTbl(Base):
@@ -2984,7 +2984,7 @@ class StsUmst19MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabArtnrTbl(Base):
@@ -3000,7 +3000,7 @@ class TabArtnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabEinheit2Tbl(Base):
@@ -3016,7 +3016,7 @@ class TabEinheit2Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabEinheitAwg14Tbl(Base):
@@ -3032,7 +3032,7 @@ class TabEinheitAwg14Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabEinheitChOSichT(Base):
@@ -3048,7 +3048,7 @@ class TabEinheitChOSichT(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabEinheitExternTbl(Base):
@@ -3064,7 +3064,7 @@ class TabEinheitExternTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabModulAhm15KnTbl(Base):
@@ -3080,7 +3080,7 @@ class TabModulAhm15KnTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabModulAhm15Tbl(Base):
@@ -3096,7 +3096,7 @@ class TabModulAhm15Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabModulAhm25Tbl(Base):
@@ -3112,7 +3112,7 @@ class TabModulAhm25Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabModulAwg14Tbl(Base):
@@ -3128,7 +3128,7 @@ class TabModulAwg14Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabStdcheckExtNTbl(Base):
@@ -3144,7 +3144,7 @@ class TabStdcheckExtNTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabStdcheckExtTbl(Base):
@@ -3160,7 +3160,7 @@ class TabStdcheckExtTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabStdcheckNTbl(Base):
@@ -3176,7 +3176,7 @@ class TabStdcheckNTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class TabStdcheckTbl(Base):
@@ -3192,7 +3192,7 @@ class TabStdcheckTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Text_(Base):
@@ -3209,7 +3209,7 @@ class Text_(Base):
     text = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Vb3741MatnrTbl(Base):
@@ -3225,7 +3225,7 @@ class Vb3741MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class Vb3791MatnrTbl(Base):
@@ -3241,7 +3241,7 @@ class Vb3791MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAa5Ad5MatnrTbl(Base):
@@ -3257,7 +3257,7 @@ class VbAa5Ad5MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAa5Ad5MatnrTdf(Base):
@@ -3272,7 +3272,7 @@ class VbAa5Ad5MatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAdapterMatnrTbl(Base):
@@ -3288,7 +3288,7 @@ class VbAdapterMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAl41MatnrTbl(Base):
@@ -3304,7 +3304,7 @@ class VbAl41MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAl42MatnrTbl(Base):
@@ -3320,7 +3320,7 @@ class VbAl42MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAl43MatnrTbl(Base):
@@ -3336,7 +3336,7 @@ class VbAl43MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAnzSt2MatnrTbl(Base):
@@ -3352,7 +3352,7 @@ class VbAnzSt2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAnzSt2MatnrTdf(Base):
@@ -3367,7 +3367,7 @@ class VbAnzSt2MatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAnzSt3MatnrTbl(Base):
@@ -3383,7 +3383,7 @@ class VbAnzSt3MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAnzSt3MatnrTdf(Base):
@@ -3398,7 +3398,7 @@ class VbAnzSt3MatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbArmlehneMatnrTbl(Base):
@@ -3414,7 +3414,7 @@ class VbArmlehneMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAusfraesungLsTbl(Base):
@@ -3430,7 +3430,7 @@ class VbAusfraesungLsTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbAusfraesungLsTdf(Base):
@@ -3445,7 +3445,7 @@ class VbAusfraesungLsTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbB4BenchGm95Tbl(Base):
@@ -3461,7 +3461,7 @@ class VbB4BenchGm95Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbB4BenchKw0Tbl(Base):
@@ -3477,7 +3477,7 @@ class VbB4BenchKw0Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbB4GehrungsfussTbl(Base):
@@ -3493,7 +3493,7 @@ class VbB4GehrungsfussTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbB4GehrungsfussTdf(Base):
@@ -3508,7 +3508,7 @@ class VbB4GehrungsfussTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbB4d4BenchPav0Tbl(Base):
@@ -3524,7 +3524,7 @@ class VbB4d4BenchPav0Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbContAkfTbl(Base):
@@ -3540,7 +3540,7 @@ class VbContAkfTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbContAkfTdf(Base):
@@ -3555,7 +3555,7 @@ class VbContAkfTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbD4BenchGm98Tbl(Base):
@@ -3571,7 +3571,7 @@ class VbD4BenchGm98Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbDaempfungMatnrTbl(Base):
@@ -3587,7 +3587,7 @@ class VbDaempfungMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbDaempfungMatnrTdf(Base):
@@ -3602,7 +3602,7 @@ class VbDaempfungMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbDekorein1MatnrTbl(Base):
@@ -3618,7 +3618,7 @@ class VbDekorein1MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbEVerbMatnrTbl(Base):
@@ -3634,7 +3634,7 @@ class VbEVerbMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbEVerbMatnrTdf(Base):
@@ -3649,7 +3649,7 @@ class VbEVerbMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbElektroE35MatTbl(Base):
@@ -3665,7 +3665,7 @@ class VbElektroE35MatTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbElektroExMatnTbl(Base):
@@ -3681,7 +3681,7 @@ class VbElektroExMatnTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbElektroExMatnTdf(Base):
@@ -3696,7 +3696,7 @@ class VbElektroExMatnTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbEvkMatnrTbl(Base):
@@ -3712,7 +3712,7 @@ class VbEvkMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbEvkMatnrTdf(Base):
@@ -3727,7 +3727,7 @@ class VbEvkMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbFenixMatnrTbl(Base):
@@ -3743,7 +3743,7 @@ class VbFenixMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbFenixMatnrTdf(Base):
@@ -3758,7 +3758,7 @@ class VbFenixMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGGewiS6600tTbl(Base):
@@ -3774,7 +3774,7 @@ class VbGGewiS6600tTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfed10MatnrTbl(Base):
@@ -3790,7 +3790,7 @@ class VbGasfed10MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfed12MatnrTbl(Base):
@@ -3806,7 +3806,7 @@ class VbGasfed12MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfed13MatnrTbl(Base):
@@ -3822,7 +3822,7 @@ class VbGasfed13MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder0MatnrTbl(Base):
@@ -3838,7 +3838,7 @@ class VbGasfeder0MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder3MatnrTbl(Base):
@@ -3854,7 +3854,7 @@ class VbGasfeder3MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder4MatnrTbl(Base):
@@ -3870,7 +3870,7 @@ class VbGasfeder4MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder5MatnrTbl(Base):
@@ -3886,7 +3886,7 @@ class VbGasfeder5MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder6MatnrTbl(Base):
@@ -3902,7 +3902,7 @@ class VbGasfeder6MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder7MatnrTbl(Base):
@@ -3918,7 +3918,7 @@ class VbGasfeder7MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder8MatnrTbl(Base):
@@ -3934,7 +3934,7 @@ class VbGasfeder8MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfeder9MatnrTbl(Base):
@@ -3950,7 +3950,7 @@ class VbGasfeder9MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGasfederMatnrTbl(Base):
@@ -3966,7 +3966,7 @@ class VbGasfederMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGfg23MatnrTbl(Base):
@@ -3982,7 +3982,7 @@ class VbGfg23MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGfs20MatnrTbl(Base):
@@ -3998,7 +3998,7 @@ class VbGfs20MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGfussGf1MatnrTbl(Base):
@@ -4014,7 +4014,7 @@ class VbGfussGf1MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGfussGf2MatnrTbl(Base):
@@ -4030,7 +4030,7 @@ class VbGfussGf2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGfussGf3MatnrTbl(Base):
@@ -4046,7 +4046,7 @@ class VbGfussGf3MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGl22MatnrTbl(Base):
@@ -4062,7 +4062,7 @@ class VbGl22MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGl23MatnrTbl(Base):
@@ -4078,7 +4078,7 @@ class VbGl23MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGl24MatnrTbl(Base):
@@ -4094,7 +4094,7 @@ class VbGl24MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGr5S6MatnrTbl(Base):
@@ -4110,7 +4110,7 @@ class VbGr5S6MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGr5S8MatnrTbl(Base):
@@ -4126,7 +4126,7 @@ class VbGr5S8MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGr5S8MatnrTdf(Base):
@@ -4141,7 +4141,7 @@ class VbGr5S8MatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbGv2Lifes2Tbl(Base):
@@ -4157,7 +4157,7 @@ class VbGv2Lifes2Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbHeTbl(Base):
@@ -4173,7 +4173,7 @@ class VbHeTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKabelwkw2MatnrTbl(Base):
@@ -4189,7 +4189,7 @@ class VbKabelwkw2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKabelwkw4MatnrTbl(Base):
@@ -4205,7 +4205,7 @@ class VbKabelwkw4MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKabelwkw6MatnrTbl(Base):
@@ -4221,7 +4221,7 @@ class VbKabelwkw6MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlb1MatnrTbl(Base):
@@ -4237,7 +4237,7 @@ class VbKlb1MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlbMatnrTbl(Base):
@@ -4253,7 +4253,7 @@ class VbKlbMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKleiderbuMatnrTbl(Base):
@@ -4269,7 +4269,7 @@ class VbKleiderbuMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlemmadKa2MatTbl(Base):
@@ -4285,7 +4285,7 @@ class VbKlemmadKa2MatTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlemmadKa2MatTdf(Base):
@@ -4300,7 +4300,7 @@ class VbKlemmadKa2MatTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlemmadKa3MatTbl(Base):
@@ -4316,7 +4316,7 @@ class VbKlemmadKa3MatTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKlemmadKa3MatTdf(Base):
@@ -4331,7 +4331,7 @@ class VbKlemmadKa3MatTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKo2MatnrTbl(Base):
@@ -4347,7 +4347,7 @@ class VbKo2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbKonfKw7Kw8Tbl(Base):
@@ -4363,7 +4363,7 @@ class VbKonfKw7Kw8Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLadefeld0MatnrTbl(Base):
@@ -4379,7 +4379,7 @@ class VbLadefeld0MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontMatnrTbl(Base):
@@ -4395,7 +4395,7 @@ class VbLfDemontMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontMatnrTdf(Base):
@@ -4410,7 +4410,7 @@ class VbLfDemontMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontTbTbl(Base):
@@ -4426,7 +4426,7 @@ class VbLfDemontTbTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontTbTdf(Base):
@@ -4441,7 +4441,7 @@ class VbLfDemontTbTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontTlTbl(Base):
@@ -4457,7 +4457,7 @@ class VbLfDemontTlTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLfDemontTlTdf(Base):
@@ -4472,7 +4472,7 @@ class VbLfDemontTlTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLsBench4aKw1Tbl(Base):
@@ -4488,7 +4488,7 @@ class VbLsBench4aKw1Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbLsBench4aKw1Tdf(Base):
@@ -4503,7 +4503,7 @@ class VbLsBench4aKw1Tdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrEbodenTbl(Base):
@@ -4519,7 +4519,7 @@ class VbMatnrEbodenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrEbodenTdf(Base):
@@ -4534,7 +4534,7 @@ class VbMatnrEbodenTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrFfmTbl(Base):
@@ -4550,7 +4550,7 @@ class VbMatnrFfmTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrHRahm2Tbl(Base):
@@ -4566,7 +4566,7 @@ class VbMatnrHRahm2Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrHRahmTbl(Base):
@@ -4582,7 +4582,7 @@ class VbMatnrHRahmTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrNetzNeuTbl(Base):
@@ -4598,7 +4598,7 @@ class VbMatnrNetzNeuTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrPaneelvorTbl(Base):
@@ -4614,7 +4614,7 @@ class VbMatnrPaneelvorTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrPaneelvorTdf(Base):
@@ -4629,7 +4629,7 @@ class VbMatnrPaneelvorTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrPlattenstTbl(Base):
@@ -4645,7 +4645,7 @@ class VbMatnrPlattenstTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrPlattenstTdf(Base):
@@ -4660,7 +4660,7 @@ class VbMatnrPlattenstTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrRolgTbl(Base):
@@ -4676,7 +4676,7 @@ class VbMatnrRolgTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatnrSg16RuecTbl(Base):
@@ -4692,7 +4692,7 @@ class VbMatnrSg16RuecTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMatwaTbVbcontTbl(Base):
@@ -4708,7 +4708,7 @@ class VbMatwaTbVbcontTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbMittelwandTbl(Base):
@@ -4724,7 +4724,7 @@ class VbMittelwandTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbNeKleiderbuegeTbl(Base):
@@ -4740,7 +4740,7 @@ class VbNeKleiderbuegeTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbNotKw1Tbl(Base):
@@ -4756,7 +4756,7 @@ class VbNotKw1Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObflS8ApoTbl(Base):
@@ -4772,7 +4772,7 @@ class VbObflS8ApoTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObflS8Tbl(Base):
@@ -4788,7 +4788,7 @@ class VbObflS8Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObflTbl(Base):
@@ -4804,7 +4804,7 @@ class VbObflTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObflTcontXTbl(Base):
@@ -4820,7 +4820,7 @@ class VbObflTcontXTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObflTdf(Base):
@@ -4835,7 +4835,7 @@ class VbObflTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbObg12MatnrTbl(Base):
@@ -4851,7 +4851,7 @@ class VbObg12MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpeKabelMatnrTbl(Base):
@@ -4867,7 +4867,7 @@ class VbOpeKabelMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenAl34Tbl(Base):
@@ -4883,7 +4883,7 @@ class VbOpenAl34Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenEckGeoTbl(Base):
@@ -4899,7 +4899,7 @@ class VbOpenEckGeoTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenF103AlTbl(Base):
@@ -4915,7 +4915,7 @@ class VbOpenF103AlTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenF103AmTbl(Base):
@@ -4931,7 +4931,7 @@ class VbOpenF103AmTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenF103KsTbl(Base):
@@ -4947,7 +4947,7 @@ class VbOpenF103KsTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenF103SmeTbl(Base):
@@ -4963,7 +4963,7 @@ class VbOpenF103SmeTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenGl1Tbl(Base):
@@ -4979,7 +4979,7 @@ class VbOpenGl1Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenGl24Tbl(Base):
@@ -4995,7 +4995,7 @@ class VbOpenGl24Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenHv32MatnrTbl(Base):
@@ -5011,7 +5011,7 @@ class VbOpenHv32MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenMittelwandTbl(Base):
@@ -5027,7 +5027,7 @@ class VbOpenMittelwandTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbOpenPosAusfraTbl(Base):
@@ -5043,7 +5043,7 @@ class VbOpenPosAusfraTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbPlDMessMatnrTbl(Base):
@@ -5059,7 +5059,7 @@ class VbPlDMessMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbPlGroessMatnrTbl(Base):
@@ -5075,7 +5075,7 @@ class VbPlGroessMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbProdukttypTbl(Base):
@@ -5091,7 +5091,7 @@ class VbProdukttypTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSb1Konf2MatnrTbl(Base):
@@ -5107,7 +5107,7 @@ class VbSb1Konf2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSb1KonfMatnrTbl(Base):
@@ -5123,7 +5123,7 @@ class VbSb1KonfMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSf76MatnrTbl(Base):
@@ -5139,7 +5139,7 @@ class VbSf76MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSf76MatnrTdf(Base):
@@ -5154,7 +5154,7 @@ class VbSf76MatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSg25MatnrTbl(Base):
@@ -5170,7 +5170,7 @@ class VbSg25MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSg38MatnrTbl(Base):
@@ -5186,7 +5186,7 @@ class VbSg38MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSk1MatnrTbl(Base):
@@ -5202,7 +5202,7 @@ class VbSk1MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSkt6MatnrTbl(Base):
@@ -5218,7 +5218,7 @@ class VbSkt6MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbSplStaerMatnrTbl(Base):
@@ -5234,7 +5234,7 @@ class VbSplStaerMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStatWanrMatnrTbl(Base):
@@ -5250,7 +5250,7 @@ class VbStatWanrMatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStatWanrMatnrTdf(Base):
@@ -5265,7 +5265,7 @@ class VbStatWanrMatnrTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStiftbEboxLsTbl(Base):
@@ -5281,7 +5281,7 @@ class VbStiftbEboxLsTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStoffgr4649MatTbl(Base):
@@ -5297,7 +5297,7 @@ class VbStoffgr4649MatTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStoffgr4649MatTdf(Base):
@@ -5312,7 +5312,7 @@ class VbStoffgr4649MatTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStoffgr3MatnrTbl(Base):
@@ -5328,7 +5328,7 @@ class VbStoffgr3MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbStv2MatnrTbl(Base):
@@ -5344,7 +5344,7 @@ class VbStv2MatnrTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbTablar7vTbl(Base):
@@ -5360,7 +5360,7 @@ class VbTablar7vTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbTbKonfKw0Tbl(Base):
@@ -5376,7 +5376,7 @@ class VbTbKonfKw0Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbTf16IaMatnTbl(Base):
@@ -5392,7 +5392,7 @@ class VbTf16IaMatnTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbTf16IaMatnTdf(Base):
@@ -5407,7 +5407,7 @@ class VbTf16IaMatnTdf(Base):
     name = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class VbTlKonfKw0Tbl(Base):
@@ -5423,7 +5423,7 @@ class VbTlKonfKw0Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewFussDesignTbl(Base):
@@ -5439,7 +5439,7 @@ class WpGewFussDesignTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewKabelwannenTbl(Base):
@@ -5455,7 +5455,7 @@ class WpGewKabelwannenTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewKonsoleTbl(Base):
@@ -5471,7 +5471,7 @@ class WpGewKonsoleTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewKwannBen2Tbl(Base):
@@ -5487,7 +5487,7 @@ class WpGewKwannBen2Tbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewKwannBenchTbl(Base):
@@ -5503,7 +5503,7 @@ class WpGewKwannBenchTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewTgstCoverTbl(Base):
@@ -5519,7 +5519,7 @@ class WpGewTgstCoverTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class WpGewTseitWangeTbl(Base):
@@ -5535,7 +5535,7 @@ class WpGewTseitWangeTbl(Base):
     value = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 class XoiSet(Base):
@@ -5556,7 +5556,7 @@ class XoiSet(Base):
     config_state = Column(Text)
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
-    sql_db_timestamp_read = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
 
 
 TABLE_NAME_2_CLASS = {}

@@ -1,5 +1,5 @@
 import mysql.connector
-from ocd_query import execute
+from .ocd_query import execute
 
 config = {
     'host': 'pdf2obs01',
@@ -14,11 +14,11 @@ def new_connection():
     return mysql.connector.connect(**config)
 
 
-def yield_all_tables(articlenumbers):
+def yield_all_tables(articlenumbers, programs=None):
     connection = new_connection()
     c = connection.cursor(dictionary=True)
 
-    tables = execute(articlenumbers, c)
+    tables = execute(articlenumbers, c, programs)
     for result_set, table_name in tables:
         yield {
             "table": table_name,

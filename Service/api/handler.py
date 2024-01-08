@@ -32,22 +32,8 @@ def handle_table(program, table_name, column=None, value=None):
         base_columns = [getattr(table_class, c) for c in requested_columns]
         query = query.with_entities(*base_columns)
 
-    if where_clause:
-        print("where_clause:::")
-        print(where_clause)
-
     res = query.all()
-
     res = prepare_json(res, requested_columns)
-
-    # if not res:
-    #     return jsonify(res)
-    #
-    # from ..tables import Base
-    # if isinstance(res[0], Base):
-    #     res = [_.to_json() for _ in res]
-    # else:
-    #     res = [dict(zip(requested_columns, row)) for row in res]
 
     return jsonify(res)
 
