@@ -54,6 +54,7 @@ class ArticleItem(Base):
             ArticleItem.program == program,
             ArticleItem.session_id == session_id
         ).delete()
+
         db.session.commit()
 
     @staticmethod
@@ -180,12 +181,12 @@ class Session(Base):
 
     @staticmethod
     def update(session: 'Session', **kwargs):
-
         if "isPublic" in kwargs:
             session.is_public = kwargs["isPublic"]
         if "articleInput" in kwargs:
             session.article_input = kwargs["articleInput"]
-
+        if "name" in kwargs:
+            session.name = kwargs["name"]
         db.session.commit()
         return session.id
 
