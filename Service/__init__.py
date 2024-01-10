@@ -1,5 +1,6 @@
 """Initialize Flask app."""
-from flask import Flask, g, jsonify
+
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy.extension import SQLAlchemy as SQLAlchemyFlask
 from flask_cors import CORS
@@ -15,11 +16,9 @@ def create_app():
 
     # important so jsonify keeps the order we want
     app.json.sort_keys = False
-
-    app.config.from_mapping(
-        SECRET_KEY="dev",
-        SQLALCHEMY_DATABASE_URI="mysql+mysqlconnector://root:@pdf2obs01/ofml",
-    )
+    from settings import Config
+    app.config.from_object(Config)
+    print("Config Path", Config.CREATE_OFML_EXPORT_PATH)
 
     CORS(app, origins=['*'])
 

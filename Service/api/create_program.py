@@ -6,7 +6,7 @@ from .db import yield_all_tables
 from ..tables import OamArticle2ofml, OamProperty2mat, OamArticle2odbparams, GoArticles, GoProperties, GoTypes
 from sqlalchemy.engine.base import Connection
 from . import table_descriptions
-
+from settings import Config
 TableDict = dict[str, dict[str, pd.DataFrame]]
 
 
@@ -59,7 +59,7 @@ class ProgramCreator:
         self.export()
 
     def export(self):
-        base_path = Path("B:\ofml_development\Tools\ofml_datenmacher")
+        base_path = Path(Config.CREATE_OFML_EXPORT_PATH)
 
         if not (base_path / self.program_name).exists():
             program_path = base_path / self.program_name
