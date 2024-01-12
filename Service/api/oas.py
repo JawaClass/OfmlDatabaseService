@@ -12,9 +12,8 @@ def programs():
     return jsonify(res)
 
 
-@bp.route('/table/<program>/<table_name>/<column>/<value>')
 @bp.route('/table/<program>/<table_name>')
 def table(program, table_name, column=None, value=None):
     if table_name not in "text article resource structure variant".split():
         abort(404, description=f"Table {table_name} not part of OAS.")
-    return handle_table(program, table_name, column, value)
+    return handle_table(program, table_name)

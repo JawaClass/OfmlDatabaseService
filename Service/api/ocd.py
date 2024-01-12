@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify, abort, request
-from sqlalchemy import text
-from ..tables import OcdArticle
+from sqlalchemy import text, func
+from ..tables import OcdArticle, OcdPrice, OcdArtlongtext
 from .handler import handle_table
 from .. import db
 import pandas as pd
 from .create_program import ProgramCreator
-import json
+
 
 bp = Blueprint("ocd", __name__, url_prefix="/ocd")
 
@@ -17,12 +17,45 @@ def all_programs():
     return jsonify(res)
 
 
-@bp.route('/table/<program>/<table_name>/<column>/<value>')
+@bp.route('/longtext_and_price/<article_nr>/<program>')
+def longtext_and_price(article_nr: str, program: str):
+    # print("longtext_and_price")
+    price_item = OcdPrice.query.filter(
+        OcdPrice.article_nr == article_nr.upper(),
+        OcdPrice.sql_db_program == program.lower(),
+        OcdPrice.price_type == "S",
+        OcdPrice.price_level == "B",
+    ).first()
+    # print("price_item", price_item.article_nr, price_item.price)
+
+    article_item = OcdArticle.query.filter(
+        OcdArticle.article_nr == article_nr.upper(),
+        func.upper(OcdArticle.sql_db_program) == program.upper(),
+    ).first()
+
+    longtext_item = OcdArtlongtext.query.filter(
+        OcdArtlongtext.textnr == article_item.long_textnr,
+        func.upper(OcdArtlongtext.language) == "DE",
+        OcdArtlongtext.sql_db_program == program.upper(),
+    ).all()
+
+    # print("article_item", article_item.article_nr, article_item.long_textnr)
+    # for _ in longtext_item:
+    #     print("longtext_item", _.textnr, _.language, _.text)
+
+    return jsonify(
+        {
+            "price": float(price_item.price),
+            "longtext": [_.text for _ in longtext_item]
+        }
+    )
+
+
 @bp.route('/table/<program>/<table_name>')
-def table(program, table_name, column=None, value=None):
+def table(program, table_name):
     if not str(table_name).startswith("ocd_"):
         abort(404, description=f"Table {table_name} not part of OCD.")
-    return handle_table(program, table_name, column, value)
+    return handle_table(program, table_name)
 
 
 @bp.route('/article_compact', methods=['POST', "GET"])
@@ -48,11 +81,14 @@ def article_compact():
 
     query = """
     SELECT ocd_article.article_nr, ocd_article.series, ocd_article.sql_db_program, ocd_artshorttext.text, ocd_propertyclass.prop_class
+    
     FROM ocd_article
+    
     LEFT JOIN (SELECT * FROM ocd_artshorttext WHERE UPPER(ocd_artshorttext.language) = "DE") ocd_artshorttext
     ON (ocd_article.short_textnr = ocd_artshorttext.textnr AND ocd_article.sql_db_program = ocd_artshorttext.sql_db_program)
-    
+     
     JOIN ocd_propertyclass ON (ocd_propertyclass.article_nr = ocd_article.article_nr AND ocd_propertyclass.sql_db_program = ocd_article.sql_db_program)
+    
     WHERE ocd_article.article_nr IN ({})
     ;
     """

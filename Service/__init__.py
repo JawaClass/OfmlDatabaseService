@@ -29,6 +29,7 @@ def create_app():
     from Service.api import ocd_special
     from Service.api import oas
     from Service.api import misc
+    from Service.api.program_creation import create
     app.register_blueprint(ocd_special.bp)
     app.register_blueprint(ocd.bp)
     app.register_blueprint(oas.bp)
@@ -36,6 +37,7 @@ def create_app():
     app.register_blueprint(oap.bp)
     app.register_blueprint(go.bp)
     app.register_blueprint(misc.bp)
+    app.register_blueprint(create.bp)
 
     # web ofml
     from Service.web_ofml.api import session
@@ -54,12 +56,12 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    @app.errorhandler(Exception)
-    def handle_exception(e: Exception):
-        return jsonify({
-            'error': str(type(e).__name__),
-            'message': str(e),
-        }), 400
+    # @app.errorhandler(Exception)
+    # def handle_exception(e: Exception):
+    #     return jsonify({
+    #         'error': str(type(e).__name__),
+    #         'message': str(e),
+    #     }), 400
 
     @app.route("/")
     def hello():

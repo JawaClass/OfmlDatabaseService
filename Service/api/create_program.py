@@ -43,6 +43,8 @@ class ProgramCreator:
         self.update_shorttext()
         self.update_artbase()
         self.update_properties()
+        self.update_prices()
+        self.update_longtext()
 
         self.unify_linking_keys()
 
@@ -116,9 +118,6 @@ class ProgramCreator:
         """
         make links between tables unique per program
         """
-
-        # TODO: some columns need to stay numbers
-        #return
 
         links = {
             "ocd_artbase": ["prop_class"],
@@ -295,7 +294,23 @@ class ProgramCreator:
 
         # print(self.ocd["ocd_artbase"].to_string())
 
+    def update_prices(self):
+        # self.ocd["ocd_price"]
+        for article_item in self.article_items:
+
+            price = article_item["price"]
+            if price is None:
+                continue
+            print("update price", price, type(price))
+            print(article_item)
+            article_nr = article_item["articleNr"]
+            # print("update_prices", price, article_nr)
+            self.ocd["ocd_price"].loc[
+                lambda x: (x["article_nr"] == article_nr) & (x["price_type"] == "S") & (x["price_level"] == "B"),
+                "price"] = price
+
     def update_shorttext(self):
+        # TODO: if no shorttext exists yet we dont create it
         """
         iterate over all article_items
         - set the shorttext of the given item in the
@@ -314,7 +329,40 @@ class ProgramCreator:
                 lambda x: x["textnr"].isin(shorttext_ids) & (x["language"] == "de"), "text"
             ] = article_item["shorttext"]
 
-        # print(self.ocd["ocd_artshorttext"].to_string())
+    def update_longtext(self):
+        # TODO: if no longtext exists yet we dont create it
+        df_data = []
+        for article_item in self.article_items:
+            article_nr = article_item["articleNr"]
+            long_text = article_item["longText"]
+            program = article_item["program"]
+            if long_text is None:
+                continue
+
+            longtext_ids = pd.merge(
+                self.ocd["ocd_article"].loc[lambda x: x["article_nr"] == article_nr],
+                self.ocd["ocd_artlongtext"].loc[lambda x: x["language"] == "de"],
+                left_on="long_textnr",
+                right_on="textnr"
+            )["long_textnr"]
+
+            to_removed_df = self.ocd["ocd_artlongtext"].loc[lambda x: x["textnr"].isin(longtext_ids)]
+            self.ocd["ocd_artlongtext"] = self.ocd["ocd_artlongtext"].drop(to_removed_df.index)
+
+            text_nr = article_nr
+            df_data += [[None, text_nr, "de", index + 1, "\\", text_line, program] for index, text_line in enumerate(long_text)]
+            # change the long_textnr to link to newly created text entries
+            self.ocd["ocd_article"].loc[lambda x: x["article_nr"] == article_nr, "long_textnr"] = article_nr
+
+        long_text_df = pd.DataFrame(
+            data=df_data,
+            columns=["index", "textnr", "language", "line_nr", "line_fmt", "text", "sql_db_program"]
+        )
+
+        self.ocd["ocd_artlongtext"] = pd.concat([self.ocd["ocd_artlongtext"], long_text_df]).reset_index(drop=True)
+
+        print("artlong DF::::")
+        print(self.ocd["ocd_artlongtext"].to_string())
 
     def update_article_nr(self):
         for article_item in self.article_items:

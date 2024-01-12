@@ -12,9 +12,8 @@ def programs():
     return jsonify(res)
 
 
-@bp.route('/table/<program>/<table_name>/<column>/<value>')
 @bp.route('/table/<program>/<table_name>')
 def table(program, table_name, column=None, value=None):
     if not str(table_name).startswith("oap_"):
         abort(404, description=f"Table {table_name} not part of OAP.")
-    return handle_table(program, table_name, column, value)
+    return handle_table(program, table_name)
