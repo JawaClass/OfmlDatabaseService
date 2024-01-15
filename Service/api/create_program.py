@@ -64,7 +64,7 @@ class ProgramCreator:
 
     @staticmethod
     def _get_encoding(table_name: str):
-        return "ANSI" if table_name.endswith("text") or table_name.endswith("txt") else None
+        return "cp1252" if table_name.endswith("text") or table_name.endswith("txt") else None
 
     def update_article(self):
         self.ocd["ocd_article"]["series"] = self.program_id
