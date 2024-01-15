@@ -220,6 +220,7 @@ def create_program():
     program_creator = ProgramCreator(body)
 
     return jsonify({
-        "export_path": program_creator.export_program_path
+        # ubuntu mount vs windows drive
+        "export_path": program_creator.export_program_path.replace("file:///mnt/knps_testumgebung/", "b:/")
     })
 

@@ -45,6 +45,7 @@ class ProgramCreator:
         self.update_properties()
         self.update_prices()
         self.update_longtext()
+        self.update_article()
 
         self.unify_linking_keys()
 
@@ -53,12 +54,20 @@ class ProgramCreator:
         self.make_oas_tables()
 
         self.load_go_tables()
+        self.update_go_tables()
 
         self.update_article_nr()
 
         self.remove_columns()
 
         self.export()
+
+    @staticmethod
+    def _get_encoding(table_name: str):
+        return "ANSI" if table_name.endswith("text") or table_name.endswith("txt") else None
+
+    def update_article(self):
+        self.ocd["ocd_article"]["series"] = self.program_id
 
     def export(self):
         base_path = Path(Config.CREATE_OFML_EXPORT_PATH)
@@ -77,7 +86,8 @@ class ProgramCreator:
         for table_name in self.ocd:
             df = self.ocd[table_name]
             file_name = f"{table_name}.csv"
-            df.to_csv(ocd_path / file_name, header=False, index=False, index_label=False, sep=";")
+            encoding = self._get_encoding(table_name)
+            df.to_csv(ocd_path / file_name, header=False, index=False, index_label=False, sep=";", encoding=encoding)
 
         (ocd_path / "pdata.inp_descr").write_text(table_descriptions.ocd.INP_DESCR)
 
@@ -97,7 +107,8 @@ class ProgramCreator:
         for table_name in self.oas:
             df = self.oas[table_name]
             file_name = f"{table_name}.csv"
-            df.to_csv(oam_path / file_name, header=False, index=False, index_label=False, sep=";")
+            encoding = self._get_encoding(table_name)
+            df.to_csv(oam_path / file_name, header=False, index=False, index_label=False, sep=";", encoding=encoding)
 
         # export go
         go_path = program_path / "2"
@@ -111,7 +122,8 @@ class ProgramCreator:
 
         # export registry
         (program_path / f"kn_{self.program_name}_DE_2.cfg").write_text(
-            table_descriptions.registry.make_registry(self.program_name, self.program_id, self.programs)
+            table_descriptions.registry.make_registry(self.program_name, self.program_id, self.programs),
+            encoding="ANSI"
             )
 
     def unify_linking_keys(self):
@@ -220,7 +232,7 @@ class ProgramCreator:
             self.ocd[table_name] = pd.DataFrame(table_content)
 
         # update ocd_version
-        table_names = list(self.ocd.keys())
+        table_names = [_.replace("ocd_", "") for _ in list(self.ocd.keys())]
         self.ocd["ocd_version"].loc[
             0,
             "tables"] = ",".join(table_names)
@@ -418,6 +430,9 @@ class ProgramCreator:
             ).statement,
             con)
 
+    def update_go_tables(self):
+        self.go["go_articles"]["program"] = self.program_name
+
     def load_go_tables(self):
         con: Connection = db.session.connection()
         self.go["go_articles"] = pd.read_sql(
@@ -465,7 +480,7 @@ class ProgramCreator:
             shorttext = article_item["shorttext"]
 
             article_rows.append(f"{article_nr};default;0;;S;15;::kn::{self.program_name}".split(";"))
-            structure_rows.append(f"{article_nr};default;2;A;{self.program_name}".split(";"))
+            structure_rows.append(f"{article_nr};default;2;A;".split(";"))
             text_rows.append(f"{article_nr};default;de;{shorttext}".split(";"))
             resource_rows.append(f"{article_nr};default;;IT;".split(";"))
 

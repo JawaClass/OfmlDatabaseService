@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy.extension import SQLAlchemy as SQLAlchemyFlask
 from flask_cors import CORS
 
-
 db: SQLAlchemyFlask = SQLAlchemy()
 
 
@@ -56,12 +55,16 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    # @app.errorhandler(Exception)
-    # def handle_exception(e: Exception):
-    #     return jsonify({
-    #         'error': str(type(e).__name__),
-    #         'message': str(e),
-    #     }), 400
+    @app.errorhandler(Exception)
+    def handle_exception(e: Exception):
+        error_name = str(type(e).__name__)
+        error_message = str(e)
+        print(f"ERROR :: handle_exception({error_name})")
+        print(f"-> {error_message}")
+        return jsonify({
+            'error': error_name,
+            'message': error_message,
+        }), 400
 
     @app.route("/")
     def hello():
