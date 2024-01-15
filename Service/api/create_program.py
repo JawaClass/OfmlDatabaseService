@@ -23,7 +23,7 @@ class ProgramCreator:
         self.programs = list(set([_["program"] for _ in body["articleItems"]]))
 
         self.export_program_path = None
-
+        self.export_program_path_windows = None
         self.article_items = self.body["articleItems"]
         self.property_items = self.body["propertyItems"]
         self.tables: TableDict = {
@@ -71,14 +71,14 @@ class ProgramCreator:
 
     def export(self):
         base_path = Path(Config.CREATE_OFML_EXPORT_PATH)
+        folder_name = (self.program_name
+                       if not (base_path / self.program_name).exists()
+                       else f"{self.program_name}_{time.time()}")
 
-        if not (base_path / self.program_name).exists():
-            program_path = base_path / self.program_name
-        else:
-            program_path = base_path / f"{self.program_name}_{time.time()}"
-
+        program_path = base_path / folder_name
         program_path.mkdir()
         self.export_program_path = str(program_path)
+        self.export_program_path_windows = str(Path("B:\ofml_development\Tools\ofml_datenmacher") / folder_name)
 
         # export ocd
         ocd_path = program_path / "DE" / "2" / "db"
