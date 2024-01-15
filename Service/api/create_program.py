@@ -123,7 +123,7 @@ class ProgramCreator:
         # export registry
         (program_path / f"kn_{self.program_name}_DE_2.cfg").write_text(
             table_descriptions.registry.make_registry(self.program_name, self.program_id, self.programs),
-            encoding="ANSI"
+            encoding="cp1252"
             )
 
     def unify_linking_keys(self):
