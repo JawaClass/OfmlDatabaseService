@@ -4,7 +4,7 @@ from .. import db
 from datetime import datetime
 from sqlalchemy.dialects.mysql import JSON
 from sqlalchemy.event import listens_for
-Base = db.Model #declarative_base()
+Base = db.Model
 
 # DROP TABLE web_article_item; DROP TABLE web_property_item; DROP TABLE web_session; DROP TABLE web_user;
 
@@ -149,6 +149,7 @@ class Session(Base):
     programs_status = db.Column(JSON)
     article_items = db.relationship('ArticleItem', cascade="all, delete", passive_deletes=True)
     property_items = db.relationship('PropertyItem', cascade="all, delete", passive_deletes=True)
+    edit_user_id = db.Column(db.Integer, db.ForeignKey('web_user.id'), nullable=False)
 
     def as_dict(self):
         return {
@@ -159,7 +160,8 @@ class Session(Base):
             "isPublic": self.is_public,
             "ownerId": self.owner_id,
             "articleInput": self.article_input,
-            "programsStatus": self.programs_status
+            "programsStatus": self.programs_status,
+            "editUserId": self.edit_user_id
         }
 
     @staticmethod
@@ -187,6 +189,8 @@ class Session(Base):
             session.article_input = kwargs["articleInput"]
         if "name" in kwargs:
             session.name = kwargs["name"]
+        if "editUserId" in kwargs:
+            session.edit_user_id = kwargs["editUserId"]
         db.session.commit()
         return session.id
 
@@ -218,7 +222,7 @@ class User(Base):
     name = db.Column(db.Text, nullable=True)
     creation_date = db.Column(db.DateTime, default=datetime.utcnow)
     edit_date = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    sessions = db.relationship('Session')
+    sessions = db.relationship('Session', foreign_keys='Session.owner_id')
 
     def as_dict(self):
         return {
@@ -253,7 +257,7 @@ def on_article_set(**kwargs):
 
 
 @listens_for(PropertyItem.json, "set", named=True)
-def on_article_set(**kwargs):
+def on_property_set(**kwargs):
     target: PropertyItem = kwargs["target"]
     session: Session = Session.by_id(target.session_id)
     session.edit_date = datetime.now()

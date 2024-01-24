@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, abort
-from Service.tables import GoTypes
+from Service.tables.go import GoTypes
 from .handler import handle_table
 
 bp = Blueprint("go", __name__, url_prefix="/go")

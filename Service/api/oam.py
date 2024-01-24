@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, abort
-from Service.tables import OamArticle2ofml
+from Service.tables.oam import OamArticle2ofml
 from .handler import handle_table
 
 bp = Blueprint("oam", __name__, url_prefix="/oam")

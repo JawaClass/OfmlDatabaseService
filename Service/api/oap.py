@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, abort
-from Service.tables import OapType
-from Service.tables import TABLE_NAME_2_CLASS
+from Service.tables.oap import OapType
+from Service.tables.utility import TABLE_NAME_2_CLASS
 from .handler import handle_table
 bp = Blueprint("oap", __name__, url_prefix="/oap")
 

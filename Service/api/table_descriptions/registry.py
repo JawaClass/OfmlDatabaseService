@@ -71,7 +71,7 @@ depend={depend}
 #--------------------------
 # additional settings
 series_type=go_meta
-meta_type=::ofml::go::GoMetaType;::ofml::go::goGetMetaType()
+meta_type=::ofml::go::GoMetaType;::ofml::go::goGetMetaType();::ofml::go::goSetup([[@FIRST, @{program}]])
 geo_export_params=use_proxy_geometries
 persistency_form=STATECODES
 insertion_mode=APP_DEFAULT

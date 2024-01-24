@@ -15,39 +15,39 @@ WHERE article_nr IN ({})
 ;
 SELECT * FROM ocd_article_TEMP_LOCAL_1
 ;
-SELECT ocd_artshorttext_TEMP.*
+SELECT DISTINCT ocd_artshorttext_TEMP.*
 FROM ocd_artshorttext_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.short_textnr = ocd_artshorttext_TEMP.textnr
 ;
-SELECT ocd_artlongtext_TEMP.*
+SELECT DISTINCT ocd_artlongtext_TEMP.*
 FROM ocd_artlongtext_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.long_textnr = ocd_artlongtext_TEMP.textnr
 ;
-SELECT ocd_artbase_TEMP.*
+SELECT DISTINCT ocd_artbase_TEMP.*
 FROM ocd_artbase_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.article_nr = ocd_artbase_TEMP.article_nr
 ;
-SELECT ocd_codescheme_TEMP.*
+SELECT DISTINCT ocd_codescheme_TEMP.*
 FROM ocd_codescheme_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.scheme_id = ocd_codescheme_TEMP.scheme_id
 ;
-SELECT ocd_packaging_TEMP.*
+SELECT DISTINCT ocd_packaging_TEMP.*
 FROM ocd_packaging_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.article_nr = ocd_packaging_TEMP.article_nr
 ;
 CREATE TEMPORARY TABLE ocd_articletaxes_TEMP_LOCAL_1
-AS SELECT ocd_articletaxes_TEMP.*
+AS SELECT DISTINCT ocd_articletaxes_TEMP.*
 FROM ocd_articletaxes_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.article_nr = ocd_articletaxes_TEMP.article_nr
 ;
 SELECT * FROM ocd_articletaxes_TEMP_LOCAL_1
 ;
-SELECT ocd_taxscheme_TEMP.*
+SELECT DISTINCT ocd_taxscheme_TEMP.*
 FROM ocd_taxscheme_TEMP
 JOIN ocd_articletaxes_TEMP_LOCAL_1 ON ocd_articletaxes_TEMP_LOCAL_1.tax_id = ocd_taxscheme_TEMP.tax_id
 ;
 CREATE TEMPORARY TABLE ocd_price_TEMP_LOCAL_1
-AS SELECT ocd_price_TEMP.*
+AS SELECT DISTINCT ocd_price_TEMP.*
 FROM ocd_price_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.article_nr = ocd_price_TEMP.article_nr
 ;
@@ -57,12 +57,12 @@ SELECT ocd_pricetext_TEMP.*
 FROM ocd_pricetext_TEMP
 JOIN ocd_price_TEMP_LOCAL_1 ON ocd_price_TEMP_LOCAL_1.price_textnr = ocd_pricetext_TEMP.textnr
 ;
-SELECT ocd_rounding_TEMP.*
+SELECT DISTINCT ocd_rounding_TEMP.*
 FROM ocd_rounding_TEMP
 JOIN ocd_price_TEMP_LOCAL_1 ON ocd_price_TEMP_LOCAL_1.rounding_id = ocd_rounding_TEMP.id
 ;
 CREATE TEMPORARY TABLE ocd_propertyclass_TEMP_LOCAL_1
-AS SELECT ocd_propertyclass_TEMP.*
+AS SELECT DISTINCT ocd_propertyclass_TEMP.*
 FROM ocd_propertyclass_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.article_nr = ocd_propertyclass_TEMP.article_nr
 ;
@@ -73,31 +73,31 @@ FROM ocd_propclasstext_TEMP
 JOIN ocd_propertyclass_TEMP ON ocd_propertyclass_TEMP.textnr = ocd_propclasstext_TEMP.textnr
 ;
 CREATE TEMPORARY TABLE ocd_property_TEMP_LOCAL_1
-SELECT ocd_property_TEMP.*
+SELECT DISTINCT ocd_property_TEMP.*
 FROM ocd_property_TEMP
 JOIN ocd_propertyclass_TEMP_LOCAL_1 ON ocd_propertyclass_TEMP_LOCAL_1.prop_class = ocd_property_TEMP.prop_class
 ;
 SELECT * FROM ocd_property_TEMP_LOCAL_1
 ;
-SELECT ocd_propertytext_TEMP.*
+SELECT DISTINCT ocd_propertytext_TEMP.*
 FROM ocd_propertytext_TEMP
-JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.prop_textnr = ocd_propertytext_TEMP.textnr
+JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.prop_textnr = ocd_propertytext_TEMP.textnr AND ocd_property_TEMP_LOCAL_1.sql_db_program = ocd_propertytext_TEMP.sql_db_program
 ;
-SELECT ocd_prophinttext_TEMP.*
+SELECT DISTINCT ocd_prophinttext_TEMP.*
 FROM ocd_prophinttext_TEMP
 JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.hint_text_id = ocd_prophinttext_TEMP.textnr
 ;
 CREATE TEMPORARY TABLE ocd_propertyvalue_TEMP_LOCAL_1
-SELECT ocd_propertyvalue_TEMP.*
+SELECT DISTINCT ocd_propertyvalue_TEMP.*
 FROM ocd_propertyvalue_TEMP
 JOIN ocd_property_TEMP_LOCAL_1 ON (ocd_property_TEMP_LOCAL_1.prop_class = ocd_propertyvalue_TEMP.prop_class
-AND ocd_property_TEMP_LOCAL_1.property = ocd_propertyvalue_TEMP.property)
+AND ocd_property_TEMP_LOCAL_1.property = ocd_propertyvalue_TEMP.property AND ocd_property_TEMP_LOCAL_1.sql_db_program = ocd_propertyvalue_TEMP.sql_db_program   )
 ;
 SELECT * FROM ocd_propertyvalue_TEMP_LOCAL_1
 ;
-SELECT ocd_propvaluetext_TEMP.*
+SELECT DISTINCT ocd_propvaluetext_TEMP.*
 FROM ocd_propvaluetext_TEMP
-JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.pval_textnr = ocd_propvaluetext_TEMP.textnr
+JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.pval_textnr = ocd_propvaluetext_TEMP.textnr  
 ;
 
 
@@ -109,14 +109,14 @@ JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.pval_textn
 
 -- create table by inserting entries from article
 CREATE TEMPORARY TABLE ocd_relationobj_TEMP_LOCAL_1
-SELECT ocd_relationobj_TEMP.*
+SELECT DISTINCT ocd_relationobj_TEMP.*
 FROM ocd_relationobj_TEMP
 JOIN ocd_article_TEMP_LOCAL_1 ON ocd_article_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
 ;
 -- insert entries from property 
 -- TODO: duplicates
 INSERT INTO ocd_relationobj_TEMP_LOCAL_1
-SELECT ocd_relationobj_TEMP.*
+SELECT DISTINCT ocd_relationobj_TEMP.*
 FROM ocd_relationobj_TEMP
 JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj;
 
@@ -124,7 +124,7 @@ JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relati
 -- insert entries from values
 -- TODO: duplicates
 INSERT INTO ocd_relationobj_TEMP_LOCAL_1
-SELECT ocd_relationobj_TEMP.*
+SELECT DISTINCT ocd_relationobj_TEMP.*
 FROM ocd_relationobj_TEMP
 JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj;
 
@@ -138,9 +138,9 @@ JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = 
 
 
 
-SELECT * FROM ocd_relationobj_TEMP_LOCAL_1
+SELECT DISTINCT * FROM ocd_relationobj_TEMP_LOCAL_1
 ;
-SELECT ocd_relation_TEMP.*
+SELECT DISTINCT ocd_relation_TEMP.*
 FROM ocd_relation_TEMP
 JOIN ocd_relationobj_TEMP_LOCAL_1 ON ocd_relationobj_TEMP_LOCAL_1.rel_name = ocd_relation_TEMP.rel_name
 ;
@@ -149,7 +149,7 @@ JOIN ocd_relationobj_TEMP_LOCAL_1 ON ocd_relationobj_TEMP_LOCAL_1.rel_name = ocd
 
 
 CREATE TEMPORARY TABLE optproperty_dat_TEMP_LOCAL_1
-SELECT optproperty_dat_TEMP.*
+SELECT DISTINCT optproperty_dat_TEMP.*
 FROM optproperty_dat_TEMP
 JOIN ocd_propertyclass_TEMP_LOCAL_1 ON optproperty_dat_TEMP.prop_class = ocd_propertyclass_TEMP_LOCAL_1.prop_class
 ;
@@ -159,7 +159,7 @@ SELECT * FROM optproperty_dat_TEMP_LOCAL_1
 
 
 
-SELECT optpropvalue_txt_TEMP.*
+SELECT DISTINCT optpropvalue_txt_TEMP.*
 FROM optpropvalue_txt_TEMP
 JOIN (SELECT DISTINCT optproperty_dat_TEMP_LOCAL_1.prop_textnr FROM optproperty_dat_TEMP_LOCAL_1) AS prop_text_numbers
 ON optpropvalue_txt_TEMP.textnr = prop_text_numbers.prop_textnr
@@ -178,6 +178,9 @@ QUERIES = re.sub(r'\s*--.*?\n', '\n', QUERIES, flags=re.MULTILINE)
 # LEFT JOIN ocd_property_TEMP_LOCAL_1 ON ocd_property_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
 # LEFT JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.rel_obj = ocd_relationobj_TEMP.rel_obj
 # ;
+
+
+# relationobj ::: 1;2;000000000000151673_BASIC4;3;P
 
 TABLES = """
     ocd_version
@@ -213,7 +216,8 @@ def _querie_tables(articles: list, cursor: MySQLCursor):
     c: MySQLCursor
     for i, c in enumerate(cursor.execute(QUERIES.format(placeholders), articles, multi=True)):
         if c.statement.startswith("SELECT"):
-            table_name = c.statement.split()[3].replace("_TEMP_LOCAL_1", "").replace("_TEMP", "")
+            table_name_idx = 4 if c.statement.startswith("SELECT DISTINCT") else 3
+            table_name = c.statement.split()[table_name_idx].replace("_TEMP_LOCAL_1", "").replace("_TEMP", "")
             yield c.fetchall(), table_name
 
 

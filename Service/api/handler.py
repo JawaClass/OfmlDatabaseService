@@ -1,7 +1,7 @@
 from flask import jsonify, abort, request
 from sqlalchemy import text
 
-from Service.tables import TABLE_NAME_2_CLASS
+from Service.tables.utility import TABLE_NAME_2_CLASS
 
 
 def handle_table(program, table_name):

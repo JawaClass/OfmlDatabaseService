@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, abort, request
 from sqlalchemy import text, func
-from ..tables import OcdArticle, OcdPrice, OcdArtlongtext
+from ..tables.ocd import OcdArticle, OcdPrice, OcdArtlongtext
 from .handler import handle_table
 from .. import db
 import pandas as pd
-from .create_program import ProgramCreator
+from Service.api.program_creation.creator import ProgramCreator
 
 
 bp = Blueprint("ocd", __name__, url_prefix="/ocd")
@@ -132,7 +132,7 @@ def props_compact(program, prop_class):
     print("props_compact called!",  program, prop_class)
 
     query = f"""
-SELECT simple_ocd_property.property, simple_ocd_property.text, simple_ocd_propertyvalue.value_from, simple_ocd_propertyvalue.text, simple_ocd_property.prop_class, simple_ocd_property.sql_db_program
+SELECT simple_ocd_property.pos_prop, simple_ocd_property.prop_type, simple_ocd_property.property, simple_ocd_property.text, simple_ocd_propertyvalue.value_from, simple_ocd_propertyvalue.text, simple_ocd_property.prop_class, simple_ocd_property.sql_db_program
 FROM
 (SELECT ocd_propertyvalue.prop_class, ocd_propertyvalue.property, ocd_propertyvalue.value_from, ocd_propvaluetext.text
 FROM ocd_propertyvalue
@@ -141,15 +141,17 @@ WHERE ocd_propertyvalue.sql_db_program = "{program}"
 AND ocd_propertyvalue.prop_class = "{prop_class}"
 AND ocd_propvaluetext.sql_db_program = "{program}") simple_ocd_propertyvalue
 ,
-(SELECT ocd_property.prop_class, ocd_property.property, ocd_propertytext.text, ocd_property.scope, ocd_property.sql_db_program
+(SELECT ocd_property.prop_class, ocd_property.property, ocd_propertytext.text, ocd_property.scope, ocd_property.sql_db_program, ocd_property.pos_prop, ocd_property.prop_type
 FROM ocd_property
 LEFT JOIN (SELECT * FROM ocd_propertytext WHERE UPPER(ocd_propertytext.language) = "DE") ocd_propertytext ON ocd_property.prop_textnr = ocd_propertytext.textnr
 WHERE ocd_property.scope = "C" 
 AND ocd_property.sql_db_program = "{program}"
 AND ocd_property.prop_class = "{prop_class}"
-AND ocd_propertytext.sql_db_program = "{program}") simple_ocd_property
+AND ocd_propertytext.sql_db_program = "{program}"
+) simple_ocd_property
 WHERE simple_ocd_property.prop_class = simple_ocd_propertyvalue.prop_class
 AND simple_ocd_property.property = simple_ocd_propertyvalue.property
+ORDER BY simple_ocd_property.pos_prop
 ;
     """.format(program=program, prop_class=prop_class)
 
@@ -161,7 +163,7 @@ AND simple_ocd_property.property = simple_ocd_propertyvalue.property
     if not res:
         return jsonify([])
 
-    df: pd.DataFrame = pd.DataFrame(res, columns=['property', 'property_text', 'value', 'value_text', 'prop_class', 'program'])
+    df: pd.DataFrame = pd.DataFrame(res, columns=["pos_prop", "prop_type", 'property', 'property_text', 'value', 'value_text', 'prop_class', 'program'])
 
     def make_group(group_df: pd.DataFrame):
         """
@@ -179,6 +181,8 @@ AND simple_ocd_property.property = simple_ocd_propertyvalue.property
                 "text": t
             }
 
+        prop_type = group_df['prop_type'].iloc[0]
+        pos_prop = int(group_df['pos_prop'].iloc[0])
         property_name = group_df['property'].iloc[0]
         property_text = group_df['property_text'].iloc[0]
 
@@ -192,14 +196,16 @@ AND simple_ocd_property.property = simple_ocd_propertyvalue.property
         # print(values.values.tolist())
 
         return {
+            "pos_prop": pos_prop,
+            "prop_type": prop_type,
             "property_name": property_name,
             'prop_text': property_text,
             "prop_class": prop_class_,
             "program": program_,
             'values': values.values.tolist(),
         }
-
-    return jsonify(list(df.groupby("property").apply(make_group).to_dict().values()))
+    print(df.to_string())
+    return jsonify(list(df.groupby("property", sort=False).apply(make_group).to_dict().values()))
 
 
 @bp.route('/test_ts', methods=["GET"])
@@ -220,5 +226,5 @@ def create_program():
     program_creator = ProgramCreator(body)
 
     return jsonify({
-        "export_path": program_creator.export_program_path_windows
+        "export_path": str(program_creator.export_program_path_windows)
     })

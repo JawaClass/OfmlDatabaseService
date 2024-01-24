@@ -9,6 +9,7 @@ def update():
     body = request.get_json()
     print("update session :::", body)
     assert "id" in body
+    assert "editUserId" in body
 
     session = Session.by_id(body["id"])
     Session.update(session, **body)
