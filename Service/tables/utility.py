@@ -7,7 +7,9 @@ import Service.tables.odb as odb
 import Service.tables.web.ocd as web_ocd
 import inspect
 
-_modules = [go, ocd, oam, oap, oas, odb, web_ocd]
+from Service.web_ofml import models
+
+_modules = [go, ocd, oam, oap, oas, odb, web_ocd, models]
 
 
 def get_classes(module):
@@ -22,14 +24,17 @@ def get_model_class_by_table_name(name: str):
     return _table_name_2_class[name]
 
 
+def get_table_classes_by_module_name(name: str):
+    return _module_2_classes[name]
+
+
+_module_2_classes = {}
 _table_name_2_class = {}
-_classes_ = [cls for module in _modules for cls in get_classes(module)]
+for module_ in _modules:
+    classes_ = get_classes(module_)
+    _module_2_classes[module_.__name__] = classes_
+    for class_ in classes_:
+        if hasattr(class_, "__tablename__"):
+            table_name = getattr(class_, "__tablename__")
+            _table_name_2_class[table_name] = class_
 
-for class_ in _classes_:
-    if hasattr(class_, "__tablename__"):
-        table_name = getattr(class_, "__tablename__")
-        _table_name_2_class[table_name] = class_
-
-# print("TABLE_NAME_2_CLASS")
-# for i, (k, v) in enumerate(TABLE_NAME_2_CLASS.items()):
-#     print(f"{i}::", k, v)

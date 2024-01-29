@@ -1,20 +1,29 @@
+from typing import Generator
+
 import mysql.connector
-# from .ocd_query import execute
-#
+from contextlib import contextmanager
+
+from mysql.connector import MySQLConnection
+
 config = {
     'host': 'pdf2obs01',
     'user': 'root',
     'password': '',
     'database': 'ofml'
 }
-#
-#
+
+# mysql+mysqlconnector://root:@pdf2obs01/ofml
+
+Connection = Generator[MySQLConnection, None, None]
 
 
-def new_connection():
-    # mysql+mysqlconnector://root:@pdf2obs01/ofml
-    return mysql.connector.connect(**config) #
-
+@contextmanager
+def new_connection() -> Connection:
+    c = mysql.connector.connect(**config)
+    try:
+        yield c
+    finally:
+        c.close()
 #
 # # def yield_all_tables(articlenumbers, programs=None):
 # #     connection = new_connection()

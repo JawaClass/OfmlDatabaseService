@@ -160,7 +160,7 @@ SELECT * FROM ocd_rounding_TEMP_LOCAL_1
 ;
 INSERT INTO web_ocd_rounding (`id`, nr, `min`, `max`, `type` , `precision`, add_before, sql_db_program, sql_db_timestamp_modified, db_key, sql_db_timestamp_read, web_program_name, web_filter)
 SELECT                
-                              `id`, nr, `min`, `max`, `type` , `precision`, add_before, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, "test", 0
+                              `id`, nr, `min`, `max`, `type` , `precision`, add_before, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, \"{web_program_name}\", 0
 FROM ocd_rounding_TEMP_LOCAL_1
 ;
 --ocd_propertyclass------------------------------------------------------------------------------------------------------
@@ -174,7 +174,7 @@ SELECT * FROM ocd_propertyclass_TEMP_LOCAL_1
 ;
 INSERT INTO web_ocd_propertyclass (`article_nr`, pos_class, `prop_class`, `textnr`, `rel_obj`, sql_db_program, sql_db_timestamp_modified, db_key, sql_db_timestamp_read, web_program_name, web_filter)
 SELECT                
-                                   `article_nr`, pos_class, `prop_class`, `textnr`, `rel_obj`, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, "test", 0
+                                   `article_nr`, pos_class, `prop_class`, `textnr`, `rel_obj`, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, \"{web_program_name}\", 0
 FROM ocd_propertyclass_TEMP_LOCAL_1
 ;
 --ocd_propclasstext------------------------------------------------------------------------------------------------------
@@ -188,7 +188,7 @@ SELECT * FROM ocd_propclasstext_TEMP_LOCAL_1
 ;
 INSERT INTO web_ocd_propclasstext (textnr, language, line_nr, line_fmt, text, sql_db_program, sql_db_timestamp_modified, db_key, sql_db_timestamp_read, web_program_name, web_filter)
 SELECT                
-                                   textnr, language, line_nr, line_fmt, text, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, "test", 0
+                                   textnr, language, line_nr, line_fmt, text, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, \"{web_program_name}\", 0
 FROM ocd_propclasstext_TEMP_LOCAL_1
 ;
 --ocd_property------------------------------------------------------------------------------------------------------
@@ -201,7 +201,7 @@ SELECT * FROM ocd_property_TEMP_LOCAL_1
 ;
 INSERT INTO web_ocd_property (prop_class, property, pos_prop, prop_textnr, rel_obj, prop_type, digits, dec_digits, need_input, add_values, restrictable, multi_option, scope, txt_control, hint_text_id, sql_db_program, sql_db_timestamp_modified, db_key, sql_db_timestamp_read, web_program_name, web_filter)
 SELECT                
-                              prop_class, property, pos_prop, prop_textnr, rel_obj, prop_type, digits, dec_digits, need_input, add_values, restrictable, multi_option, scope, txt_control, hint_text_id, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, "test", 0
+                              prop_class, property, pos_prop, prop_textnr, rel_obj, prop_type, digits, dec_digits, need_input, add_values, restrictable, multi_option, scope, txt_control, hint_text_id, sql_db_program, sql_db_timestamp_modified, NULL, sql_db_timestamp_read, \"{web_program_name}\", 0
 FROM ocd_property_TEMP_LOCAL_1
 ;
 --ocd_propertytext------------------------------------------------------------------------------------------------------

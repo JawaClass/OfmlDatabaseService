@@ -59,6 +59,11 @@ def create_app():
     from .web_ofml import models
 
     with app.app_context():
+        """
+        Create tables that do not exist in the database by calling
+        ``metadata.create_all()`` for all or some bind keys.
+        This does not update existing tables, use a migration library for that.
+        """
         db.create_all()
 
     @app.errorhandler(Exception)

@@ -25,12 +25,12 @@ class WebProgram(Base):
     __tablename__ = 'web_program'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.Text, nullable=False, unique=True)
+    name = db.Column(db.String(255), nullable=False, unique=True)
     creation_date = db.Column(db.DateTime, default=datetime.now)
     edit_date = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     is_public = db.Column(db.Boolean(), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('web_user.id'), nullable=False)
-    article_input = db.Column(db.Text)
+    article_input = db.Column(db.Text, nullable=False)
 
 
 class ArticleItem(Base):
@@ -38,11 +38,12 @@ class ArticleItem(Base):
     __tablename__ = 'web_article_item'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    creation_date = db.Column(db.DateTime, default=datetime.utcnow)
+    creation_date = db.Column(db.DateTime, default=datetime.now)
     edit_date = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     article_nr = db.Column(db.String(255), nullable=False)
     program = db.Column(db.String(255), nullable=False)
     session_id = db.Column(db.Integer, db.ForeignKey('web_session.id', ondelete="CASCADE"), nullable=False)
+
     json = db.Column(JSON, nullable=False)
 
     @staticmethod
