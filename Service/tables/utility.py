@@ -4,10 +4,10 @@ import Service.tables.oas as oas
 import Service.tables.oam as oam
 import Service.tables.oap as oap
 import Service.tables.odb as odb
-# from copy import copy
+import Service.tables.web.ocd as web_ocd
 import inspect
 
-_modules = [go, ocd, oam, oap, oas, odb]
+_modules = [go, ocd, oam, oap, oas, odb, web_ocd]
 
 
 def get_classes(module):
@@ -18,13 +18,17 @@ def get_classes(module):
     return classes
 
 
-TABLE_NAME_2_CLASS = {}
+def get_model_class_by_table_name(name: str):
+    return _table_name_2_class[name]
+
+
+_table_name_2_class = {}
 _classes_ = [cls for module in _modules for cls in get_classes(module)]
 
 for class_ in _classes_:
     if hasattr(class_, "__tablename__"):
         table_name = getattr(class_, "__tablename__")
-        TABLE_NAME_2_CLASS[table_name] = class_
+        _table_name_2_class[table_name] = class_
 
 # print("TABLE_NAME_2_CLASS")
 # for i, (k, v) in enumerate(TABLE_NAME_2_CLASS.items()):

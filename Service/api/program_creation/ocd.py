@@ -4,8 +4,7 @@ from loguru import logger
 from Service.api import table_descriptions
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
-from Service.tables.oam import OamArticle2odbparams, OamProperty2mat, OamArticle2ofml
-from Service.api.db import yield_all_tables
+#from Service.db import yield_all_tables
 
 
 class OcdCreator(CreateInterface):

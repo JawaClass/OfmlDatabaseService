@@ -1,11 +1,11 @@
 from flask import jsonify, abort, request
 from sqlalchemy import text
 
-from Service.tables.utility import TABLE_NAME_2_CLASS
+from Service.tables.utility import get_model_class_by_table_name
 
 
 def handle_table(program, table_name):
-    table_class = TABLE_NAME_2_CLASS[table_name]
+    table_class = get_model_class_by_table_name[table_name]
     columns = {k for k in table_class.__dict__.keys() if not k.startswith("_")}
 
     select_clause = request.args.get("select", None)
@@ -14,7 +14,7 @@ def handle_table(program, table_name):
     print("select_clause ::", select_clause)
     print("where_clause ::", where_clause)
 
-    query = table_class.query.filter(table_class.sql_db_program == program)\
+    query = table_class.query.filter(table_class.sql_db_program == program)
 
     if where_clause:
         query = query.filter(text(where_clause))

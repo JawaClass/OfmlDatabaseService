@@ -25,11 +25,15 @@ def create_app():
     from Service.api import ocd
     from Service.api import oam
     from Service.api import go
-    from Service.api import ocd_special
+    #from Service.api import ocd_special
     from Service.api import oas
+    from Service.deepcopy.ocd import api as deepcopy_ocd_api
     from Service.api import misc
     from Service.api.program_creation import api
-    app.register_blueprint(ocd_special.bp)
+    #app.register_blueprint(ocd_special.bp)
+
+    app.register_blueprint(deepcopy_ocd_api.bp)
+
     app.register_blueprint(ocd.bp)
     app.register_blueprint(oas.bp)
     app.register_blueprint(oam.bp)
@@ -43,10 +47,12 @@ def create_app():
     from Service.web_ofml.api import user
     from Service.web_ofml.api import article_item
     from Service.web_ofml.api import property_item
+    from Service.web_ofml.api import web_ocd
     app.register_blueprint(session.bp)
     app.register_blueprint(user.bp)
     app.register_blueprint(article_item.bp)
     app.register_blueprint(property_item.bp)
+    app.register_blueprint(web_ocd.bp)
 
     # Initialize Database Plugin
     db.init_app(app)

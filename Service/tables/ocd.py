@@ -23,11 +23,11 @@ class OcdArticle(Base):
     __tablename__ = 'ocd_article'
     __table_args__ = (
         db.Index('idx_article_nr', 'article_nr'),
-        db.Index('ix_ocd_article_csv_index', 'index')
+        #db.Index('ix_ocd_article_csv_index', 'index')
     )
 
     db_key: int = db.Column(Integer, primary_key=True)
-    index: int = db.Column(BigInteger)
+    # index: int = db.Column(BigInteger)
     article_nr = db.Column(Text)
     art_type: str = db.Column(Text)
     manufacturer: str = db.Column(Text)
@@ -494,7 +494,6 @@ class OcdVersion(Base):
     sql_db_program = Column(Text)
     sql_db_timestamp_modified = Column(Float(asdecimal=True))
     sql_db_timestamp_read = Column(Text)
-
 
 
 class OptpropertyDat(Base):
