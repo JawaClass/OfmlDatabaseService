@@ -92,3 +92,15 @@ def patch_item(item: Base, patch_body: dict):
 def patch_items(items: Base, patch_body: dict):
     for item in items:
         patch_item(item, patch_body)
+
+
+def resolve_limit(data, limit: int):
+    if data is None:
+        return None
+    if not isinstance(data, list):
+        return data
+    if len(data) == 0:
+        return data
+    if limit == 1:
+        return data[0]
+    return data[:limit]

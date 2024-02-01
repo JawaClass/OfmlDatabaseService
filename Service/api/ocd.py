@@ -68,7 +68,8 @@ def article_compact():
     if request.method == 'POST':
         articles = request.get_json()
     elif request.method == 'GET':
-        articles = "B4TAX248840A".split() #"S6AP1000A TLATRTL08800B2 TLTN16880A TLTN18880A Q3HO1SE".split()
+        articles = request.args.get("articles").split(",") #"B4TAX248840A".split() #"S6AP1000A TLATRTL08800B2 TLTN16880A TLTN18880A Q3HO1SE".split()
+        print("article_compact", articles)
     else:
         return abort(404)
 
@@ -80,16 +81,12 @@ def article_compact():
     assert type(articles) is list
 
     query = """
-    SELECT ocd_article.article_nr, ocd_article.series, ocd_article.sql_db_program, ocd_artshorttext.text, ocd_propertyclass.prop_class
-    
+    SELECT ocd_article.article_nr, ocd_article.series, ocd_article.sql_db_program, ocd_artshorttext.text
     FROM ocd_article
-    
-    LEFT JOIN (SELECT * FROM ocd_artshorttext WHERE UPPER(ocd_artshorttext.language) = "DE") ocd_artshorttext
-    ON (ocd_article.short_textnr = ocd_artshorttext.textnr AND ocd_article.sql_db_program = ocd_artshorttext.sql_db_program)
-     
-    JOIN ocd_propertyclass ON (ocd_propertyclass.article_nr = ocd_article.article_nr AND ocd_propertyclass.sql_db_program = ocd_article.sql_db_program)
-    
+    LEFT JOIN ocd_artshorttext
+    ON ocd_article.short_textnr = ocd_artshorttext.textnr AND ocd_article.sql_db_program = ocd_artshorttext.sql_db_program
     WHERE ocd_article.article_nr IN ({})
+    AND UPPER(ocd_artshorttext.language) = "DE"
     ;
     """
     params = [f":p{i}" for i in list(range(len(articles)))]
@@ -102,28 +99,36 @@ def article_compact():
         bind_params
     ).fetchall()
 
-    # for _ in res:
-    #     print(_)
-
-    if not res:
-        return jsonify([])
-
-    # Create a DataFrame
-    df = pd.DataFrame(res, columns=['article_nr', 'series', 'sql_db_program', 'shorttext', 'prop_class'])
-
-    def formatted_rows(r: pd.DataFrame) -> dict[str, str | int]:
-
-        def format_article(article_df: pd.DataFrame):
-            return article_df
-
-        return r.groupby("article_nr").apply(lambda a: format_article(a)).apply(lambda a: a.to_dict(), axis=1).to_list()
-
-    nested_grouped_data = df.groupby('sql_db_program') \
-        .apply(lambda x:
-               x.groupby('prop_class').apply(lambda y: formatted_rows(y)).to_dict()) \
-        .to_dict()
-
-    return jsonify(nested_grouped_data)
+    for _ in res:
+        print(_)
+    return jsonify([
+        {
+            "article_nr": _[0],
+            "series": _[1],
+            "sql_db_program": _[2],
+            "ocd_artshorttext": _[3]
+        }
+        for _ in res])
+    #
+    # if not res:
+    #     return jsonify([])
+    #
+    # # Create a DataFrame
+    # df = pd.DataFrame(res, columns=['article_nr', 'series', 'sql_db_program', 'shorttext', 'prop_class'])
+    #
+    # def formatted_rows(r: pd.DataFrame) -> dict[str, str | int]:
+    #
+    #     def format_article(article_df: pd.DataFrame):
+    #         return article_df
+    #
+    #     return r.groupby("article_nr").apply(lambda a: format_article(a)).apply(lambda a: a.to_dict(), axis=1).to_list()
+    #
+    # nested_grouped_data = df.groupby('sql_db_program') \
+    #     .apply(lambda x:
+    #            x.groupby('prop_class').apply(lambda y: formatted_rows(y)).to_dict()) \
+    #     .to_dict()
+    #
+    # return jsonify(nested_grouped_data)
 
 
 @bp.route('/props_compact/<program>/<prop_class>', methods=["GET"])

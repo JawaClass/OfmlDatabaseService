@@ -30,12 +30,17 @@ def delete_deepcopy(name: str):
 
 @bp.route("/", methods=["POST"])
 def deepcopy():
-    start = time.perf_counter()
+    start = time.perf_counter   ()
+
+    print("deepcopy...")
+    print("request.json")
+    print(request.json)
 
     body = DeepcopyRequest(**request.json)
 
     print("/deepcopy ::")
     print(body)
+    # return "ok..."
 
     with db.new_connection() as connection:
         c = connection.cursor(dictionary=True)
