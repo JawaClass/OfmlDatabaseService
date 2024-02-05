@@ -82,8 +82,17 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
                                         )
 
     for p_class in property_class_result:
+
+        # p_class["text"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propclasstext"),
+        #                            where_clause=f"web_program_name = \"{p_class['web_program_name']}\" AND sql_db_program = \"{p_class['sql_db_program']}\" AND textnr = \"{p_class['textnr']}\" AND language = \"de\" ",
+        #                            make_json=True,
+        #                            limit=1,
+        #                            select_clause=None,
+        #                            as_type=ReturnQueryType.TRIM
+        #                            )
+
         p_class["properties"] = query_table(table_class=get_model_class_by_table_name("web_ocd_property"),
-                                            where_clause=f"web_program_name = \"{p_class['web_program_name']}\" AND sql_db_program = \"{p_class['sql_db_program']}\" AND prop_class = \"{p_class['prop_class']}\" AND scope = \"C\" ",
+                                            where_clause=f"web_program_name = \"{p_class['web_program_name']}\" AND sql_db_program = \"{p_class['sql_db_program']}\" AND prop_class = \"{p_class['prop_class']}\" AND (scope = \"C\" OR scope = \"G\") ",
                                             make_json=True,
                                             limit=None,
                                             select_clause=None,
@@ -153,7 +162,7 @@ def handle_article_details(*, select_clause, where_clause, limit):
         a["kurztext"] = query_table(table_class=get_model_class_by_table_name("web_ocd_artshorttext"),
                                     where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND textnr = \"{a['short_textnr']}\" AND language = \"de\"",
                                     make_json=True,
-                                    limit=None,
+                                    limit=1,
                                     select_clause=None,
                                     as_type=ReturnQueryType.TRIM
                                     )
@@ -227,16 +236,18 @@ def patch_item_(table_name: str):
     """
     patches 1 or n items in the given table
     """
+    where_clause = request.args.get("where", None)
+    assert where_clause, "not supported"
     table_class = get_model_class_by_table_name(table_name)
     articles: list[table_class] = query_table(table_class=table_class,
                                               select_clause=None,
-                                              where_clause=request.args.get("where", None),
+                                              where_clause=where_clause,
                                               limit=None,
                                               make_json=False
                                               )
     patch_body = request.json
     assert patch_body
-    logger.debug(f"PATCH {len(articles)} articles")
+    logger.debug(f"PATCH {len(articles)} articles with f{patch_body}")
     patch_items(articles, patch_body)
     db.session.commit()
     return {}, 204
@@ -245,24 +256,45 @@ def patch_item_(table_name: str):
 @bp.route("/<string:table_name>/<int:identifier>", methods=["DELETE"])
 def delete_item_(table_name: str, identifier: int):
     """
-    deletes 1 item
+    deletes 1 item by identifier
     """
     table_class = get_model_class_by_table_name(table_name)
-    article: table_class | None = query_table(table_class=table_class,
-                                              select_clause=None,
-                                              where_clause=f"db_key = {identifier}",
-                                              limit=1,
-                                              make_json=False
-                                              )
+    item: table_class | None = query_table(table_class=table_class,
+                                           select_clause=None,
+                                           where_clause=f"db_key = {identifier}",
+                                           limit=1,
+                                           make_json=False)
+    logger.debug(f"DELETE {item} ")
+    if item is None:
+        return jsonify(), 404
 
-    logger.debug(f"DELETE {article} ")
-    if article is None:
-        return {}, 404
-
-    db.session.delete(article)
+    db.session.delete(item)
     db.session.commit()
 
-    return {}, 200
+    return jsonify(), 200
+
+
+@bp.route("/<string:table_name>", methods=["DELETE"])
+def delete_items_(table_name: str):
+    """
+    deletes n items by condition
+    """
+    logger.debug(f"delete_items!!! {table_name}")
+    where_clause = request.args.get("where", None)
+    assert where_clause, "not supported"
+    table_class = get_model_class_by_table_name(table_name)
+    items: list[table_class] = query_table(table_class=table_class,
+                                           select_clause=None,
+                                           where_clause=where_clause,
+                                           make_json=False,
+                                           limit=None)
+    logger.debug(f"DELETE {len(items)} items from {table_name}")
+    for item in items:
+        logger.debug(f"DELETE {item} ")
+        db.session.delete(item)
+    db.session.commit()
+
+    return jsonify(), 200
 
 
 @bp.route("/<string:table_name>", methods=["POST"])
@@ -273,12 +305,16 @@ def post_item_(table_name: str):
     table_class = get_model_class_by_table_name(table_name)
     post_body = request.json
     assert post_body
+
     logger.debug(f"POST {post_body} ")
     article = table_class.from_json(table_class, post_body)
     article.db_key = None
-    article_json = article.to_json()
+
     db.session.add(article)
     db.session.commit()
+    print("POST RETURN", article.db_key)
+    print(article)
+    article_json = article.to_json()
     return jsonify(article_json), 200
 
 
@@ -301,7 +337,7 @@ def put_item_(table_name: str, identifier: int):
                                            make_json=False
                                            )
     if item is None:
-        return {}, 404
+        return jsonify(), 404
 
     item: table_class
     # delete fields except the identifier

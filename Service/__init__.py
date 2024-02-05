@@ -11,7 +11,7 @@ db: SQLAlchemyFlask = SQLAlchemy()
 def create_app():
     """Construct the core application."""
 
-    app = Flask(__name__)
+    app = Flask(__name__.split('.')[0])
 
     # important so jsonify keeps the order we want
     app.json.sort_keys = False

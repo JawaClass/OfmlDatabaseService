@@ -15,8 +15,13 @@ from Service.tables.odb import Funcs, Layer, Attpt, Oppattpt, Odb2d, Stdattpt, O
 
 class OdbCreator(CreateInterface):
 
-    def __init__(self, article_items, program_name, connection, oam, programs, import_plaintext_path, program_path):
-        self.article_items = article_items
+    def __init__(self, *,
+                 program_name,
+                 connection,
+                 oam,
+                 programs,
+                 import_plaintext_path,
+                 program_path):
         self.program_name = program_name
         self.tables = {}
         self.connection = connection
@@ -39,14 +44,7 @@ class OdbCreator(CreateInterface):
 
         graphics_pattern_3d = re.compile(r"\"(.+)\".+imp")
         graphics_pattern_2d = re.compile(r"\"(.+)\".+egms")
-        graphics_3d = (
-            pd.Series(
-                self.tables["odb3d"]["ctor"].apply(lambda x: graphic_or_none(x, graphics_pattern_3d)).dropna().unique())
-        )
-        graphics_2d = (
-            pd.Series(
-                self.tables["odb2d"]["ctor"].apply(lambda x: graphic_or_none(x, graphics_pattern_2d)).dropna().unique())
-        )
+
         copied_tracker: set[Path] = set()
 
         def copy_graphic_file(field: str, file_ext: list[str]):
@@ -72,7 +70,16 @@ class OdbCreator(CreateInterface):
                 logger.debug(f"copy {graphics_path} ... {graphics_path_dst}")
                 shutil.copyfile(src=graphics_path, dst=graphics_path_dst)
 
+        graphics_3d = (
+            pd.Series(
+                self.tables["odb3d"]["ctor"].apply(lambda x: graphic_or_none(x, graphics_pattern_3d)).dropna().unique())
+        )
         graphics_3d.apply(lambda x: copy_graphic_file(x, ["dwg", "geo"]))
+
+        graphics_2d = (
+            pd.Series(
+                self.tables["odb2d"]["ctor"].apply(lambda x: graphic_or_none(x, graphics_pattern_2d)).dropna().unique())
+        )
         graphics_2d.apply(lambda x: copy_graphic_file(x, ["egms", "dwg"]))
         logger.debug("copy_odb_graphic_files ::DONE")
 
@@ -112,9 +119,10 @@ class OdbCreator(CreateInterface):
         )
 
     def update(self):
-        self._odb_funcs_make_properties_safe()
-        self._copy_odb_graphic_files()
-        self._unify_links()
+        if self.tables.get("odb2d", None) and self.tables.get("odb3d", None):
+            self._odb_funcs_make_properties_safe()
+            self._copy_odb_graphic_files()
+            self._unify_links()
 
     def _unify_links(self):
         # odb

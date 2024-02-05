@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 
 from Service.api import table_descriptions
@@ -8,7 +10,12 @@ from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr
 
 class GoCreator(CreateInterface):
 
-    def __init__(self, articlenumbers, programs, program_name, connection, program_path): # con: Connection = db.session.connection()
+    def __init__(self, *,
+                 articlenumbers: list[str],
+                 programs: list[str],
+                 program_name: str,
+                 connection,
+                 program_path: Path): # con: Connection = db.session.connection()
         self.articlenumbers = articlenumbers
         self.programs = programs
         self.program_name = program_name

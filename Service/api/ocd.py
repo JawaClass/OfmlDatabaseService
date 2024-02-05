@@ -4,8 +4,6 @@ from ..tables.ocd import OcdArticle, OcdPrice, OcdArtlongtext
 from .handler import handle_table
 from .. import db
 import pandas as pd
-from Service.api.program_creation.creator import ProgramCreator
-
 
 bp = Blueprint("ocd", __name__, url_prefix="/ocd")
 

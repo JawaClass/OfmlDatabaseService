@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 from loguru import logger
 
@@ -9,7 +11,15 @@ from Service.tables.oam import OamArticle2odbparams, OamProperty2mat, OamArticle
 
 class OamCreator(CreateInterface):
 
-    def __init__(self, articlenumbers, programs, connection, program_path, program_name, exports_odb: bool): # con: Connection = db.session.connection()
+    def __init__(self, *,
+                 web_program_name: str,
+                 articlenumbers: [str],
+                 programs: [str],
+                 connection,
+                 program_path: Path,
+                 program_name,
+                 exports_odb: bool):  # con: Connection = db.session.connection()
+        self.web_program_name = web_program_name
         self.articlenumbers = articlenumbers
         self.programs = programs
         self.tables = {}

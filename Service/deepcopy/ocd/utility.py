@@ -44,6 +44,11 @@ WEB_OCD_TABLES = f"""
 def make_delete_statement(web_program_name: str):
     return "\n".join([f"DELETE FROM  {table} WHERE web_program_name = \"{web_program_name}\"; " for table in WEB_OCD_TABLES])
 
+
+def make_select_statement(web_program_name: str):
+    return "\n".join([f"SELECT * FROM  {table} WHERE web_program_name = \"{web_program_name}\"; " for table in WEB_OCD_TABLES])
+
+
 #
 # body2 = {
 #         "name": "test",

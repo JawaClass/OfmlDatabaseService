@@ -1,0 +1,1291 @@
+b_Ausfraesung;${POS__AUSFRAESUNG:-"POS0"} "POS0" ==
+b_Ausfraesung_ASF14;${AUSFRAESUNG:-"VOID"} "ASF14" ==
+b_Ausfraesung_ASF2;${AUSFRAESUNG:-"VOID"} "ASF2" ==
+b_Ausfraesung1;1 argc ${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"KD8"}} $0 ==
+b_Ausfraesung1_ASF13;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF13" ==
+b_Ausfraesung1_ASF14;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF14" ==
+b_Ausfraesung1_ASF15;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF15" ==
+b_Ausfraesung1_ASF2;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF2" ==
+b_Ausfraesung1_ASF6;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF6" ==
+b_Ausfraesung1_HI;1 argc ${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"KD8"}} $0 ==
+b_Ausfraesung1_HI_ASF13;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF13" ==
+b_Ausfraesung1_HI_ASF14;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF14" ==
+b_Ausfraesung1_HI_ASF15;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF15" ==
+b_Ausfraesung1_HI_ASF2;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF2" ==
+b_Ausfraesung1_HI_ASF6;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF6" ==
+b_Ausfraesung1_HI_KD8;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "KD8" ==
+b_Ausfraesung1_HI_WCS4;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "WCS4" ==
+b_Ausfraesung1_KD8;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "KD8" ==
+b_Ausfraesung1_WCS4;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "WCS4" ==
+b_Ausfraesung2;1 argc ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"KD8"}} $0 ==
+b_Ausfraesung2_ASF13;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF13" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_ASF14;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF14" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_ASF15;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF15" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_ASF2;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF2" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_ASF6;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF6" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI;1 argc ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"KD8"}} $0 ==
+b_Ausfraesung2_HI_ASF13;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF13" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_ASF14;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF14" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_ASF15;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF15" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_ASF2;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF2" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_ASF6;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF6" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_KD8;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "KD8" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_HI_WCS4;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "WCS4" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_KD8;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "KD8" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung2_WCS4;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "WCS4" == b_Pos_Ausfr_Mi b_Pos_Ausfr_Mi_Re || && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Mi b_Pos_Ausfr_Li_Mi_Re || && ||
+b_Ausfraesung3;1 argc ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"KD8"}} $0 ==
+b_Ausfraesung3_ASF13;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF13" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_ASF14;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF14" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_ASF15;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF15" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_ASF2;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF2" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_ASF6;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "ASF6" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI;1 argc ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"KD8"}} $0 ==
+b_Ausfraesung3_HI_ASF13;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF13" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "ASF13" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_ASF14;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF14" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "ASF14" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_ASF15;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF15" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "ASF15" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_ASF2;${TYP__AUSFRAESUNG1__HI:-"VOID"} "ASF2" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "ASF2" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_ASF6;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "ASF6" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "ASF6" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_KD8;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "KD8" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_HI_WCS4;${TYP__AUSFRAESUNG1__HI:-${TYP__AUSFRAESUNG1:-"VOID"}} "WCS4" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2__HI:-${TYP__AUSFRAESUNG2:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3_HI:-${TYP__AUSFRAESUNG3:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_KD8;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "KD8" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "KD8" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Ausfraesung3_WCS4;${TYP__AUSFRAESUNG1:-${TYP__AUSFRAESUNG1__HI:-"VOID"}} "WCS4" == b_Pos_Ausfr_Re && ${TYP__AUSFRAESUNG2:-${TYP__AUSFRAESUNG2__HI:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Re b_Pos_Ausfr_Mi_Re || && || ${TYP__AUSFRAESUNG3:-${TYP__AUSFRAESUNG3_HI:-"VOID"}} "WCS4" == b_Pos_Ausfr_Li_Mi_Re && ||
+b_Breite_24;p_breite 2400 ==
+b_Breite_28;p_breite 2800 ==
+b_Breite_32;p_breite 3200 ==
+b_Breite_40;p_breite 4000 ==
+b_cable_bench;${KABELWANNE__BENCH:-""} "KW5" ==
+b_cabletray;1 argc ${KABELWANNE:-""} $0 ==
+b_cabletray_high;"KW2" b_cabletray "KW6" b_cabletray ||
+b_cabletray_hinged_high;"KW8" b_cabletray
+b_cabletray_hinged_low;"KW7" b_cabletray
+b_cabletray_norm;"KW1" b_cabletray "KW4" b_cabletray ||
+b_cabletray_norm_mo;"KW1" b_cabletray "KW4" b_cabletray || "VOID" b_cabletray ||
+b_cabletray1;1 1 ==
+b_cabletray1__;${KABELWANNE:-""} "KW1" == b_hv_17 ||
+b_cabletray1___;${KABELWANNE:-""} "KW1" ==
+b_cabtray_1000;1.0 b_depth b_hv_standard ! &&
+b_cabtray_1000_mo;1.0 b_depth b_hv_standard ! && b_hv17 b_hv22 || &&
+b_cabtray_800;0.6 b_depth 0.8 b_depth || 0.9 b_depth 1.0 b_depth || b_hv_standard && ||
+b_cabtray_800_mo;0.8 b_depth b_hv_standard || b_hv17 b_hv22 || &&
+b_cabtray_900;0.9 b_depth b_hv_standard ! &&
+b_cabtray_900_mo;0.9 b_depth b_hv_standard ! && b_hv17 b_hv22 || &&
+b_cover_in;"IN_PLANE" b_typ "IN_PERF" b_typ ||
+b_cover_out;"OUT_PLANE" b_typ "OUT_PERF" b_typ ||
+b_cover_perf;"IN_PERF" b_typ "OUT_PERF" b_typ ||
+b_cutout_13;${AUSFRAESUNG:-""} "ASF13" ==
+b_cutout_14;${AUSFRAESUNG:-""} "ASF14" ==
+b_cutout_15;${AUSFRAESUNG:-""} "ASF15" ==
+b_cutout_2;${AUSFRAESUNG:-""} "ASF2" ==
+b_depth;1 argc f_depth $0 ==
+b_depth_1400;f_depth 1.400 ==
+b_depth_1600;f_depth 1.600 ==
+b_depth_1800up;f_depth 1.8 >=
+b_depth_600;f_depth 0.600 ==
+b_depth_800;f_depth 0.800 ==
+b_Display;${DISPLAY:-""} "DY1" ==
+b_endfoot;${ENDFOOT:-""} "YES" ==
+b_foot_castor;${FOOTFORM:-""} "R2" ==
+b_foot_cross;${FOOTFORM:-""} "C" ==
+b_foot_decor;${DEKORSTREIFEN:-""} "DEK1" ==
+b_foot_short_l;${G__FUSS:-""} "GF1" == ${G__FUSS:-""} "GF2" == ||
+b_foot_short_r;${G__FUSS:-""} "GF2" == ${G__FUSS:-""} "GF3" == ||
+b_foot_Typ_4;p_footform "F" ==
+b_foot_Typ_T;p_footform "T" ==
+b_framefoot_short_l---;${G__FUSS:-""} "GF1" == ${G__FUSS:-""} "GF2" == ||
+b_framefoot_short_r---;${G__FUSS:-""} "GF2" == ${G__FUSS:-""} "GF3" == ||
+b_frametype;1 argc ${G_FORM:-"VOID"} $0 ==
+b_hfix29;${H__VERSTELL:-"HV29"} "HV29" ==
+b_hv;1 argc ${H__VERSTELL:-${H__VERSTELLUNG:-"HV29"}} $0 ==
+b_hv___;1 argc ${H__VERSTELL:-${H__VERSTELLUNG:-"HV29"}} $0 ==
+b_hv_12;"HV12" b_hv
+b_hv_17;"HV17" b_hv
+b_hv_22;"HV22" b_hv
+b_hv_27;"HV27" b_hv
+b_hv_29;"HV29" b_hv
+b_hv_32;"HV32" b_hv
+b_hv_kurbel;"HV24" b_hv
+b_hv_manuel;b_hv_17 b_hv_kurbel || b_hv_22 || !
+b_hv_min_620mm;"HV18" b_hv "HV19" b_hv ||
+b_hv_min_700mm;"HV20" b_hv "HV21" b_hv || "HV27" b_hv ||
+b_hv_motor;b_hv30 b_hv31 || b_hv35 || b_hv25 ||
+b_hv_standard;b_hv_void b_typ_D_S || b_typ_F_ASYM || 0.8 b_depth || b_hv_32 ||
+b_hv_transsynchron;"HV17" b_hv "HV20" b_hv || "HV21" b_hv || "HV22" b_hv || "HV27" b_hv ||
+b_hv_void;"HV17" b_hv "HV18" b_hv || "HV19" b_hv || "HV20" b_hv || "HV21" b_hv || "HV22" b_hv || "HV27" b_hv || !
+b_hv17;${H__VERSTELL:-"HV29"} "HV17" ==
+b_hv22;${H__VERSTELL:-"HV29"} "HV22" ==
+b_hv25;${H__VERSTELL:-"HV29"} "HV25" ==
+b_hv26;${H__VERSTELL:-"HV29"} "HV26" ==
+b_hv30;${H__VERSTELL:-"HV29"} "HV30" ==
+b_hv31;${H__VERSTELL:-"HV29"} "HV31" ==
+b_hv32;${H__VERSTELL:-"HV29"} "HV32" ==
+b_hv35;${H__VERSTELL:-"HV29"} "HV35" ==
+b_isConferenceElement;b_isConferenceElementLeft b_isConferenceElementMiddle || b_isConferenceElementRight ||
+b_isConferenceElementLeft;${GDS_Position:-""} "DS_Pos_L" ==
+b_isConferenceElementMiddle;${GDS_Position:-""} "DS_Pos_M" ==
+b_isConferenceElementRight;${GDS_Position:-""} "DS_Pos_R" ==
+b_kabelblende;${SINGEL:-"J"} "J" ==
+b_org;1 argc ${GDS_OrgaSchiene:-"DS_No"} $0 ==
+b_org_back;"DS_BB" b_org "DS_FB" b_org ||
+b_org_back_above;"DS_BB" b_org "DS_FB" b_org ||
+b_org_back_down;"DS_BB" b_org
+b_org_front;"DS_FF" b_org "DS_FB" b_org ||
+b_org_front_above;"DS_FF" b_org "DS_FB" b_org ||
+b_org_front_down;"DS_FF" b_org
+b_org_rail_back;${ORG__SCHIENE:-""} "ORG3" ==
+b_org_rail_front;${ORG__SCHIENE:-""} "ORG2" == ${ORG__SCHIENE:-""} "ORG3" == ||
+b_org_rail_twin;${ORG__SCHIENE:-""} "ORG1" ==
+b_orient_L;"DS_Left" b_orientation
+b_orient_R;"DS_Right" b_orientation
+b_orientation;1 argc ${GDS_Align:-"DS_Right"} $0 ==
+b_orientation_l;"DS_Left" b_orientation
+b_orientation_r;"DS_Right" b_orientation
+b_orientation2_r;"DS_Right" b_orientation
+b_panel_adaption;${KLEMMADAPTER:-""} "KA1" ==
+b_panel_clip;${PINFAEHIG:-""} "PF1" ==
+b_Pos_Ausfr;1 argc ${POS__AUSFRAESUNG:-${POS__AUSFRAESUNG_HI:-"VOID"}} $0 ==
+b_Pos_Ausfr_HI;1 argc ${POS__AUSFRAESUNG_HI:-${POS__AUSFRAESUNG:-"VOID"}} $0 ==
+b_Pos_Ausfr_Li;"LI" b_Pos_Ausfr
+b_Pos_Ausfr_Li_HI;"LI" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Li_Mi;"LI_MI" b_Pos_Ausfr
+b_Pos_Ausfr_Li_Mi_HI;"LI_MI" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Li_Mi_Re;"LI_MI_RE" b_Pos_Ausfr
+b_Pos_Ausfr_Li_Mi_Re_HI;"LI_MI_RE" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Li_Re;"LI_RE" b_Pos_Ausfr
+b_Pos_Ausfr_Li_Re_HI;"LI_RE" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Mi;"MI" b_Pos_Ausfr
+b_Pos_Ausfr_Mi_HI;"MI" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Mi_Re;"MI_RE" b_Pos_Ausfr
+b_Pos_Ausfr_Mi_Re_HI;"MI_RE" b_Pos_Ausfr_HI
+b_Pos_Ausfr_Re;"RE" b_Pos_Ausfr
+b_Pos_Ausfr_Re_HI;"RE" b_Pos_Ausfr_HI
+b_position;1 argc ${GDS_Position:-"DS_Front"} $0 ==
+b_position_LB;"DS_Left" b_orientation "DS_Back" b_position &&
+b_position_LF;"DS_Left" b_orientation "DS_Front" b_position &&
+b_position_RB;"DS_Right" b_orientation "DS_Back" b_position &&
+b_position_RF;"DS_Right" b_orientation "DS_Front" b_position &&
+b_show_Z;${GDS_Show:-"DS_Yes"} "DS_Yes" ==
+b_snappoint;${SNAPPOINT:-"NO"} "YES" ==
+b_Tiefe_14;p_tiefe 1400 ==
+b_Tiefe_16;p_tiefe 1600 ==
+b_top_round;${TOPPLATE:-""} "R" ==
+b_typ;1 argc ${TYP:-""} $0 ==
+b_typ_D_S;${TYP:-""} "D" == ${TYP:-""} "S" == ||
+b_typ_F_ASYM;${TYP:-""} "F_ASYM" ==
+b_typ_R;${TYP:-""} "R" ==
+b_type;1 argc p_type $0 ==
+b_urban_style;${F2:-""} "PK" ==
+b_width;1 argc f_width $0 ==
+b_width_1600up;f_width 1.6 >=
+b_width_1800up;f_width 1.8 >=
+b_width_up;1 argc f_width $0 >=
+bCutoutHasMeta;1 argc $0 "DS_ASF13" == $0 "DS_ASF14" == || $0 "DS_ASF15" == || $0 "DS_ASF6" == ||
+bCutoutLeftHasMeta;"LI" b_Pos_Ausfr "LI_RE" b_Pos_Ausfr || "LI_MI" b_Pos_Ausfr || "LI_MI_RE" b_Pos_Ausfr || ${GDS_Cutout1:-""} bCutoutHasMeta &&
+bCutoutMiddleHasMeta;"MI" b_Pos_Ausfr "MI_RE" b_Pos_Ausfr || ${GDS_Cutout1:-""} bCutoutHasMeta && "LI_MI" b_Pos_Ausfr "LI_MI_RE" b_Pos_Ausfr || ${GDS_Cutout2:-""} bCutoutHasMeta && ||
+bCutoutRightHasMeta;"RE" b_Pos_Ausfr ${GDS_Cutout1:-""} bCutoutHasMeta && "LI_RE" b_Pos_Ausfr "MI_RE" b_Pos_Ausfr || ${GDS_Cutout2:-""} bCutoutHasMeta && || "LI_MI_RE" b_Pos_Ausfr ${GDS_Cutout3:-""} bCutoutHasMeta && ||
+f_backpanel_y_diff;0.032 neg
+f_depth;${ODB_DEPTH:-1000} 1000 /
+f_depth_bench_front;b_foot_Typ_T f_depth 0.085 + 2 / * b_foot_Typ_T ! f_depth 0.065 + 2 / * +
+f_depth_foot_off;b_hv_standard ! 0.9 b_depth && 0.1078 * b_hv_standard ! 1.0 b_depth && 0.1865 * +
+f_depth_off_conf;1.8 b_width 0.021 * 2.1 b_width 0.046 * +
+f_depth_Off_Frame;f_depth 0.75 - 2 / 0.0136 -
+f_foot_offset;f_width 1.8 >= 0.3 0 f_iif
+f_g_width;f_width
+f_hadjust_trans_ymax;"HV17" b_hv 0.53 * "HV20" b_hv 0.46 * + "HV21" b_hv 0.46 * + "HV22" b_hv 0.46 * + "HV27" b_hv 0.46 * +
+f_hadjust_trans_ymax__;"HV17" b_hv 0.60 * "HV20" b_hv 0.44 * + "HV21" b_hv 0.44 * + "HV22" b_hv 0.46 * +
+f_hadjust_trans_ymin;"HV17" b_hv 0.07 * "HV20" b_hv 0.04 * + "HV21" b_hv 0.04 * + "HV22" b_hv 0.04 * + "HV27" b_hv 0.04 * + neg
+f_hadjust_trans_ymin__;"HV17" b_hv 0.00 * "HV20" b_hv 0.02 * + "HV21" b_hv 0.02 * + "HV22" b_hv 0.04 * + neg
+f_hadjust_TV_ymax;0.825 "VOID" b_hv * "HV12" b_hv 0.695 * +
+f_hadjust_TV_ymin;0.625 "VOID" b_hv * "HV12" b_hv 0.695 * +
+f_hadjust_yInit;0.695 xb_topthick13 0.012 * +
+f_hadjust_ymax;0.695 "VOID" b_hv 0.13 * + "HV18" b_hv 0.14 * + "HV19" b_hv 0.14 * + "HV24" b_hv 0.14 * + "HV26" b_hv 0.17 * + "HV_70_1115" b_hv 0.395 * + "HV_72_115" b_hv 0.430 * + "HV32" b_hv 0.155 * +
+f_hadjust_ymax___;0.695 "VOID" b_hv 0.13 * + "HV17" b_hv 0.53 * + "HV18" b_hv 0.14 * + "HV19" b_hv 0.14 * + "HV20" b_hv 0.46 * + "HV21" b_hv 0.46 * + "HV22" b_hv 0.46 * + "HV24" b_hv 0.14 * + "HV26" b_hv 0.17 * + "HV_70_1115" b_hv 0.395 * + "HV_72_115" b_hv 0.430 * +
+f_hadjust_ymin;0.695 "VOID" b_hv 0.07 * "HV18" b_hv 0.10 * + "HV19" b_hv 0.10 * + "HV24" b_hv 0.1 * + "HV26" b_hv 0.07 * + "HV_70_1115" b_hv 0.02 * + "HV32" b_hv 0.045 * + -
+f_hadjust_ymin___;0.695 "VOID" b_hv 0.07 * "HV17" b_hv 0.07 * + "HV18" b_hv 0.10 * + "HV19" b_hv 0.10 * + "HV20" b_hv 0.04 * + "HV21" b_hv 0.04 * + "HV22" b_hv 0.04 * + "HV24" b_hv 0.1 * + "HV26" b_hv 0.07 * + "HV_70_1115" b_hv 0.02 * + -
+f_height;${ODB_HEIGHT:-1000} 1000 /
+f_height_orga_up_min;"DS_FB" b_org 0.0665 * "DS_FB" b_org ! 0.1665 * +
+f_iif;3 argc $1 $0 0 != * $2 $0 0 == * +
+f_measure;${ODB_WIDTH:-1000} string "x" + ${ODB_DEPTH:-1000} string +
+f_top_thick;0.013 "S13" xb_topsize * 0.019 "S19" xb_topsize * + 0.025 "S25" xb_topsize * +
+f_width;${ODB_WIDTH:-1000} 1000 /
+f_width_cabletray_conf_boval;f_width 1.8 == 0.746 * f_width 2.0 >= 0.946 * +
+f_width_cabletray_conf_rect;f_width 1.8 <= f_width 0.454 - * f_width 2.0 >= f_width 1.054 - * +
+f_width_OffLock;b_width_1800up 0.1 *
+f_width_return_ori;b_orientation_l f_depth * b_orientation_r 0 * +
+f_width_trav_conf_boval;f_width 1.8 == 0.92 * f_width 2.0 >= 1.12 * +
+f_width_trav_conf_boval___;f_width 1.8 == 0.935 * f_width 2.0 >= 1.135 * +
+f_width_trav_conf_rect;f_width 1.8 <= f_width 0.28 - * f_width 2.0 >= f_width 0.88 - * +
+f_width_trav_conf_rect___;f_width 1.8 <= f_width 0.265 - * f_width 2.0 >= f_width 0.86 - * +
+f_x_foot_conf_boval_left;0.3 f_width 2.1 == 0.05 * +
+f_x_foot_conf_boval_right;f_width 0.3 f_width 2.1 == 0.05 * + -
+f_x_foot_conf_rect_left;f_width 2.0 >= 0.2975 *
+f_x_foot_conf_rect_right;f_width f_width 2.0 >= 0.2975 * -
+fDepth;${ODB_DEPTH:-1000.0} 1000.0 /
+map_Kante;${F6:-""} "KM" == 90 map_uml_Multi 0 map_umlauf_kante s_iif
+map_uml_Multi;1 argc ", prjz, rotate 0 0 " $0 string +
+map_umlauf_kante;1 argc ", auto yyx , rotate 0 0 " $0 string +
+mat_accessory;mat_prefix ${F2:-${F8:-${F38:-"AL"}}} s_unscope +
+mat_alupaneel;mat_prefix ${F38:-"NR"} s_unscope +
+mat_backplane;mat_prefix ${F4:-"AL"} s_unscope +
+mat_cover;mat_prefix ${F2:-"AL"} s_unscope +
+mat_edge;xmat_prefix ${F6:-${F1:-"KS"}} s_unscope +
+mat_F53;mat_prefix ${F53:-"AL"} s_unscope +
+mat_F8;mat_prefix ${F8:-"AL"} s_unscope +
+mat_F90;mat_prefix ${F90:-"WI"} s_unscope +
+mat_F92;mat_prefix ${F92:-"WI"} s_unscope +
+mat_foot;mat_prefix ${F5:-"AL"} s_unscope +
+mat_foot_extension;mat_prefix ${F11:-${F5:-"AL"}} s_unscope +
+mat_frame;mat_prefix ${F2:-${F8:-${F4:-"AL"}}} s_unscope +
+mat_frame_inside_Afusz;mat_prefix b_Chrom "KS" p_F2 s_iif s_unscope +
+mat_griff;mat_prefix ${F22:-"KS"} string s_unscope +
+mat_orga_frame;mat_prefix ${F38:-"AL"} s_unscope +
+mat_perforation;mat_prefix "KS" "GW" ${F2:-"GW"} s_unscope s2def +
+mat_plastic;mat_prefix ${F2:-${F8:-"AL"}} "KS" s_plastic s_unscope +
+mat_prefix;"::kn::basics::"
+mat_schweisspunkte;mat_prefix ${F2:-"AL"} s_unscope + "schweisspunkte" 0 ${F2:-"AL"} "PK" == 13 * substr +
+mat_textile;mat_prefix p_F7 "VOID" == "8225" p_F7 s_iif +
+mat_textile___;mat_prefix ${F7:-"SGW"} string 1 4 substr +
+mat_top;xmat_prefix ${F1:-"KS"} s_unscope +
+mat_traverse;mat_prefix "KS" +
+mat_traverse_cross;mat_prefix ${F43:-${F2:-${F8:-${F4:-"AL"}}}} s_unscope +
+mat_wange;mat_prefix ${F34:-"AO"} s_unscope +
+p_breite;${ODB_WIDTH:- 2400}
+p_F7;${F7:-"VOID"} s_unscope
+p_footform;${ODB_FOOTFORM:-""}
+p_mat_panel;${F93:-${F7:-"AL"}}
+p_tiefe;${ODB_DEPTH:- 1400}
+p_type;${TYPE:-"X3"}
+s_iif;3 argc $1 0 $0 0 != $1 size * substr $2 0 $0 0 == $2 size * substr +
+s_plastic;2 argc $0 0 $0 "AL" == $0 size * substr $0 0 $0 "WI" == $0 size * substr + $1 0 $0 "AL" != $0 "WI" != && $1 size * substr +
+s_unscope;1 argc $0 0 $0 0 1 $0 size 0 > * substr "_" == + $0 size substr
+s2def;3 argc $0 0 $0 size $0 $2 != * substr $1 0 $1 size $0 $2 == * substr +
+xb_adapt_part;1 argc ${AD__AUSSCHNITT:-""} $0 ==
+xb_adapt_part_2;2 argc ${AD__AUSSCHNITT:-""} $0 == ${AD__AUSSCHNITT:-""} $1 == ||
+xb_adapter_kons;${ANBINDUNG:-"VOID"} "ANBI1" ==
+xb_adaption_a1___test;${ADAPTER:-""} "AD1" == ${AD__AUSSCHNITT:-""} "AA1" == ||
+xb_adaption_aa;"AA1" "AA2" xb_adapt_part_2 "AA3" "AA4" xb_adapt_part_2 || "AA5" "AA6" xb_adapt_part_2 || "AK2" "AK3" xb_adapt_part_2 ||
+xb_adaption_aa___;${AD__AUSSCHNITT:-""} "AA1" == ${AD__AUSSCHNITT:-""} "AA2" == || ${AD__AUSSCHNITT:-""} "AA3" == || ${AD__AUSSCHNITT:-""} "AA4" == || ${AD__AUSSCHNITT:-""} "AA5" == || ${AD__AUSSCHNITT:-""} "AA6" == ||
+xb_adaption_ad;${ADAPTER:-""} "AD1" == ${ADAPTER:-""} "AD2" == || ${ADAPTER:-""} "AD3" == || ${ADAPTER:-""} "AD4" == || ${ADAPTER:-""} "AD5" == ||
+xb_adaption_back_left_right;xb_adaption_aa xb_adaption_ad ||
+xb_adaption_back_middle;${ADAPTER:-""} "AD3" == ${AD__AUSSCHNITT:-""} "AA3" == ||
+xb_adaption_side_back_front;xb_adaption_aa xb_adaption_ad ||
+xb_adaption_side_middle;xb_adaption_aa xb_adaption_ad || xb_depth_1800up &&
+xb_cable_admission;${K__DURCHLASS:-"VOID"} "VOID" !=
+xb_cable_bay;${KABELFUEHRUNG:-"VOID"} "KAF3" == ${KABELFUEHRUNG:-"VOID"} "KAF5" == ||
+xb_cable_bay_2;${KABELFUEHRUNG:-"VOID"} "KAF5" ==
+xb_cableduct;${K__DURCHLASS:-"VOID"} "KD6" == ${K__DURCHLASS:-"VOID"} "KD5" == ||
+xb_cover;xb_cover_L xb_cover_R || xb_cover_M ||
+xb_cover_L;${KABELKLAPPE:-"VOID"} "KLK1" ==
+xb_cover_M;${KABELKLAPPE:-"VOID"} "KLK2" ==
+xb_cover_R;${KABELKLAPPE:-"VOID"} "KLK3" ==
+xb_depth;1 argc xf_depth $0 ==
+xb_depth_1800up;xf_depth 1.8 >=
+xb_depth_space_panel;${PANEELVORBEREITUNG:-"VOID"} "PAV1" ==
+xb_depth2;2 argc ${T1:-${ODB_DEPTH:-1000}} $0 == ${T2:-${ODB_DEPTH:-1000}} $1 == &&
+xb_edge_R30;xp_edge "R30" ==
+xb_foot_castor_0;${FOOTFORM:-""} "P0" ==
+xb_foot_castor_2;${FOOTFORM:-""} "P2" ==
+xb_foot_cross;${FOOTFORM:-""} "C" ==
+xb_foot_plate;${FOOTFORM:-""} "P" ==
+xb_foot_round;${FOOTFORM:-""} "R" ==
+xb_glass;${F149:-"AO"} 0 2 substr "GS" ==
+xb_hv;1 argc ${H__VERST:-"VOID"} $0 ==
+xb_klemmadapter;1 argc xp_klemmadapter $0 ==
+xb_org_rail;${ORG__SCHIENE:-""} "ORG1" ==
+xb_org_rail_1side;${ORG__SCHIENE:-""} "ORG2" ==
+xb_org_rail_2side;${ORG__SCHIENE:-""} "ORG3" ==
+xb_panel;1 argc ${PAN:-"VOID"} $0 ==
+xb_panel_acryl;"ACRYL" xb_panel
+xb_panel_adaption;${KLEMMADAPTER:-"VOID"} "KA1" ==
+xb_panel_adaption0;${KLEMMADAPTER:-"VOID"} "VOID" ==
+xb_panel_adaption2;${KLEMMADAPTER:-"VOID"} "KA2" ==
+xb_panel_adaption3;${KLEMMADAPTER:-"VOID"} "KA3" ==
+xb_panel_fabric;"STOFF" xb_panel
+xb_panel_no;"VOID" xb_panel
+xb_position;1 argc ${GDS_Position:-"DS_Outer"} $0 ==
+xb_powersocket;1 argc ${PS:-"A3"} $0 ==
+xb_snappoint;${SNAPPOINT:-"NO"} "YES" ==
+xb_socket_BX1;${TYPE:-""} "BX1" ==
+xb_socket_X3;${TYPE:-""} "X3" ==
+xb_thek_over;1 argc ${UEBERSTAND_THEKE:-"VOID"} $0 ==
+xb_thek_over_L6;"THU1" xb_thek_over
+xb_thek_over_L8;"THU2" xb_thek_over
+xb_thek_over_L9;"THU3" xb_thek_over
+xb_thek_over_R6;"THU4" xb_thek_over
+xb_thek_over_R8;"THU5" xb_thek_over
+xb_thek_over_R9;"THU6" xb_thek_over
+xb_top_anschn;${TOPPLATE:-""} "A" ==
+xb_top_buerste;${BUERSTE:-"VOID"} "BUE1" ==
+xb_top_PL1;${SCHIEBEPLATTE:-""} "PL1" ==
+xb_top_rect;${TOPPLATE:-""} "H" ==
+xb_top_round;${TOPPLATE:-""} "R" ==
+xb_top2front;xf_depth 0.6 > xb_cover ! &&
+xb_topsize;1 argc ${ODB_TOPSIZE:-""} $0 ==
+xb_topthick13;"S13" xb_topsize "VKN" xb_topsize ||
+xb_width;1 argc xf_width $0 ==
+xb_width_12;xf_width 1.2 ==
+xb_width_14;xf_width 1.4 ==
+xb_width_16;xf_width 1.6 ==
+xb_width_18;xf_width 1.8 ==
+xb_width_1800up;xf_width 1.8 >=
+xb_width_20;xf_width 2 ==
+xb_width_22;xf_width 2.2 ==
+xb_width_24;xf_width 2.4 ==
+xb_width_28;xf_width 2.8 ==
+xb_width_32;xf_width 3.2 ==
+xb_width_40;xf_width 4.0 ==
+xb_width_up;1 argc xf_width $0 >=
+xf_cutout2mm;1 argc $0 "ASF13" == 0.268 2 / * $0 "ASF14" == 0.321 2 / * + $0 "ASF15" == 0.374 2 / * + $0 "ASF2" == 0.3 2 / * + $0 "KD8" == 0.09 2 / * + $0 "WCS4" == 0.09 2 / * + $0 "ASF6" == 0.09 2 / * +
+xf_depth;${ODB_DEPTH:-1000} 1000 /
+xf_depth_p;${ODB_D1_DEPTH:-${ODB_DEPTH:-1000}} 1000 /
+xf_depth_sb;xf_depth 0.075 - 2 /
+xf_depth_sb___;xf_depth 0.075 - 2 /
+xf_depth_sb_lifes;xf_depth 0.065 - 2 /
+xf_depth_space;xb_depth_space_panel 0.065 * xb_depth_space_panel ! ${SPACING_DEPTH:-75} * 1000 / +
+xf_depth_space___;${SPACING_DEPTH:-75} 1000 /
+xf_depthOff_KA2;xb_panel_adaption2 0.0175 *
+xf_fraeskasten;${X__1__FK:-0} 0.001 *
+xf_hadjust_yInit;0.695
+xf_hadjust_ymax;0.695 "HV7_1115" xb_hv 0.395 * + "HV72_115" xb_hv 0.43 * +
+xf_hadjust_ymin;0.695 "HV7_1115" xb_hv 0.02 * -
+xf_half_width_cutout;xf_width 0.5 * b_isConferenceElementLeft b_isConferenceElementRight || ! * xf_width 0.4 - 0.5 * b_isConferenceElementLeft b_isConferenceElementRight || * + 0.4 b_isConferenceElementLeft * +
+xf_height;${ODB_HEIGHT:-1000} 1000 /
+xf_height_cduct;"S19" xb_topsize 0.009 * "S13" xb_topsize 0.012 * + neg
+xf_heightOff_KA3;xb_panel_adaption3 0.043 *
+xf_pos_cutout_left_4;1 argc xf_half_width_cutout xf_fraeskasten 0.5 * - $0 xf_cutout2mm +
+xf_pos_cutout_middle_4;1 argc xf_half_width_cutout
+xf_pos_cutout_right_4;1 argc xf_half_width_cutout xf_fraeskasten 0.5 * + $0 xf_cutout2mm -
+xf_top2front_zm;0.2 xb_top2front *
+xf_topsize;${ODB_TOPSIZE:-""} 1 ${ODB_TOPSIZE:-""} size 1 - substr float 1000 /
+xf_width;${ODB_WIDTH:-1000} 1000 /
+xf_width_p;${ODB_W1_WIDTH:-${ODB_WIDTH:-1000}} 1000 /
+xf_width_pos_cover_L;1.6 xb_width 0.5 * 1.8 xb_width 0.55 * + 2.0 xb_width 0.6 * +
+xf_width_pos_cover_R;xf_width xf_width_pos_cover_L -
+xmap_front;1 argc ", auto xyx z, rotate 0 0 " $0 string +
+xmap_Kante;${F6:-""} "KM" == 90 xmap_uml_Multi 0 xmap_umlauf_kante xs_iif
+xmap_side;1 argc ", auto xyx z, rotate 0 0 " $0 string +
+xmap_top;1 argc ", auto xzx yz, rotate 0 0 " $0 string +
+xmap_uml_Multi;1 argc ", prjz, rotate 0 0 " $0 string +
+xmap_umlauf_kante;1 argc ", auto yyx , rotate 0 0 " $0 string +
+xmat_accessory;mat_prefix ${F8:-${F38:-"AL"}} s_unscope +
+xmat_acoustic_less;xmat_prefix "ac" +
+xmat_acoustic_panel;xmat_prefix "ac_inside25" +
+xmat_acryl;xmat_prefix ${F145:-"AL"} s_unscope +
+xmat_adaption;mat_prefix xs_al_wi_2def string +
+xmat_adaption__;mat_prefix ${F2:-"AL"} string +
+xmat_adaption____;xmat_prefix ${F2:-"AL"} "AL" "KS" xs_adaption string +
+xmat_adaption_frame;mat_prefix ${F2:-"AL"} "KS" xs_al_wi string +
+xmat_alupaneel;mat_prefix ${F38:-"NR"} string +
+xmat_backplane;mat_prefix ${F4:-"AL"} string +
+xmat_control;mat_prefix ${DISPLAY:-""} "motorcontrol_arrows" "motorcontrol_memory" xs_design string +
+xmat_edge;xmat_prefix ${F6:-${F1:-"KS"}} s_unscope +
+xmat_edge___;xmat_prefix ${F6:-${F1:-"KS"}} xb_topthick13 xs_edge string +
+xmat_edge___1;xmat_prefix ${F6:-${F1:-"KS"}} string +
+xmat_edge___2;xmat_prefix ${F6:-${F1:-"KS"}} ${ODB_TOPSIZE:-""} xs_edge string +
+xmat_edge_move;xmat_prefix xb_topthick13 "KS" ${F151:-"KS"} xs_iif string +
+xmat_edge_round;xmat_prefix xb_topthick13 "KS" ${F152:-"KS"} xs_iif string +
+xmat_F38;xmat_prefix ${F38:-"al"} string +
+xmat_filz;xmat_prefix "4655" +
+xmat_foot;mat_prefix ${F5:-"AL"} string +
+xmat_frame;mat_prefix ${F2:-${F8:-${F4:-"AL"}}} string +
+xmat_orga_frame;mat_prefix ${F38:-"AL"} string +
+xmat_panel;mat_prefix p_mat_panel +
+xmat_plastic;mat_prefix ${F2:-"AL"} "KS" xs_al_wi string +
+xmat_prefix;"::kn::basics::"
+xmat_textile;mat_prefix ${F7:-"SGW"} string 1 4 substr +
+xmat_top;xmat_prefix ${F1:-"KS"} s_unscope +
+xmat_top_fix;xmat_prefix ${F147:-"AO"} string xs_unscope +
+xmat_top_move;xmat_prefix ${F148:-"AO"} s_unscope +
+xmat_top_round;xmat_prefix ${F149:-"AO"} s_unscope +
+xp_edge;${ODB_EDGE:-"VOID"}
+xp_klemmadapter;${KLEMMADAPTER:-"VOID"}
+xs_adaption;3 argc $2 0 $0 "AL" != $0 size * substr $1 0 $0 "AL" == $1 size * substr +
+xs_adaption___;3 argc $2 0 $0 "AL" != $0 size * substr $1 0 $0 "AL" == $1 size * substr +
+xs_al_wi;2 argc $0 0 $0 "AL" == $0 size * substr $0 0 $0 "WI" == $0 size * substr + $1 0 $0 "AL" != $0 "WI" != && $1 size * substr +
+xs_al_wi_2def;${AD__AUSSCHNITT:-"VOID"} "VOID" != ${F2:-"AL"} "KS" xs_al_wi ${ADAPTER:-"VOID"} "VOID" != ${F2:-"AL"} "KS" xs_iif xs_iif
+xs_design;3 argc $1 0 $0 "DY1" != $1 size * substr $2 0 $0 "DY1" == $2 size * substr +
+xs_edge___;2 argc $0 0 $1 "VKN" != $0 size * substr "KS" 0 2 $1 "VKN" == * substr +
+xs_edge____;2 argc $0 0 $1 1 != $0 size * substr "KS" 0 2 $1 1 == * substr +
+xs_iif;3 argc $1 0 $0 0 != $1 size * substr $2 0 $0 0 == $2 size * substr +
+xs_plastic___;2 argc $0 0 $0 "AL" == $0 size * substr $0 0 $0 "WI" == $0 size * substr + $1 0 $0 "AL" != $0 "WI" != && $1 size * substr +
+xs_unscope;1 argc $0 0 $0 0 1 $0 size 0 > * substr "_" == + $0 size substr
+b_2000_2400;b_pb2000 b_pb2200 || b_pb2400 ||
+b_3200_4000;b_pb3200 b_pb3600 || b_pb4000 ||
+b_A1_ASF13;"ASF13" s_wp_typ1ASF
+b_A1_ASF13_HI;"ASF13" s_wp_typ1ASFH
+b_A1_ASF13_HL;"ASF13" s_wp_typ1ASFHL
+b_A1_ASF13_HR;"ASF13" s_wp_typ1ASFHR
+b_A1_ASF14;"ASF14" s_wp_typ1ASF
+b_A1_ASF14_HI;"ASF14" s_wp_typ1ASFH
+b_A1_ASF14_HL;"ASF14" s_wp_typ1ASFHL
+b_A1_ASF14_HR;"ASF14" s_wp_typ1ASFHR
+b_A1_ASF15;"ASF15" s_wp_typ1ASF
+b_A1_ASF15_HI;"ASF15" s_wp_typ1ASFH
+b_A1_ASF15_HL;"ASF15" s_wp_typ1ASFHL
+b_A1_ASF15_HR;"ASF15" s_wp_typ1ASFHR
+b_A1_ASF2;"ASF2" s_wp_typ1ASF
+b_A1_ASF2_HI;"ASF2" s_wp_typ1ASFH
+b_A1_ASF2_HL;"ASF2" s_wp_typ1ASFHL
+b_A1_ASF2_HR;"ASF2" s_wp_typ1ASFHR
+b_A1_ASF21;"ASF21" s_wp_typ1ASF
+b_A1_ASF21_HI;"ASF21" s_wp_typ1ASFH
+b_A1_ASF21_HL;"ASF21" s_wp_typ1ASFHL
+b_A1_ASF21_HR;"ASF21" s_wp_typ1ASFHR
+b_A1_ASF3;"ASF3" s_wp_typ1ASF
+b_A1_ASF3_HI;"ASF3" s_wp_typ1ASFH
+b_A1_ASF3_HL;"ASF3" s_wp_typ1ASFHL
+b_A1_ASF3_HR;"ASF3" s_wp_typ1ASFHR
+b_A1_ASF6;"ASF6" s_wp_typ1ASF
+b_A1_ASF6_HI;"ASF6" s_wp_typ1ASFH
+b_A1_ASF6_HL;"ASF6" s_wp_typ1ASFHL
+b_A1_ASF6_HR;"ASF6" s_wp_typ1ASFHR
+b_A1_KD8;"KD8" s_wp_typ1ASF
+b_A1_KD8_HI;"KD8" s_wp_typ1ASFH
+b_A1_KD8_HL;"KD8" s_wp_typ1ASFHL
+b_A1_KD8_HR;"KD8" s_wp_typ1ASFHR
+b_A1_TKL1;"TKL1" s_wp_typ1ASF
+b_A1_TKL1_HI;"TKL1" s_wp_typ1ASFH
+b_A1_TKL1_HL;"TKL1" s_wp_typ1ASFHL
+b_A1_TKL1_HR;"TKL1" s_wp_typ1ASFHR
+b_A1_WCS4;"WCS4" s_wp_typ1ASF
+b_A1_WCS4_HI;"WCS4" s_wp_typ1ASFH
+b_A1_WCS4_HL;"WCS4" s_wp_typ1ASFHL
+b_A1_WCS4_HR;"WCS4" s_wp_typ1ASFHR
+b_A2_ASF13;"ASF13" s_wp_typ2ASF
+b_A2_ASF13_HI;"ASF13" s_wp_typ2ASFH
+b_A2_ASF13_HL;"ASF13" s_wp_typ2ASFHL
+b_A2_ASF13_HR;"ASF13" s_wp_typ2ASFHR
+b_A2_ASF14;"ASF14" s_wp_typ2ASF
+b_A2_ASF14_HI;"ASF14" s_wp_typ2ASFH
+b_A2_ASF14_HL;"ASF14" s_wp_typ2ASFHL
+b_A2_ASF14_HR;"ASF14" s_wp_typ2ASFHR
+b_A2_ASF15;"ASF15" s_wp_typ2ASF
+b_A2_ASF15_HI;"ASF15" s_wp_typ2ASFH
+b_A2_ASF15_HL;"ASF15" s_wp_typ2ASFHL
+b_A2_ASF15_HR;"ASF15" s_wp_typ2ASFHR
+b_A2_ASF2;"ASF2" s_wp_typ2ASF
+b_A2_ASF2_HI;"ASF2" s_wp_typ2ASFH
+b_A2_ASF2_HL;"ASF2" s_wp_typ2ASFHL
+b_A2_ASF2_HR;"ASF2" s_wp_typ2ASFHR
+b_A2_ASF21;"ASF21" s_wp_typ2ASF
+b_A2_ASF21_HI;"ASF21" s_wp_typ2ASFH
+b_A2_ASF21_HL;"ASF21" s_wp_typ2ASFHL
+b_A2_ASF21_HR;"ASF21" s_wp_typ2ASFHR
+b_A2_ASF3;"ASF3" s_wp_typ2ASF
+b_A2_ASF3_HI;"ASF3" s_wp_typ2ASFH
+b_A2_ASF3_HL;"ASF3" s_wp_typ2ASFHL
+b_A2_ASF3_HR;"ASF3" s_wp_typ2ASFHR
+b_A2_ASF6;"ASF6" s_wp_typ2ASF
+b_A2_ASF6_HI;"ASF6" s_wp_typ2ASFH
+b_A2_ASF6_HL;"ASF6" s_wp_typ2ASFHL
+b_A2_ASF6_HR;"ASF6" s_wp_typ2ASFHR
+b_A2_KD8;"KD8" s_wp_typ2ASF
+b_A2_KD8_HI;"KD8" s_wp_typ2ASFH
+b_A2_KD8_HL;"KD8" s_wp_typ2ASFHL
+b_A2_KD8_HR;"KD8" s_wp_typ2ASFHR
+b_A2_TKL1;"TKL1" s_wp_typ2ASF
+b_A2_TKL1_HI;"TKL1" s_wp_typ2ASFH
+b_A2_TKL1_HL;"TKL1" s_wp_typ2ASFHL
+b_A2_TKL1_HR;"TKL1" s_wp_typ2ASFHR
+b_A2_WCS4;"WCS4" s_wp_typ2ASF
+b_A2_WCS4_HI;"WCS4" s_wp_typ2ASFH
+b_A2_WCS4_HL;"WCS4" s_wp_typ2ASFHL
+b_A2_WCS4_HR;"WCS4" s_wp_typ2ASFHR
+b_A3_ASF13;"ASF13" s_wp_typ3ASF
+b_A3_ASF13_HI;"ASF13" s_wp_typ3ASFH
+b_A3_ASF13_HL;"ASF13" s_wp_typ3ASFHL
+b_A3_ASF13_HR;"ASF13" s_wp_typ3ASFHR
+b_A3_ASF14;"ASF14" s_wp_typ3ASF
+b_A3_ASF14_HI;"ASF14" s_wp_typ3ASFH
+b_A3_ASF14_HL;"ASF14" s_wp_typ3ASFHL
+b_A3_ASF14_HR;"ASF14" s_wp_typ3ASFHR
+b_A3_ASF15;"ASF15" s_wp_typ3ASF
+b_A3_ASF15_HI;"ASF15" s_wp_typ3ASFH
+b_A3_ASF15_HL;"ASF15" s_wp_typ3ASFHL
+b_A3_ASF15_HR;"ASF15" s_wp_typ3ASFHR
+b_A3_ASF2;"ASF2" s_wp_typ3ASF
+b_A3_ASF2_HI;"ASF2" s_wp_typ3ASFH
+b_A3_ASF2_HL;"ASF2" s_wp_typ3ASFHL
+b_A3_ASF2_HR;"ASF2" s_wp_typ3ASFHR
+b_A3_ASF21;"ASF21" s_wp_typ3ASF
+b_A3_ASF21_HI;"ASF21" s_wp_typ3ASFH
+b_A3_ASF21_HL;"ASF21" s_wp_typ3ASFHL
+b_A3_ASF21_HR;"ASF21" s_wp_typ3ASFHR
+b_A3_ASF3;"ASF3" s_wp_typ3ASF
+b_A3_ASF3_HI;"ASF3" s_wp_typ3ASFH
+b_A3_ASF3_HL;"ASF3" s_wp_typ3ASFHL
+b_A3_ASF3_HR;"ASF3" s_wp_typ3ASFHR
+b_A3_ASF6;"ASF6" s_wp_typ3ASF
+b_A3_ASF6_HI;"ASF6" s_wp_typ3ASFH
+b_A3_ASF6_HL;"ASF6" s_wp_typ3ASFHL
+b_A3_ASF6_HR;"ASF6" s_wp_typ3ASFHR
+b_A3_KD8;"KD8" s_wp_typ3ASF
+b_A3_KD8_HI;"KD8" s_wp_typ3ASFH
+b_A3_KD8_HL;"KD8" s_wp_typ3ASFHL
+b_A3_KD8_HR;"KD8" s_wp_typ3ASFHR
+b_A3_TKL1;"TKL1" s_wp_typ3ASF
+b_A3_TKL1_HI;"TKL1" s_wp_typ3ASFH
+b_A3_TKL1_HL;"TKL1" s_wp_typ3ASFHL
+b_A3_TKL1_HR;"TKL1" s_wp_typ3ASFHR
+b_A3_WCS4;"WCS4" s_wp_typ3ASF
+b_A3_WCS4_HI;"WCS4" s_wp_typ3ASFH
+b_A3_WCS4_HL;"WCS4" s_wp_typ3ASFHL
+b_A3_WCS4_HR;"WCS4" s_wp_typ3ASFHR
+b_AA_L;b_aap_aaL b_aap && b_aap_aaLR b_aap && || b_aap_aaLM b_aap && || b_aap_aaLRM b_aap && || b_aa2 || b_aa3 ||
+b_AA_M;b_aap_aaM b_aap && b_aap_aaLM b_aap && || b_aap_aaRM b_aap && || b_aap_aaLRM b_aap && || b_aa3 ||
+b_AA_R;b_aap_aaR b_aap && b_aap_aaLR b_aap && || b_aap_aaRM b_aap && || b_aap_aaLRM b_aap && || b_aa2 || b_aa3 ||
+b_aa0;"AA0" s_wp_adaaus
+b_aa2;"AA2" s_wp_adaaus
+b_aa3;"AA3" s_wp_adaaus
+b_aap;"AAP" s_wp_adaaus
+b_aap_aa0;"AA0" s_wp_adapos
+b_aap_aaL;"AAL" s_wp_adapos
+b_aap_aaLM;"AALM" s_wp_adapos
+b_aap_aaLR;"AALR" s_wp_adapos
+b_aap_aaLRM;"AALRM" s_wp_adapos
+b_aap_aaM;"AAM" s_wp_adapos
+b_aap_aaR;"AAR" s_wp_adapos
+b_aap_aaRM;"AARM" s_wp_adapos
+b_abh1;"ABH1" s_wp_typabs
+b_abh2;"ABH2" s_wp_typabs
+b_abh3;"ABH3" s_wp_typabs
+b_ABR_oAus;"ADS1" s_wp_regdes
+b_ABR_Orga;"ADS2" s_wp_regdes
+b_AD_L;b_adL b_adLR || b_adLM || b_adLRM ||
+b_AD_M;b_adM b_adLM || b_adRM || b_adLRM ||
+b_AD_R;b_adR b_adLR || b_adRM || b_adLRM ||
+b_ad0;"AD0" s_wp_adpos
+b_adL;"ADL" s_wp_adpos
+b_adLM;"ADLM" s_wp_adpos
+b_adLR;"ADLR" s_wp_adpos
+b_adLRM;"ADLRM" s_wp_adpos
+b_adM;"ADM" s_wp_adpos
+b_adR;"ADR" s_wp_adpos
+b_adRM;"ADRM" s_wp_adpos
+b_AFUSS;b_AFUSS_QH b_AFUSS_QS || b_AFUSS_RH || b_AFUSS_RS ||
+b_AFUSS_QH;"GTC4" s_wp_gesafuss
+b_AFUSS_QS;"GTC2" s_wp_gesafuss
+b_AFUSS_RH;"GTC3" s_wp_gesafuss
+b_AFUSS_RS;"GTC1" s_wp_gesafuss
+b_AHV1;"AHV1" s_wp_anbahv
+b_AHV2;"AHV2" s_wp_anbahv
+b_AL_ASF6;"ASF6" s_wp_typLASFAH
+b_AL_KD8;"KD8" s_wp_typLASFAH
+b_AL_WCS4;"WCS4" s_wp_typLASFAH
+b_ANB_DB;b_WPDB
+b_ANB_LI;"LI" s_wp_ANB
+b_ANB_RE;"RE" s_wp_ANB
+b_ANB_TN;b_WPDB !
+b_anbret_LI;"ANBL" s_wp_anbret
+b_anbret_RE;"ANBR" s_wp_anbret
+b_anbret_T1000;"TT3" s_wp_anbrettie
+b_anbret_T1480;"TT4" s_wp_anbrettie
+b_anbret_T1680;"TT5" s_wp_anbrettie
+b_anbret_T1880;"TT6" s_wp_anbrettie
+b_anbret_T2X1000;"TT9" s_wp_anbrettie
+b_anbret_T2X800;"TT7" s_wp_anbrettie
+b_anbret_T2X900;"TT8" s_wp_anbrettie
+b_anbret_T800;"TT1" s_wp_anbrettie
+b_anbret_T900;"TT2" s_wp_anbrettie
+b_AR_ASF6;"ASF6" s_wp_typRASFAH
+b_AR_KD8;"KD8" s_wp_typRASFAH
+b_AR_WCS4;"WCS4" s_wp_typRASFAH
+b_ASF_L1;b_posASF_L b_posASF_LM || b_posASF_LMR || b_posASF_LR ||
+b_ASF_M1;b_posASF_M b_posASF_MR ||
+b_ASF_M2;b_posASF_LM b_posASF_LMR ||
+b_ASF_R1;b_posASF_R
+b_ASF_R2;b_posASF_LR b_posASF_MR ||
+b_ASF13_HL;b_A1_ASF13_HI b_ASFH_L1 &&
+b_ASF13_HL_L;b_A1_ASF13_HL b_ASFHL_L1 &&
+b_ASF13_HL_M;b_A1_ASF13_HL b_ASFHL_M1 && b_A2_ASF13_HL b_ASFHL_M2 && ||
+b_ASF13_HL_R;b_A1_ASF13_HL b_ASFHL_R1 && b_A2_ASF13_HL b_ASFHL_R2 && || b_A3_ASF13_HL ||
+b_ASF13_HM;b_A1_ASF13_HI b_ASFH_M1 && b_A2_ASF13_HI b_ASFH_M2 && ||
+b_ASF13_HR;b_A1_ASF13_HI b_ASFH_R1 && b_A2_ASF13_HI b_ASFH_R2 && || b_A3_ASF13_HI ||
+b_ASF13_HR_L;b_A1_ASF13_HR b_ASFHR_L1 &&
+b_ASF13_HR_M;b_A1_ASF13_HR b_ASFHR_M1 && b_A2_ASF13_HR b_ASFHR_M2 && ||
+b_ASF13_HR_R;b_A1_ASF13_HR b_ASFHR_R1 && b_A2_ASF13_HR b_ASFHR_R2 && || b_A3_ASF13_HR ||
+b_ASF13_L;b_A1_ASF13 b_ASF_L1 &&
+b_ASF13_M;b_A1_ASF13 b_ASF_M1 && b_A2_ASF13 b_ASF_M2 && ||
+b_ASF13_R;b_A1_ASF13 b_ASF_R1 && b_A2_ASF13 b_ASF_R2 && || b_A3_ASF13 ||
+b_ASF14_HL;b_A1_ASF14_HI b_ASFH_L1 &&
+b_ASF14_HL_L;b_A1_ASF14_HL b_ASFHL_L1 &&
+b_ASF14_HL_M;b_A1_ASF14_HL b_ASFHL_M1 && b_A2_ASF14_HL b_ASFHL_M2 && ||
+b_ASF14_HL_R;b_A1_ASF14_HL b_ASFHL_R1 && b_A2_ASF14_HL b_ASFHL_R2 && || b_A3_ASF14_HL ||
+b_ASF14_HM;b_A1_ASF14_HI b_ASFH_M1 && b_A2_ASF14_HI b_ASFH_M2 && ||
+b_ASF14_HR;b_A1_ASF14_HI b_ASFH_R1 && b_A2_ASF14_HI b_ASFH_R2 && || b_A3_ASF14_HI ||
+b_ASF14_HR_L;b_A1_ASF14_HR b_ASFHR_L1 &&
+b_ASF14_HR_M;b_A1_ASF14_HR b_ASFHR_M1 && b_A2_ASF14_HR b_ASFHR_M2 && ||
+b_ASF14_HR_R;b_A1_ASF14_HR b_ASFHR_R1 && b_A2_ASF14_HR b_ASFHR_R2 && || b_A3_ASF14_HR ||
+b_ASF14_L;b_A1_ASF14 b_ASF_L1 &&
+b_ASF14_M;b_A1_ASF14 b_ASF_M1 && b_A2_ASF14 b_ASF_M2 && ||
+b_ASF14_R;b_A1_ASF14 b_ASF_R1 && b_A2_ASF14 b_ASF_R2 && || b_A3_ASF14 ||
+b_ASF15_HL;b_A1_ASF15_HI b_ASFH_L1 &&
+b_ASF15_HL_L;b_A1_ASF15_HL b_ASFHL_L1 &&
+b_ASF15_HL_M;b_A1_ASF15_HL b_ASFHL_M1 && b_A2_ASF15_HL b_ASFHL_M2 && ||
+b_ASF15_HL_R;b_A1_ASF15_HL b_ASFHL_R1 && b_A2_ASF15_HL b_ASFHL_R2 && || b_A3_ASF15_HL ||
+b_ASF15_HM;b_A1_ASF15_HI b_ASFH_M1 && b_A2_ASF15_HI b_ASFH_M2 && ||
+b_ASF15_HR;b_A1_ASF15_HI b_ASFH_R1 && b_A2_ASF15_HI b_ASFH_R2 && || b_A3_ASF15_HI ||
+b_ASF15_HR_L;b_A1_ASF15_HR b_ASFHR_L1 &&
+b_ASF15_HR_M;b_A1_ASF15_HR b_ASFHR_M1 && b_A2_ASF15_HR b_ASFHR_M2 && ||
+b_ASF15_HR_R;b_A1_ASF15_HR b_ASFHR_R1 && b_A2_ASF15_HR b_ASFHR_R2 && || b_A3_ASF15_HR ||
+b_ASF15_L;b_A1_ASF15 b_ASF_L1 &&
+b_ASF15_M;b_A1_ASF15 b_ASF_M1 && b_A2_ASF15 b_ASF_M2 && ||
+b_ASF15_R;b_A1_ASF15 b_ASF_R1 && b_A2_ASF15 b_ASF_R2 && || b_A3_ASF15 ||
+b_ASF2_HL;b_A1_ASF2_HI b_ASFH_L1 &&
+b_ASF2_HL_L;b_A1_ASF2_HL b_ASFHL_L1 &&
+b_ASF2_HL_M;b_A1_ASF2_HL b_ASFHL_M1 && b_A2_ASF2_HL b_ASFHL_M2 && ||
+b_ASF2_HL_R;b_A1_ASF2_HL b_ASFHL_R1 && b_A2_ASF2_HL b_ASFHL_R2 && || b_A3_ASF2_HL ||
+b_ASF2_HM;b_A1_ASF2_HI b_ASFH_M1 && b_A2_ASF2_HI b_ASFH_M2 && ||
+b_ASF2_HR;b_A1_ASF2_HI b_ASFH_R1 && b_A2_ASF2_HI b_ASFH_R2 && || b_A3_ASF2_HI ||
+b_ASF2_HR_L;b_A1_ASF2_HR b_ASFHR_L1 &&
+b_ASF2_HR_M;b_A1_ASF2_HR b_ASFHR_M1 && b_A2_ASF2_HR b_ASFHR_M2 && ||
+b_ASF2_HR_R;b_A1_ASF2_HR b_ASFHR_R1 && b_A2_ASF2_HR b_ASFHR_R2 && || b_A3_ASF2_HR ||
+b_ASF2_L;b_A1_ASF2 b_ASF_L1 &&
+b_ASF2_M;b_A1_ASF2 b_ASF_M1 && b_A2_ASF2 b_ASF_M2 && ||
+b_ASF2_R;b_A1_ASF2 b_ASF_R1 && b_A2_ASF2 b_ASF_R2 && || b_A3_ASF2 ||
+b_ASF21_HL;b_A1_ASF21_HI b_ASFH_L1 &&
+b_ASF21_HL_L;b_A1_ASF21_HL b_ASFHL_L1 &&
+b_ASF21_HL_M;b_A1_ASF21_HL b_ASFHL_M1 && b_A2_ASF21_HL b_ASFHL_M2 && ||
+b_ASF21_HL_R;b_A1_ASF21_HL b_ASFHL_R1 && b_A2_ASF21_HL b_ASFHL_R2 && || b_A3_ASF21_HL ||
+b_ASF21_HM;b_A1_ASF21_HI b_ASFH_M1 && b_A2_ASF21_HI b_ASFH_M2 && ||
+b_ASF21_HR;b_A1_ASF21_HI b_ASFH_R1 && b_A2_ASF21_HI b_ASFH_R2 && || b_A3_ASF21_HI ||
+b_ASF21_HR_L;b_A1_ASF21_HR b_ASFHR_L1 &&
+b_ASF21_HR_M;b_A1_ASF21_HR b_ASFHR_M1 && b_A2_ASF21_HR b_ASFHR_M2 && ||
+b_ASF21_HR_R;b_A1_ASF21_HR b_ASFHR_R1 && b_A2_ASF21_HR b_ASFHR_R2 && || b_A3_ASF21_HR ||
+b_ASF21_L;b_A1_ASF21 b_ASF_L1 &&
+b_ASF21_M;b_A1_ASF21 b_ASF_M1 && b_A2_ASF21 b_ASF_M2 && ||
+b_ASF21_R;b_A1_ASF21 b_ASF_R1 && b_A2_ASF21 b_ASF_R2 && || b_A3_ASF21 ||
+b_ASF3_HL;b_A1_ASF3_HI b_ASFH_L1 &&
+b_ASF3_HL_L;b_A1_ASF3_HL b_ASFHL_L1 &&
+b_ASF3_HL_M;b_A1_ASF3_HL b_ASFHL_M1 && b_A2_ASF3_HL b_ASFHL_M2 && ||
+b_ASF3_HL_R;b_A1_ASF3_HL b_ASFHL_R1 && b_A2_ASF3_HL b_ASFHL_R2 && || b_A3_ASF3_HL ||
+b_ASF3_HM;b_A1_ASF3_HI b_ASFH_M1 && b_A2_ASF3_HI b_ASFH_M2 && ||
+b_ASF3_HR;b_A1_ASF3_HI b_ASFH_R1 && b_A2_ASF3_HI b_ASFH_R2 && || b_A3_ASF3_HI ||
+b_ASF3_HR_L;b_A1_ASF3_HR b_ASFHR_L1 &&
+b_ASF3_HR_M;b_A1_ASF3_HR b_ASFHR_M1 && b_A2_ASF3_HR b_ASFHR_M2 && ||
+b_ASF3_HR_R;b_A1_ASF3_HR b_ASFHR_R1 && b_A2_ASF3_HR b_ASFHR_R2 && || b_A3_ASF3_HR ||
+b_ASF3_L;b_A1_ASF3 b_ASF_L1 &&
+b_ASF3_M;b_A1_ASF3 b_ASF_M1 && b_A2_ASF3 b_ASF_M2 && ||
+b_ASF3_R;b_A1_ASF3 b_ASF_R1 && b_A2_ASF3 b_ASF_R2 && || b_A3_ASF3 ||
+b_ASF6_HL;b_A1_ASF6_HI b_ASFH_L1 &&
+b_ASF6_HL_L;b_A1_ASF6_HL b_ASFHL_L1 &&
+b_ASF6_HL_M;b_A1_ASF6_HL b_ASFHL_M1 && b_A2_ASF6_HL b_ASFHL_M2 && ||
+b_ASF6_HL_R;b_A1_ASF6_HL b_ASFHL_R1 && b_A2_ASF6_HL b_ASFHL_R2 && || b_A3_ASF6_HL ||
+b_ASF6_HM;b_A1_ASF6_HI b_ASFH_M1 && b_A2_ASF6_HI b_ASFH_M2 && ||
+b_ASF6_HR;b_A1_ASF6_HI b_ASFH_R1 && b_A2_ASF6_HI b_ASFH_R2 && || b_A3_ASF6_HI ||
+b_ASF6_HR_L;b_A1_ASF6_HR b_ASFHR_L1 &&
+b_ASF6_HR_M;b_A1_ASF6_HR b_ASFHR_M1 && b_A2_ASF6_HR b_ASFHR_M2 && ||
+b_ASF6_HR_R;b_A1_ASF6_HR b_ASFHR_R1 && b_A2_ASF6_HR b_ASFHR_R2 && || b_A3_ASF6_HR ||
+b_ASF6_L;b_A1_ASF6 b_ASF_L1 &&
+b_ASF6_M;b_A1_ASF6 b_ASF_M1 && b_A2_ASF6 b_ASF_M2 && ||
+b_ASF6_R;b_A1_ASF6 b_ASF_R1 && b_A2_ASF6 b_ASF_R2 && || b_A3_ASF6 ||
+b_ASFAH_0;"ASF0" s_wp_posASFAH
+b_ASFAH_B;"ASFB" s_wp_posASFAH
+b_ASFAH_L;"ASFL" s_wp_posASFAH
+b_ASFAH_R;"ASFR" s_wp_posASFAH
+b_ASFd80_HL;b_KD8_HL b_ASF6_HL ||
+b_ASFd80_HL_L;b_KD8_HL_L b_ASF6_HL_L ||
+b_ASFd80_HL_M;b_KD8_HL_M b_ASF6_HL_M ||
+b_ASFd80_HL_R;b_KD8_HL_R b_ASF6_HL_R ||
+b_ASFd80_HM;b_KD8_HM b_ASF6_HM ||
+b_ASFd80_HR;b_KD8_HR b_ASF6_HR ||
+b_ASFd80_HR_L;b_KD8_HR_L b_ASF6_HR_L ||
+b_ASFd80_HR_M;b_KD8_HR_M b_ASF6_HR_M ||
+b_ASFd80_HR_R;b_KD8_HR_R b_ASF6_HR_R ||
+b_ASFd80_L;b_KD8_L b_ASF6_L ||
+b_ASFd80_M;b_KD8_M b_ASF6_M ||
+b_ASFd80_R;b_KD8_R b_ASF6_R ||
+b_ASFH_L1;b_posASFH_L b_posASFH_LM || b_posASFH_LMR || b_posASFH_LR ||
+b_ASFH_M1;b_posASFH_M b_posASFH_MR ||
+b_ASFH_M2;b_posASFH_LM b_posASFH_LMR ||
+b_ASFH_R1;b_posASFH_R
+b_ASFH_R2;b_posASFH_LR b_posASFH_MR ||
+b_ASFHL_L1;b_posASFHL_L b_posASFHL_LM || b_posASFHL_LMR || b_posASFHL_LR ||
+b_ASFHL_M1;b_posASFHL_M b_posASFHL_MR ||
+b_ASFHL_M2;b_posASFHL_LM b_posASFHL_LMR ||
+b_ASFHL_R1;b_posASFHL_R
+b_ASFHL_R2;b_posASFHL_LR b_posASFHL_MR ||
+b_ASFHR_L1;b_posASFHR_L b_posASFHR_LM || b_posASFHR_LMR || b_posASFHR_LR ||
+b_ASFHR_M1;b_posASFHR_M b_posASFHR_MR ||
+b_ASFHR_M2;b_posASFHR_LM b_posASFHR_LMR ||
+b_ASFHR_R1;b_posASFHR_R
+b_ASFHR_R2;b_posASFHR_LR b_posASFHR_MR ||
+b_ATK1;${ANSCHNITTKANTE__WP:-""} "ATK1" ==
+b_ATK2;${ANSCHNITTKANTE__WP:-""} "ATK2" ==
+b_boxAuf0;"AFL0" s_wp_boxAuf
+b_boxAuf1;"AFL1" s_wp_boxAuf
+b_boxAuf2;"AFL2" s_wp_boxAuf
+b_boxAuf3;"AFL3" s_wp_boxAuf
+b_boxBef1;"BBF1" s_wp_boxBef
+b_boxBef2;"BBF2" s_wp_boxBef
+b_boxCodsch;"ZFRIX" s_wp_boxschl
+b_boxGest0;"GE0" s_wp_boxGest
+b_boxGest1;"GE1" s_wp_boxGest
+b_boxKyst;"KEY1" s_wp_boxkyst
+b_boxOrg1;"OR1" s_wp_boxOrg
+b_boxZylsch;"ZYLS" s_wp_boxschl
+b_bs_links;"BES1" s_wp_berasei
+b_bs_rechts;"BES2" s_wp_berasei
+b_cpuSchub;"SCHB1" s_wp_schubk
+b_dy4fach;"DY1" s_wp_display
+b_dyaufab;"DY0" s_wp_display
+b_EB1;"EB1" s_wp_box_eboden
+b_FBH_KA19;"KA19" s_wp_fbhKLA
+b_FBH_KA25;"KA25" s_wp_fbhKLA
+b_FBH_KA4;"KA4" s_wp_fbhKLA
+b_FBH_KA8;"KA8" s_wp_fbhKLA
+b_FBH_KA9;"KA9" s_wp_fbhKLA
+b_fix_roll;b_Rolle b_hoever_FX b_hoever_FX1060 || &&
+b_geo180;"TWO" s_wp_message
+b_geoNorm;"ONE" s_wp_message
+b_gestein0;"EIG0" s_wp_gesein
+b_gestein1;"EIG1" s_wp_gesein
+b_GSL2;"GSL2" s_wp_griffled
+b_HBBO;${PL__GEO:-""} "BF_12_BOG_R" ==
+b_HLBO;${PL__GEO:-""} "BF_12" ==
+b_hoever_FX;"HV29" s_wp_hoever
+b_hoever_FX1060;"HV42" s_wp_hoever
+b_hoever_HE;"HV32" s_wp_hoever "HV9" s_wp_hoever ||
+b_hoever_L7;"HV54" s_wp_hoever
+b_hoever_L8;"HV55" s_wp_hoever
+b_hoever_L8_ST;"HV55" s_wp_hoever "FSD14" s_wp_fussdes &&
+b_hoever_L8_TN;"HV55" s_wp_hoever "FSD11" s_wp_fussdes &&
+b_hoever_LIFT;b_hoever_L7 b_hoever_L8 ||
+b_hoever_MO;"HV33" s_wp_hoever
+b_hoever_MSFX;"HV53" s_wp_hoever
+b_hoever_MSLF;"HV59" s_wp_hoever
+b_KabwaBe;"KW15" s_wp_kabwanBe
+b_KabwaBeD;"KW5" s_wp_kabwanBe
+b_kakl;"KKL5" s_wp_kabklam
+b_kantgeo_R40;"PRD2" s_wp_eckgeo "PK1" s_wp_kantgeo &&
+b_kantgeo_STD;"PRD1" s_wp_eckgeo "PK1" s_wp_kantgeo &&
+b_kantgeo_U15R40;"PRD2" s_wp_eckgeo "PK2" s_wp_kantgeo &&
+b_kantgeo_U15STD;"PRD1" s_wp_eckgeo "PK2" s_wp_kantgeo &&
+b_kbu_bucht;b_kbu3 b_kbu4 || b_kbu5 || b_kbu6 ||
+b_kbu_buerste;b_kbu3 b_kbu5 ||
+b_kbu_schiene;b_kbu4 b_kbu5 ||
+b_kbu0;"KAF0" s_wp_kabbuc
+b_kbu3;"KAF3" s_wp_kabbuc
+b_kbu4;"KAF4" s_wp_kabbuc
+b_kbu5;"KAF5" s_wp_kabbuc
+b_kbu6;"KAF6" s_wp_kabbuc
+b_KD8_HL;b_A1_KD8_HI b_ASFH_L1 &&
+b_KD8_HL_L;b_A1_KD8_HL b_ASFHL_L1 &&
+b_KD8_HL_M;b_A1_KD8_HL b_ASFHL_M1 && b_A2_KD8_HL b_ASFHL_M2 && ||
+b_KD8_HL_R;b_A1_KD8_HL b_ASFHL_R1 && b_A2_KD8_HL b_ASFHL_R2 && || b_A3_KD8_HL ||
+b_KD8_HM;b_A1_KD8_HI b_ASFH_M1 && b_A2_KD8_HI b_ASFH_M2 && ||
+b_KD8_HR;b_A1_KD8_HI b_ASFH_R1 && b_A2_KD8_HI b_ASFH_R2 && || b_A3_KD8_HI ||
+b_KD8_HR_L;b_A1_KD8_HR b_ASFHR_L1 &&
+b_KD8_HR_M;b_A1_KD8_HR b_ASFHR_M1 && b_A2_KD8_HR b_ASFHR_M2 && ||
+b_KD8_HR_R;b_A1_KD8_HR b_ASFHR_R1 && b_A2_KD8_HR b_ASFHR_R2 && || b_A3_KD8_HR ||
+b_KD8_L;b_A1_KD8 b_ASF_L1 &&
+b_KD8_M;b_A1_KD8 b_ASF_M1 && b_A2_KD8 b_ASF_M2 && ||
+b_KD8_R;b_A1_KD8 b_ASF_R1 && b_A2_KD8 b_ASF_R2 && || b_A3_KD8 ||
+b_KFT0;"KFT0" s_wp_klapmo
+b_KFT1;"KFT1" s_wp_klapmo
+b_krzL;"KRZL" s_wp_uebRLM
+b_krzR;"KRZR" s_wp_uebRLM
+b_kwkks;"KW20" s_wp_kabwan
+b_kwkme;"KW21" s_wp_kabwan
+b_kws105;"KW19" s_wp_kabwan
+b_kws2021;"KW24" s_wp_kabwan
+b_kws72;"KW18" s_wp_kabwan
+b_NB201;"NB201" s_wp_sd2
+b_NB202;"NB202" s_wp_sd2
+b_NB301;"NB301" s_wp_sd3
+b_NB302;"NB302" s_wp_sd3
+b_NB303;"NB303" s_wp_sd3
+b_NB304;"NB304" s_wp_sd3
+b_NB305;"NB305" s_wp_sd3
+b_NB306;"NB306" s_wp_sd3
+b_NB307;"NB307" s_wp_sd3
+b_NB308;"NB308" s_wp_sd3
+b_NB401;"NB401" s_wp_sd4
+b_NB401_ELK;"NB401" s_wp_elkl
+b_NB402;"NB402" s_wp_sd4
+b_NB403;"NB403" s_wp_sd4
+b_NB403_ELK;"NB403" s_wp_elkl
+b_NB404;"NB404" s_wp_sd4
+b_NB404_ELK;"NB404" s_wp_elkl
+b_NB405;"NB405" s_wp_sd4
+b_NB405_ELK;"NB405" s_wp_elkl
+b_NB406;"NB406" s_wp_sd4
+b_NB406_ELK;"NB406" s_wp_elkl
+b_NB407;"NB407" s_wp_sd4
+b_NB407_ELK;"NB407" s_wp_elkl
+b_NB408;"NB408" s_wp_sd4
+b_NB408_ELK;"NB408" s_wp_elkl
+b_NB409;"NB409" s_wp_sd4
+b_NB409_ELK;"NB409" s_wp_elkl
+b_NB410;"NB410" s_wp_sd4
+b_NB410_ELK;"NB410" s_wp_elkl
+b_NB411;"NB411" s_wp_sd4
+b_NB411_ELK;"NB411" s_wp_elkl
+b_NB412;"NB412" s_wp_sd4
+b_NB413;"NB413" s_wp_sd4
+b_NB413_ELK;"NB413" s_wp_elkl
+b_NB414;"NB414" s_wp_sd4
+b_NB415;"NB415" s_wp_sd4
+b_NB415_ELK;"NB415" s_wp_elkl
+b_NB416;"NB416" s_wp_sd4
+b_NB417;"NB417" s_wp_sd4
+b_NB417_ELK;"NB417" s_wp_elkl
+b_NB418;"NB418" s_wp_sd4
+b_NB419;"NB419" s_wp_sd4
+b_NB419_ELK;"NB419" s_wp_elkl
+b_NB420;"NB420" s_wp_sd4
+b_NB420_ELK;"NB420" s_wp_elkl
+b_NB421;"NB421" s_wp_sd4
+b_NB421_ELK;"NB421" s_wp_elkl
+b_NB422;"NB422" s_wp_sd4
+b_NB422_ELK;"NB422" s_wp_elkl
+b_NB501;"NB501" s_wp_sd5
+b_NB502;"NB502" s_wp_sd5
+b_NOT_TYPG;b_TYPG_QA600 b_TYPG_QA800 || b_TYPG_RU600 || b_TYPG_RU800 || !
+b_PAV0;"PAV0" s_wp_panvor
+b_PAV3;"PAV3" s_wp_panvor
+b_PAV4;"PAV4" s_wp_panvor
+b_pb_1499;${B1__TI:-""} 1499 >
+b_pb_1799;${B1__TI:-""} 1799 >
+b_pb_1999;${B1__TI:-""} 1999 >
+b_pb_2399;${B1__TI:-""} 2399 >
+b_pb_max1800;${B1__TI:-""} 1801 <
+b_pb1000;1000 s_wp_plabre
+b_pb1200;1200 s_wp_plabre
+b_pb1400;1400 s_wp_plabre
+b_pb1600;1600 s_wp_plabre
+b_pb1800;1800 s_wp_plabre
+b_pb2000;2000 s_wp_plabre
+b_pb2100;2100 s_wp_plabre
+b_pb2200;2200 s_wp_plabre
+b_pb2400;2400 s_wp_plabre
+b_pb2800;2800 s_wp_plabre
+b_PB301;"PB301" s_wp_sdpb
+b_PB302;"PB302" s_wp_sdpb
+b_pb3200;3200 s_wp_plabre
+b_pb3600;3600 s_wp_plabre
+b_pb4000;4000 s_wp_plabre
+b_PB501;"PB501" s_wp_sdpb
+b_PB502;"PB502" s_wp_sdpb
+b_PB601;"PB601" s_wp_sdpb
+b_pb800;800 s_wp_plabre
+b_PB801;"PB801" s_wp_sdpb
+b_PB901;"PB901" s_wp_sdpb
+b_PB902;"PB902" s_wp_sdpb
+b_Platte0002;${T1__TI:-1000.0} 1000.0 <=
+b_PlatteDB702;${T1__TI:-1000.0} 1480.0 ==
+b_PlatteDB802;${T1__TI:-1000.0} 1680.0 ==
+b_PlatteDB902;${T1__TI:-1000.0} 1880.0 ==
+b_posASF_0;"POS0" s_wp_posASF
+b_posASF_L;"LI" s_wp_posASF
+b_posASF_LM;"LI_MI" s_wp_posASF
+b_posASF_LMR;"LI_MI_RE" s_wp_posASF
+b_posASF_LR;"LI_RE" s_wp_posASF
+b_posASF_M;"MI" s_wp_posASF
+b_posASF_MR;"MI_RE" s_wp_posASF
+b_posASF_R;"RE" s_wp_posASF
+b_posASFH_0;"POS0" s_wp_posASFH
+b_posASFH_L;"LI" s_wp_posASFH
+b_posASFH_LM;"LI_MI" s_wp_posASFH
+b_posASFH_LMR;"LI_MI_RE" s_wp_posASFH
+b_posASFH_LR;"LI_RE" s_wp_posASFH
+b_posASFH_M;"MI" s_wp_posASFH
+b_posASFH_MR;"MI_RE" s_wp_posASFH
+b_posASFH_R;"RE" s_wp_posASFH
+b_posASFHL_0;"POS0" s_wp_posASFHL
+b_posASFHL_L;"LI" s_wp_posASFHL
+b_posASFHL_LM;"LI_MI" s_wp_posASFHL
+b_posASFHL_LMR;"LI_MI_RE" s_wp_posASFHL
+b_posASFHL_LR;"LI_RE" s_wp_posASFHL
+b_posASFHL_M;"MI" s_wp_posASFHL
+b_posASFHL_MR;"MI_RE" s_wp_posASFHL
+b_posASFHL_R;"RE" s_wp_posASFHL
+b_posASFHR_0;"POS0" s_wp_posASFHR
+b_posASFHR_L;"LI" s_wp_posASFHR
+b_posASFHR_LM;"LI_MI" s_wp_posASFHR
+b_posASFHR_LMR;"LI_MI_RE" s_wp_posASFHR
+b_posASFHR_LR;"LI_RE" s_wp_posASFHR
+b_posASFHR_M;"MI" s_wp_posASFHR
+b_posASFHR_MR;"MI_RE" s_wp_posASFHR
+b_posASFHR_R;"RE" s_wp_posASFHR
+b_ps13;"_13MM" s_wp_plasta
+b_ps19;"_19MM" s_wp_plasta
+b_ps25;"_25MM" s_wp_plasta
+b_pt_1399;${T1__TI:-""} 1399 >
+b_pt_799;${T1__TI:-""} 799 >
+b_pt_u1400;${T1__TI:-""} 1400 <
+b_pt1002;1000 s_wp_platie
+b_pt1200;1200 s_wp_platie
+b_pt1400;1400 s_wp_platie
+b_pt1480;1480 s_wp_platie
+b_pt1600;1600 s_wp_platie
+b_pt1680;1680 s_wp_platie
+b_pt1880;1880 s_wp_platie
+b_pt602;600 s_wp_platie
+b_pt702;700 s_wp_platie 1480 s_wp_platie ||
+b_pt802;800 s_wp_platie 1680 s_wp_platie ||
+b_pt902;900 s_wp_platie 1880 s_wp_platie ||
+b_R40;"PRD2" s_wp_eckgeo "PK1" s_wp_kantgeo &&
+b_R40_AR;"PRD2" s_wp_eckgeo
+b_R40_BE;"PRD3" s_wp_eckgeo "PK1" s_wp_kantgeo &&
+b_rb0800;800 s_wp_rwbre
+b_rb1000;1000 s_wp_rwbre
+b_rb1200;1200 s_wp_rwbre
+b_rb1400;1400 s_wp_rwbre
+b_rb1600;1600 s_wp_rwbre
+b_rb1800;1800 s_wp_rwbre
+b_rb2000;2000 s_wp_rwbre
+b_Rolle;"RL1" s_wp_rollen
+b_RolleX;"RL0" s_wp_rollen "" s_wp_rollen ||
+b_RolleXLift;b_TYPU_Q7ROL b_TYPU_Q8ROL || b_TYPU_Q7ROL600 || b_TYPU_Q8ROL600 || !
+b_rwbefaKo;"RBF1" s_wp_rwbefan
+b_rwbefaTi;"RBF2" s_wp_rwbefan
+b_rwbefaTmW;"BF8" s_wp_befan
+b_rwbefaToW;"BF7" s_wp_befan
+b_schiebeplatte;"PL1" s_wp_schpla
+b_seule_L2;"L2" s_wp_gesdes
+b_seule_OT;"OT" s_wp_gesdes
+b_seule_T2;"T2" s_wp_gesdes
+b_SoMa;b_uebR b_uebL || b_uebM ||
+b_SoMaKu;b_krzR b_krzL ||
+b_STD;"PRD1" s_wp_eckgeo "PK1" s_wp_kantgeo &&
+b_STD_AR;"PRD1" s_wp_eckgeo
+b_STD_BTST;"PK1" s_wp_kantgeo
+b_SWA0;"SWA0" s_wp_swangeTN
+b_SWAB;"SWAB" s_wp_swangeTN
+b_SWAL;"SWAL" s_wp_swangeTN
+b_SWAR;"SWAR" s_wp_swangeTN
+b_szkrot;"ZK03" s_wp_szk "ZK07" s_wp_szk || "KK08" s_wp_skk || "KK10" s_wp_skk || "KK13" s_wp_skk || "KK15" s_wp_skk ||
+b_szkwis;"ZK05" s_wp_szk "ZK09" s_wp_szk ||
+b_t1400_0;0 s_wp_t1400
+b_t1400_1;1 s_wp_t1400
+b_TKL1_HL;b_A1_TKL1_HI b_ASFH_L1 &&
+b_TKL1_HL_L;b_A1_TKL1_HL b_ASFHL_L1 &&
+b_TKL1_HL_M;b_A1_TKL1_HL b_ASFHL_M1 && b_A2_TKL1_HL b_ASFHL_M2 && ||
+b_TKL1_HL_R;b_A1_TKL1_HL b_ASFHL_R1 && b_A2_TKL1_HL b_ASFHL_R2 && || b_A3_TKL1_HL ||
+b_TKL1_HM;b_A1_TKL1_HI b_ASFH_M1 && b_A2_TKL1_HI b_ASFH_M2 && ||
+b_TKL1_HR;b_A1_TKL1_HI b_ASFH_R1 && b_A2_TKL1_HI b_ASFH_R2 && || b_A3_TKL1_HI ||
+b_TKL1_HR_L;b_A1_TKL1_HR b_ASFHR_L1 &&
+b_TKL1_HR_M;b_A1_TKL1_HR b_ASFHR_M1 && b_A2_TKL1_HR b_ASFHR_M2 && ||
+b_TKL1_HR_R;b_A1_TKL1_HR b_ASFHR_R1 && b_A2_TKL1_HR b_ASFHR_R2 && || b_A3_TKL1_HR ||
+b_TKL1_L;b_A1_TKL1 b_ASF_L1 &&
+b_TKL1_M;b_A1_TKL1 b_ASF_M1 && b_A2_TKL1 b_ASF_M2 && ||
+b_TKL1_R;b_A1_TKL1 b_ASF_R1 && b_A2_TKL1 b_ASF_R2 && || b_A3_TKL1 ||
+b_TYPF_600;"FSD4" s_wp_fussdes
+b_TYPF_800;"FSD3" s_wp_fussdes
+b_TYPG_QA600;"FSD6" s_wp_fussdes
+b_TYPG_QA800;"FSD5" s_wp_fussdes
+b_TYPG_RU600;"FSD8" s_wp_fussdes
+b_TYPG_RU800;"FSD7" s_wp_fussdes
+b_TYPS_QA800;"FSD15" s_wp_fussdes
+b_TYPS_RU800;"FSD16" s_wp_fussdes
+b_TYPTL_600;"FSD22" s_wp_fussdes
+b_TYPTL_800;"FSD21" s_wp_fussdes
+b_TYPU_MSQ;"FSD17" s_wp_fussdes
+b_TYPU_MSR;"FSD18" s_wp_fussdes
+b_TYPU_Q680;"FSD12" s_wp_fussdes
+b_TYPU_Q7ROL;"FSD13" s_wp_fussdes
+b_TYPU_Q7ROL600;"FSD19" s_wp_fussdes
+b_TYPU_Q880;"FSD11" s_wp_fussdes
+b_TYPU_Q8ROL;"FSD14" s_wp_fussdes
+b_TYPU_Q8ROL600;"FSD20" s_wp_fussdes
+b_TYPU_QA600;"FSD2" s_wp_fussdes
+b_TYPU_QA800;"FSD1" s_wp_fussdes
+b_TYPU_RU600;"FSD9" s_wp_fussdes
+b_TYPU_RU800;"FSD10" s_wp_fussdes
+b_U15;"PK3" s_wp_kantgeo "PK4" s_wp_kantgeo || "PK2" s_wp_kantgeo || "PRD1" s_wp_eckgeo &&
+b_U15_BR;"PK2" s_wp_kantgeo
+b_U15_BTST;"PK2" s_wp_kantgeo
+b_U15R40;"PRD2" s_wp_eckgeo "PK3" s_wp_kantgeo "PK4" s_wp_kantgeo || "PK2" s_wp_kantgeo || &&
+b_U15R40_BE;"PRD3" s_wp_eckgeo "PK3" s_wp_kantgeo "PK4" s_wp_kantgeo || "PK2" s_wp_kantgeo || &&
+b_uebL;"UEBL" s_wp_uebRLM
+b_uebM;"UEBM" s_wp_uebRLM
+b_uebR;"UEBR" s_wp_uebRLM
+b_VT01;"VT01" s_wp_evert
+b_VT02;"VT02" s_wp_evert
+b_VT03;"VT03" s_wp_evert
+b_VT05;"VT05" s_wp_evert
+b_VT06;"VT06" s_wp_evert
+b_WCS4_HL;b_A1_WCS4_HI b_ASFH_L1 &&
+b_WCS4_HL_L;b_A1_WCS4_HL b_ASFHL_L1 &&
+b_WCS4_HL_M;b_A1_WCS4_HL b_ASFHL_M1 && b_A2_WCS4_HL b_ASFHL_M2 && ||
+b_WCS4_HL_R;b_A1_WCS4_HL b_ASFHL_R1 && b_A2_WCS4_HL b_ASFHL_R2 && || b_A3_WCS4_HL ||
+b_WCS4_HM;b_A1_WCS4_HI b_ASFH_M1 && b_A2_WCS4_HI b_ASFH_M2 && ||
+b_WCS4_HR;b_A1_WCS4_HI b_ASFH_R1 && b_A2_WCS4_HI b_ASFH_R2 && || b_A3_WCS4_HI ||
+b_WCS4_HR_L;b_A1_WCS4_HR b_ASFHR_L1 &&
+b_WCS4_HR_M;b_A1_WCS4_HR b_ASFHR_M1 && b_A2_WCS4_HR b_ASFHR_M2 && ||
+b_WCS4_HR_R;b_A1_WCS4_HR b_ASFHR_R1 && b_A2_WCS4_HR b_ASFHR_R2 && || b_A3_WCS4_HR ||
+b_WCS4_L;b_A1_WCS4 b_ASF_L1 &&
+b_WCS4_M;b_A1_WCS4 b_ASF_M1 && b_A2_WCS4 b_ASF_M2 && ||
+b_WCS4_R;b_A1_WCS4 b_ASF_R1 && b_A2_WCS4 b_ASF_R2 && || b_A3_WCS4 ||
+b_WPBEE;"WPAPTBEE" s_wp_tischtyp
+b_WPBEF;"WPAPTBEF" s_wp_tischtyp
+b_WPBTB;"WPBTB" s_wp_tischtyp
+b_WPBTN;"WPBTN" s_wp_tischtyp
+b_WPBTO;"WPBTO" s_wp_tischtyp
+b_WPDB;"WPAPTDB" s_wp_tischtyp
+b_WPST;"WPKTS" s_wp_tischtyp
+b_WPTFR;"WPAPTFR" s_wp_tischtyp
+b_WPTN;"WPAPTN" s_wp_tischtyp
+b_WPTRA;"WPAPTRA" s_wp_tischtyp
+b_x_AR;"WP_Return" s_x_variant
+b_x_aussen;"WP_Outside" s_x_rot180
+b_x_BE;"WP_ConsultCorn" s_x_variant
+b_x_BF;"WP_ConsultFree" s_x_variant
+b_x_BTB;"WP_MeetBoat" s_x_variant
+b_x_BTO;"WP_MeetOval" s_x_variant
+b_x_BTR;"WP_MeetNorm" s_x_variant
+b_x_DB;"WP_DoubleBench" s_x_variant
+b_x_innen;"WP_Inside" s_x_rot180
+b_x_kw105;"KW19" s_x_kabwan "KW20" s_x_kabwan || "KW21" s_x_kabwan ||
+b_x_kw72;"KW18" s_x_kabwan
+b_x_left;"WP_Left" s_x_leftright
+b_x_MONO;"WP_DoubleBench" s_x_variant
+b_x_platte;"KW0" s_x_kabwan
+b_x_right;"WP_Right" s_x_leftright
+b_x_rolle0;"RL0" s_x_rolle
+b_x_rolle1;"RL1" s_x_rolle
+b_x_ST;"WP_Nesting" s_x_variant
+b_x_TNF;"WP_DeskFree" s_x_variant
+b_x_TNR;"WP_DeskStand" s_x_variant
+b_x_varmono;"WP_Mono" s_x_kkmono
+b_x_y0;"WP_Align_0" s_x_rot180
+b_x_y180;"WP_Align_180" s_x_rot180
+b_zplUeb;"WP" s_wp_zplUeb
+f_add_anbretBT;b_anbret_T1480 0.0 * b_anbret_T1680 0.05 * + b_anbret_T1880 0.1 * +
+f_add_anbretTT;b_anbret_T800 0.0 * b_anbret_T900 0.05 * + b_anbret_T1000 0.1 * +
+f_banchTie;${T1__TI:-1000.0} 1000.0 /
+f_buerLae;1.326 f_platBre 0.874 - -
+f_kbucht;f_platBre 1.1015 -
+f_kwabdLae_DB;b_pb1200 0.5085 * b_pb1400 0.6085 * + b_pb1600 0.7085 * + b_pb1800 0.8085 * + b_pb2000 0.9085 * + b_gestein1 0.045 * -
+f_kwkor_zu;b_pb1800 0.300 * b_pb2000 0.350 * +
+f_platBre;${B1__TI:-1000.0} 1000.0 /
+f_platSoMa;${SONDERMASS:-1000.0} 1000.0 /
+f_platSoMaKu;${SONDERMASS__KURZ:-1000.0} 1000.0 /
+f_platSta;${PLATTENSTAERKE:-""} 1 2 substr float 1000.0 /
+f_platTie;${T1__TI:-1000.0} 1000.0 / b_Platte0002 0.002 * + b_PlatteDB702 0.778 * b_PlatteDB802 0.878 * + b_PlatteDB902 0.978 * + -
+f_platUeb;${SB1__WP:-1000.0} 1000.0 /
+f_platUebx1;f_platUeb f_platBre -
+f_platVX;f_platBre b_SoMa f_platSoMa * + b_SoMaKu f_platSoMaKu neg * + b_zplUeb f_platUebx1 * +
+f_platVZ;f_platTie
+f_rwBre;${B1__RW:-1000.0} 1000.0 /
+f_travAbs1;f_travLae1 0.02 - 2 /
+f_travLae;f_platBre b_gestein0 0.028 * b_gestein1 0.118 * + -
+f_travLae_AR;f_platBre b_gestein0 0.3155 * b_gestein1 0.2705 * + +
+f_travLae_ST;f_platBre b_gestein0 0.028 * b_gestein1 0.118 * + b_pb1800 0.200 * + b_pb2000 0.400 * + -
+f_travLae1;f_platBre b_gestein0 0.200 * b_gestein1 0.290 * + -
+f_xlae_meLift;f_platBre 0.167 - b_gestein1 0.090 neg * +
+f_xpos_ahv_AT;b_AHV1 0.003 * b_AHV2 0.025 * +
+f_xpos_ASF_BT;b_pb1200 0.23 * b_pb1400 0.23 * + b_pb1600 0.33 * + b_pb1800 0.43 * + b_pb2000 0.23 * + b_pb2200 0.33 * + b_pb2400 0.43 * +
+f_xpos_ASF_BTfr;b_pb1800 0.13 * b_pb2000 0.23 * + b_pb2400 0.43 * + b_pb2100 0.23 * +
+f_xpos_ASF_BTpb14;b_pb2200 0.53 * b_pb2400 0.63 * + b_pb2800 0.73 * +
+f_xpos_ASF_ST;b_pb1000 0.13 * b_pb1200 0.23 * + b_pb1400 0.33 * + b_pb1600 0.43 * + b_pb1800 0.43 * + b_pb2000 0.43 * +
+f_xpos_ASF_TN;b_pb1000 0.13 * b_pb1200 0.23 * + b_pb1400 0.33 * + b_pb1600 0.43 * + b_pb1800 0.23 * + b_pb2000 0.33 * +
+f_xpos_ASF1820;b_pb1800 0.2975 * b_pb2000 0.3475 * +
+f_xpos_befzyl;b_gestein0 0.150 * b_gestein1 0.240 * + 2 /
+f_xpos_befzylhw;b_gestein0 0.079 * b_gestein1 0.169 * + 2 /
+f_xpos_gestBesp;b_pb_1999 0.3 * b_HBBO b_pb_max1800 && 0.1 * +
+f_xpos_gestell;b_gestein0 0.000 * b_gestein1 0.044 * +
+f_xpos_gestell_ST;b_gestein0 0.000 * b_gestein1 0.044 * + b_pb1800 0.100 * + b_pb2000 0.200 * +
+f_xpos_kBverk;b_pb3200 0.19 * b_pb3600 0.49 * + b_pb4000 0.59 * +
+f_xpos_konsta;0.305 b_pb1800 0.1 * + b_pb2000 0.2 * +
+f_xpos_kwaufh;b_pb1000 0.149 * b_pb1200 0.249 * + b_pb1400 0.349 * + b_pb1600 0.449 * + b_pb1800 0.549 * + b_pb2000 0.649 * + 0.0026 +
+f_xpos_kwaufh_AR;b_pb800 0.149 * b_pb1000 0.249 * + b_pb1200 0.349 * + 0.0026 +
+f_xpos_kwaufh_ST;b_pb1000 0.149 * b_pb1200 0.249 * + b_pb1400 0.349 * + b_pb1600 0.449 * + b_pb1800 0.449 * + b_pb2000 0.449 * + 0.0026 +
+f_xpos_kwaufhBT;b_pb1200 0.199 * b_pb1400 0.249 * + b_pb1600 0.349 * + b_pb1800 0.449 * + b_pb2000 0.249 * + b_pb2200 0.349 * + b_pb2400 0.449 * + 0.0026 +
+f_xpos_kwaufhBT14;b_pb2200 0.549 * b_pb2400 0.649 * + b_pb2800 0.749 * + 0.0026 +
+f_xpos_kwaufhBTF;b_pb1800 0.199 * b_pb2000 0.249 * + b_pb2400 0.449 * + b_pb2100 0.249 * + 0.0026 +
+f_xpos_kwaufhBTV4;b_pb1800 0.449 * b_pb2000 0.549 * + b_pb1600 0.349 * + 0.0026 +
+f_xpos_kwaufhBTVN;b_pb1800 0.199 * b_pb2000 0.249 * + b_pb1600 0.199 * + 0.0026 +
+f_xpos_kwbesch;b_pb1000 0.149 * b_pb1200 0.249 * + b_pb1400 0.349 * + b_pb1600 0.449 * + b_pb1800 0.549 * + b_pb2000 0.649 * + 0.0185 +
+f_xpos_kwbesch_AR;b_pb800 0.149 * b_pb1000 0.249 * + b_pb1200 0.349 * + 0.0185 +
+f_xpos_kwbesch_ST;b_pb1000 0.149 * b_pb1200 0.249 * + b_pb1400 0.349 * + b_pb1600 0.449 * + b_pb1800 0.449 * + b_pb2000 0.449 * + 0.0185 +
+f_xpos_kwbeschBT;b_pb1200 0.199 * b_pb1400 0.249 * + b_pb1600 0.349 * + b_pb1800 0.449 * + b_pb2000 0.249 * + b_pb2200 0.349 * + b_pb2400 0.449 * + 0.0185 +
+f_xpos_kwbeschBT14;b_pb2200 0.549 * b_pb2400 0.649 * + b_pb2800 0.749 * + 0.0185 +
+f_xpos_kwbeschBTF;b_pb1800 0.199 * b_pb2000 0.249 * + b_pb2400 0.449 * + b_pb2100 0.249 * + 0.0185 +
+f_xpos_kwbeschBTV4;b_pb1800 0.449 * b_pb2000 0.549 * + b_pb1600 0.349 * + 0.0185 +
+f_xpos_kwbeschBTVN;b_pb1800 0.199 * b_pb2000 0.249 * + b_pb1600 0.199 * + 0.0185 +
+f_xpos_kwBRF;b_bs_links 1.197 * b_bs_rechts 1.2415 * +
+f_xpos_kwget;b_pb1800 0.503 * b_pb2000 0.603 * + 0.092 +
+f_xpos_ovaleing;b_pb2100 0.05 *
+f_xpos_platraBR;b_bs_links 1.1886 * b_bs_rechts 0.991 * +
+f_xpos_platvar;b_uebL f_platSoMa * b_uebM f_platSoMa 2 / * + b_krzL f_platSoMaKu neg * + b_zplUeb f_platUebx1 2 / * +
+f_xpos_plraRAU;b_ATK1 0.0175 neg * b_ATK2 0.0175 * +
+f_xpos_schplbe;f_platBre 2 / b_pb_1799 0.122 * -
+f_xpos_travabd;b_gestein0 0.028 * b_gestein1 0.118 * + 2 /
+f_xpos_travabd_ST;b_gestein0 0.028 * b_gestein1 0.118 * + 2 / b_pb1800 0.100 * + b_pb2000 0.200 * +
+f_xpos_travabdAR;0.3155 2 / b_gestein0 0.028 * b_gestein1 0.073 * + 2 / +
+f_xpos_travAR;0.3155 f_add_anbretTT + 2 / b_gestein0 0.028 * b_gestein1 0.073 * + 2 / +
+f_xrot_dyTisch;b_U15 15 neg * b_U15R40 15 neg * +
+f_xsub_ST_lae;b_pb1800 0.100 * b_pb2000 0.200 * +
+f_xver_ASF21L;b_ASF21_L b_ASF21_HL || b_ASF21_HL_L || b_ASF21_HR_L || 0.1195 *
+f_xver_ASF21R;b_ASF21_R b_ASF21_HR || b_ASF21_HL_R || b_ASF21_HR_R || 0.1195 *
+f_xver_TKL1L;b_TKL1_L b_TKL1_HL || b_TKL1_HL_L || b_TKL1_HR_L || 0.2625 *
+f_xver_TKL1R;b_TKL1_R b_TKL1_HR || b_TKL1_HL_R || b_TKL1_HR_R || 0.2625 *
+f_yadd_dyTisch;b_U15 b_U15R40 || b_dy4fach && 0.001 * b_U15 b_U15R40 || b_dyaufab && 0.003 * +
+f_yadd_mospt;b_pt702 0.071 * b_pt602 0.051 * +
+f_yadd_rolle;b_Rolle b_hoever_L7 ! && 0.075 * b_Rolle b_hoever_L7 && b_AFUSS ! && 0.0125 neg * + b_Rolle b_hoever_L7 && b_AFUSS && 0.075 * + b_Rolle b_TYPU_Q7ROL && b_hoever_L7 ! && 0.075 neg * +
+f_ymax_hv;b_hoever_L8_TN 0.5 * b_hoever_L7 b_NOT_TYPG && 0.47 * + b_hoever_L7 b_NOT_TYPG ! && 0.492 * + b_hoever_HE 0.1 * + b_hoever_MO 0.55 * + b_hoever_FX 0 * +
+f_ymax_hvapt;b_Rolle f_ymax_hvmR * b_RolleX f_ymax_hv * +
+f_ymax_hvmR;b_hoever_L8_ST 0.5035 * b_hoever_L8_TN 0.575 * + b_hoever_L7 b_AFUSS ! && 0.4775 * + b_hoever_L7 b_AFUSS && 0.47 * + b_hoever_HE 0.175 * + b_hoever_MO 0.625 * + b_hoever_FX 0 * +
+f_ymin_hv;b_hoever_L8_TN 0.1 neg * b_hoever_L7 b_NOT_TYPG && 0.03 neg * + b_hoever_L7 b_NOT_TYPG ! && 0.008 neg * + b_hoever_HE 0.1 neg * + b_hoever_MO 0.11 neg * + b_hoever_FX 0 * +
+f_ymin_hvapt;b_Rolle f_ymin_hvmR * b_RolleX f_ymin_hv * +
+f_ymin_hvmR;b_hoever_L8_ST 0.0965 neg * b_hoever_L8_TN 0.025 neg * + b_hoever_L7 b_AFUSS ! && 0.0225 neg * + b_hoever_L7 b_AFUSS && 0.03 neg * + b_hoever_HE 0.025 neg * + b_hoever_MO 0.035 neg * + b_hoever_FX 0 * +
+f_ypos_jochBsp;b_hoever_FX 0.600 * b_hoever_FX1060 0.910 * + b_hoever_MO 0.484 * +
+f_ypos_platte;0.725 b_hoever_FX1060 0.310 * +
+f_yrot_gestBR;b_bs_links 4 * b_bs_rechts 4 neg * +
+f_ysub_korLif7;b_Rolle b_hoever_L7 && b_AFUSS && 0.075 * b_hoever_L7 b_AFUSS && 0.018 * + b_hoever_L7 b_NOT_TYPG && b_RolleX && b_AFUSS ! && 0.018 * + b_TYPU_Q8ROL 0.0715 * + b_TYPU_Q8ROL600 0.0715 * +
+f_ysub_ST;b_x_ST 0.004 *
+f_zmax_platte;b_schiebeplatte 0.178 b_pt1002 0.025 * - *
+f_zpos_alglift;f_platTie b_U15 b_U15R40 || 0.050 * -
+f_zpos_algliftBR;b_U15_BR 0.050 neg *
+f_zpos_algliftFR;f_platTie b_U15 b_U15R40 || 0.05 * - b_pb2000 0.025 * +
+f_zpos_anbRam;b_ANB_TN 0.401 f_add_anbretTT + * b_ANB_DB 0.351 f_add_anbretBT + * +
+f_zpos_anbVPL;b_ANB_TN 0.296 f_add_anbretTT + * b_ANB_DB 0.246 f_add_anbretBT + * +
+f_zpos_anda_AT;b_ANB_TN b_PAV0 0.0125 * b_PAV3 0.0575 * + b_PAV4 0.0775 * + * b_ANB_DB b_PAV3 0.038 * b_PAV4 0.053 * + * +
+f_zpos_Dbvorn;${T1__TI:-1000.0} 1000.0 / b_Platte0002 0.002 * + b_PlatteDB702 0.702 * b_PlatteDB802 0.802 * + b_PlatteDB902 0.902 * + -
+f_zpos_dyBesp;f_platTie b_dyaufab 0.041 * b_dy4fach 0.047 * + -
+f_zpos_dyTisch;f_platTie b_dyaufab 0.041 * b_dy4fach 0.047 * + -
+f_zpos_konabdBsp;b_pt602 0.2256 * b_pt702 0.2256 * + b_pt802 0.3256 * + b_pt1002 0.4256 * + b_pt1200 0.4256 * +
+f_zpos_konsabdV;f_platTie 0.125 -
+f_zpos_rolle;b_TYPG_QA600 0.240 * b_TYPG_QA800 0.340 * + b_TYPS_QA800 0.340 * + b_TYPG_RU600 0.240 * + b_TYPG_RU800 0.340 * + b_TYPS_RU800 0.340 * + b_TYPF_600 0.230 * + b_TYPF_800 0.330 * + b_TYPU_QA600 0.230 * + b_TYPU_QA800 0.330 * + b_TYPU_Q880 0.330 * + b_TYPU_Q680 0.230 * + b_TYPU_RU600 0.230 * + b_TYPU_RU800 0.330 * + b_AFUSS_QS 0.366 * + b_AFUSS_RS 0.357 * + b_TYPTL_800 0.350 * + b_TYPTL_600 0.250 * +
+f_zpos_seitBRL;b_bs_links 0.5185 * b_bs_rechts 0.4115 * +
+f_zpos_seitBRR;b_bs_links 0.4115 * b_bs_rechts 0.5235 * +
+f_zpos_spl10;b_pt1002 0.025 *
+f_zpos_verbBesp;0.110 b_pt1200 0.1 * +
+f_zrot_dyTisch;b_U15 6 neg * b_U15R40 6 neg * +
+f_zsub_algliftMS;b_U15 b_U15R40 || b_U15R40_BE || 0.020 *
+map_front;1 argc ", auto xyx z, rotate 0 0 " $0 string +
+map_Kante;${F6:-""} "KM" == 90 map_uml_Multi 0 map_umlauf_kante s_iif
+map_Kern;${KT__GEO:-""} "PK1" == 90 map_umlauf_kante s_if
+map_side;1 argc ", auto yzz xz, rotate 0 0 " $0 string +
+map_top;1 argc ", auto xzx yz, rotate 0 0 " $0 string +
+map_uml_Multi;1 argc ", prjz, rotate 0 0 " $0 string +
+map_umlauf_front;1 argc ", auto yyz , rotate 0 0 " $0 string +
+map_umlauf_kante;1 argc ", auto yyx , rotate 0 0 " $0 string +
+mat_Adapt;${F2:-""} "WI" == "::kn::basics::WI" ${F2:-""} "AL" == "::kn::basics::AL" ${F2:-""} "KH" == "::kn::basics::AL" mat_prefix ${F12:-"VOID"} "KS" s_void2def s_unscope + s_iif s_iif s_iif
+mat_F1;mat_prefix ${F1:-""} s_unscope +
+mat_F11;mat_prefix ${F11:-"VOID"} ${F2:-""} s_void2def s_unscope +
+mat_F123;mat_prefix ${F123:-""} s_unscope +
+mat_F127;mat_prefix ${F127:-"VOID"} ${F2:-""} s_void2def s_unscope +
+mat_F180;mat_prefix ${F180:-""} s_unscope +
+mat_F2;mat_prefix ${F2:-""} s_unscope +
+mat_F20;mat_prefix ${F20:-""} s_unscope +
+mat_F213;mat_prefix ${F213:-""} s_unscope +
+mat_F214;mat_prefix ${F214:-""} s_unscope +
+mat_F216;mat_prefix ${F216:-""} s_unscope +
+mat_F35;mat_prefix ${F35:-""} s_unscope +
+mat_F4;mat_prefix ${F4:-""} s_unscope +
+mat_F53;mat_prefix ${F53:-""} s_unscope +
+mat_F6;mat_prefix ${F6:-"VOID"} ${F1:-""} s_void2def s_unscope +
+mat_F7;mat_prefix ${F7:-""} s_unscope +
+mat_F8;mat_prefix ${F8:-""} s_unscope +
+mat_F90;mat_prefix ${F90:-""} s_unscope +
+mat_F93;mat_prefix ${F93:-"VOID"} "4655" s_void2def s_unscope +
+mat_FBH;${F8:-""} "KS" == "::kn::basics::KS" "::kn::basics::AP" s_iif
+mat_Kgestell;${F2:-""} "WI" == "::kn::basics::WI" ${F2:-""} "AL" == "::kn::basics::AL" ${F2:-""} "KH" == "::kn::basics::AL" "::kn::basics::KS" s_iif s_iif s_iif
+mat_Kplatte;${F1:-""} "WI" == "::kn::basics::WI" ${F1:-""} "AL" == "::kn::basics::AL" "::kn::basics::KS" s_iif s_iif
+mat_KSKK;${F7:-""} "_1662" == "::kn::basics::KS" ${F7:-""} "_1664" == "::kn::basics::WI" s_if s_iif
+mat_KW;${F2:-""} "GC" == "::kn::basics::KS" mat_prefix ${F2:-"VOID"} ${F35:-""} s_void2def s_unscope + s_iif
+mat_KWBS;${F35:-"VOID"} ${F2:-""} s_void2def "WI" == "::kn::basics::WI" "::kn::basics::KS" s_iif
+mat_NB4TK;${ELEKTRO__KLAPPE:-""} "NB407" == "::kn::basics::AHMROT" "::kn::basics::AHMSW" s_iif
+mat_pa11;${F11:-""} "GC" == "::kn::basics::GC" ${F11:-""} "WI" == "::kn::basics::WI" ${F11:-""} "AL" == "::kn::basics::AL" ${F11:-""} "KH" == "::kn::basics::AL" "::kn::basics::KS" s_iif s_iif s_iif s_iif
+mat_pa2;${F2:-""} "GC" == "::kn::basics::GC" ${F2:-""} "WI" == "::kn::basics::WI" ${F2:-""} "AL" == "::kn::basics::AL" ${F2:-""} "KH" == "::kn::basics::AL" "::kn::basics::KS" s_iif s_iif s_iif s_iif
+mat_plkern;${KT__GEO:-""} "PK1" == "::kn::basics::SPAN" "::kn::basics::MDFK" s_iif
+mat_plra;${F2:-""} "GC" == "::kn::basics::KS" mat_prefix ${F2:-""} s_unscope + s_iif
+mat_plraAbd;${F11:-""} "" == mat_pa2 mat_pa11 s_iif
+mat_prefix;"::kn::basics::"
+mat_rolladL;${F11:-""} "PK" == "::kn::basics::KS" mat_F11 s_iif
+mat_rollMS;${F11:-""} "WI" == "::kn::basics::WI" "::kn::basics::KS" s_iif
+mat_seulad;${F2:-""} "PK" == "::kn::basics::KS" mat_prefix ${F2:-""} s_unscope + s_iif
+mat_SKM;b_szkwis "::kn::basics::AHMWS" b_szkrot "::kn::basics::AHMROT" "::kn::basics::AHMSW" s_iif s_iif
+mat_TZBlech;mat_prefix ${F2:-"VOID"} ${F8:-""} s_void2def s_unscope +
+s_if;2 argc $1 0 $0 0 != $1 size * substr
+s_iif;3 argc $1 0 $0 0 != $1 size * substr $2 0 $0 0 == $2 size * substr +
+s_unscope;1 argc $0 0 $0 0 1 $0 size 0 > * substr "_" == + $0 size substr
+s_void2def;2 argc $0 0 $0 "VOID" != $0 size * substr $1 0 $0 "VOID" == $1 size * substr +
+s_wp_adaaus;1 argc ${AD__AUSSCHNITT:-""} $0 ==
+s_wp_adapos;1 argc ${POS__AD__AUSSCHNITT:-""} $0 ==
+s_wp_adpos;1 argc ${POS__ADAPTER:-""} $0 ==
+s_wp_ANB;1 argc ${ANB:-""} $0 ==
+s_wp_anbahv;1 argc ${ANB__HV:-""} $0 ==
+s_wp_anbret;1 argc ${ANBAU__RETURN:-""} $0 ==
+s_wp_anbrettie;1 argc ${ANB__TI__RETURN:-""} $0 ==
+s_wp_befan;1 argc ${BEF__AN:-""} $0 ==
+s_wp_berasei;1 argc ${BESPR__SEITE:-""} $0 ==
+s_wp_box_eboden;1 argc ${E__BODEN:-""} $0 ==
+s_wp_boxAuf;1 argc ${AUFLAGE:-""} $0 ==
+s_wp_boxBef;1 argc ${BOX__BEF__AN:-""} $0 ==
+s_wp_boxGest;1 argc ${GESTELL:-""} $0 ==
+s_wp_boxkyst;1 argc ${E__BEST__KEYST:-""} $0 ==
+s_wp_boxOrg;1 argc ${ORGANISATION:-""} $0 ==
+s_wp_boxschl;1 argc ${SCHLIESSUNG:-""} $0 ==
+s_wp_display;1 argc ${DISPLAY:-""} $0 ==
+s_wp_eckgeo;1 argc ${ECK__GEO:-""} $0 ==
+s_wp_elkl;1 argc ${ELEKTRO__KLAPPE:-""} $0 ==
+s_wp_evert;1 argc ${VERTEILER__1:-""} $0 ==
+s_wp_fbhKLA;1 argc ${KLEMMADAPTER:-""} $0 ==
+s_wp_fussdes;1 argc ${FUSS__DESIGN:-""} $0 ==
+s_wp_gesafuss;1 argc ${GST__COVER:-""} $0 ==
+s_wp_gesdes;1 argc ${GST__DESIGN:-""} $0 ==
+s_wp_gesein;1 argc ${GST__EINGER:-""} $0 ==
+s_wp_griffled;1 argc ${GRIFFSCHLAUFE:-""} $0 ==
+s_wp_hoever;1 argc ${H__VERSTELL:-""} $0 ==
+s_wp_kabbuc;1 argc ${KABELFUEHRUNG:-""} $0 ==
+s_wp_kabklam;1 argc ${KABELKLAMMER:-""} $0 ==
+s_wp_kabwan;1 argc ${KABELWANNE:-""} $0 ==
+s_wp_kabwanBe;1 argc ${KABELWANNE__BENCH:-""} $0 ==
+s_wp_kantgeo;1 argc ${KT__GEO:-"VOID"} $0 ==
+s_wp_klapmo;1 argc ${KLAPPFKT__PL:-""} $0 ==
+s_wp_message;1 argc ${MESSAGE__ONE:-""} $0 ==
+s_wp_panvor;1 argc ${PANEELVORBEREITUNG:-""} $0 ==
+s_wp_plabre;1 argc ${B1__TI:-""} $0 ==
+s_wp_plasta;1 argc ${PLATTENSTAERKE:-""} $0 ==
+s_wp_platie;1 argc ${T1__TI:-""} $0 ==
+s_wp_posASF;1 argc ${POS__AUSFRAESUNG:-""} $0 ==
+s_wp_posASFAH;1 argc ${AUSFRAESUNG__AUSSEN__HI:-""} $0 ==
+s_wp_posASFH;1 argc ${POS__AUSFRAESUNG__HI:-""} $0 ==
+s_wp_posASFHL;1 argc ${POS__AUSFRAESUNG__HL:-""} $0 ==
+s_wp_posASFHR;1 argc ${POS__AUSFRAESUNG__HR:-""} $0 ==
+s_wp_regdes;1 argc ${ABR__DESIGN:-""} $0 ==
+s_wp_rollen;1 argc ${ROLLEN__B4:-""} $0 ==
+s_wp_rwbefan;1 argc ${RW__BEF__AN:-""} $0 ==
+s_wp_rwbre;1 argc ${B1__RW:-""} $0 ==
+s_wp_schpla;1 argc ${SCHIEBEPLATTE:-""} $0 ==
+s_wp_schubk;1 argc ${SCHUBLADE:-""} $0 ==
+s_wp_sd2;1 argc ${BESTUECKUNG__1__2FACH:-""} $0 ==
+s_wp_sd3;1 argc ${BESTUECKUNG__1__3FACH:-""} $0 ==
+s_wp_sd4;1 argc ${BESTUECKUNG__1__4FACH:-""} $0 ==
+s_wp_sd5;1 argc ${BESTUECKUNG__1__5FACH:-""} $0 ==
+s_wp_sdpb;1 argc ${BESTUECKUNG__1__PROFB:-""} $0 ==
+s_wp_skk;1 argc ${KUPPLUNGSKABEL__1:-""} $0 ==
+s_wp_swangeTN;1 argc ${SEITENWANGE:-""} $0 ==
+s_wp_szk;1 argc ${ZUFUEHRKABEL__1:-""} $0 ==
+s_wp_t1400;1 argc ${T1400:-""} $0 ==
+s_wp_tischtyp;1 argc ${TISCHTYP__WP:-""} $0 ==
+s_wp_typ1ASF;1 argc ${TYP__AUSFRAESUNG1:-""} $0 ==
+s_wp_typ1ASFH;1 argc ${TYP__AUSFRAESUNG1__HI:-""} $0 ==
+s_wp_typ1ASFHL;1 argc ${TYP__AUSFRAESUNG1__HL:-""} $0 ==
+s_wp_typ1ASFHR;1 argc ${TYP__AUSFRAESUNG1__HR:-""} $0 ==
+s_wp_typ2ASF;1 argc ${TYP__AUSFRAESUNG2:-""} $0 ==
+s_wp_typ2ASFH;1 argc ${TYP__AUSFRAESUNG2__HI:-""} $0 ==
+s_wp_typ2ASFHL;1 argc ${TYP__AUSFRAESUNG2__HL:-""} $0 ==
+s_wp_typ2ASFHR;1 argc ${TYP__AUSFRAESUNG2__HR:-""} $0 ==
+s_wp_typ3ASF;1 argc ${TYP__AUSFRAESUNG3:-""} $0 ==
+s_wp_typ3ASFH;1 argc ${TYP__AUSFRAESUNG3__HI:-""} $0 ==
+s_wp_typ3ASFHL;1 argc ${TYP__AUSFRAESUNG3__HL:-""} $0 ==
+s_wp_typ3ASFHR;1 argc ${TYP__AUSFRAESUNG3__HR:-""} $0 ==
+s_wp_typabs;1 argc ${TYP__ABH:-""} $0 ==
+s_wp_typLASFAH;1 argc ${TYP__AUSFR__AULI__HI:-""} $0 ==
+s_wp_typRASFAH;1 argc ${TYP__AUSFR__AURE__HI:-""} $0 ==
+s_wp_uebRLM;1 argc ${PL__UEBERSTAND__ST:-""} $0 ==
+s_wp_zplUeb;1 argc ${TMODELL:-""} $0 ==
+s_x_kabwan;1 argc ${GWP_ParentDeskKabelwanne:-""} $0 ==
+s_x_kkmono;1 argc ${GWP_ParentVariant:-""} $0 ==
+s_x_leftright;1 argc ${GWP_AlignFront:-""} $0 ==
+s_x_rolle;1 argc ${GWP_ParentDeskRollen:-""} $0 ==
+s_x_rot180;1 argc ${GWP_Align:-""} $0 ==
+s_x_variant;1 argc ${GWP_Variant:-""} $0 ==
+mat_F100;mat_prefix ${F100:-"KS"} s_weg +
+mat_F103;mat_prefix ${F103:-"KS"} s_weg +
+mat_prefix;"::kn::basics::"
+s_weg;1 argc $0 0 $0 0 1 $0 size 0 > * substr "_" == + $0 size substr

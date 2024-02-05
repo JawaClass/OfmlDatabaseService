@@ -1,35 +1,20 @@
 from flask import Blueprint, jsonify, request
-from Service.api.program_creation.creator import ProgramCreator
-# from Service.api.db import yield_all_tables
+from Service.api.program_creation.creator import Creator
+from Service.api.program_creation.util import CreateProgramApiRequest
+from settings import Config
 
 bp = Blueprint("program_creation", __name__, url_prefix="/program_creation")
 
 
-# @bp.route('/from_articlenumbers')
-# def from_articlenumbers():
-#     print("from_articlenumbers")
-#
-#     articles = ["TLTN16880A", "TLTN20880A"]
-#     if not len(set(articles)) == len(articles):
-#         return "articles not unique"
-#
-#     for _ in yield_all_tables(articles):
-#         print(_["table"])
-#         print(len(_["content"]), _["content"])
-#         input("...")
-#     return "ok"
-
-
-#print(from_articlenumbers())
-
 @bp.route('/create', methods=["POST"])
 def create_program():
 
-    body: dict = request.get_json()
-    assert body
-
-    program_creator = ProgramCreator(body)
-
+    params = CreateProgramApiRequest(**request.json)
+    print("create_program", params)
+    params.export_path = "TestOut"# Config.CREATE_OFML_EXPORT_PATH
+    creator = Creator(params=params)
+    creator.run_export_pipeline()
+    print("creator export path ::", creator.export_path)
     return jsonify({
-        "export_path": str(program_creator.export_program_path_windows)
+        "export_path": str(creator.export_path)
     })

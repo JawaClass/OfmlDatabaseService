@@ -6,7 +6,7 @@ from contextlib import contextmanager
 from mysql.connector import MySQLConnection
 
 config = {
-    'host': 'pdf2obs01',
+    'host': '172.22.253.244',
     'user': 'root',
     'password': '',
     'database': 'ofml'

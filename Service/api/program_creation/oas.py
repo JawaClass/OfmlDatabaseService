@@ -1,13 +1,19 @@
+from pathlib import Path
+
 import pandas as pd
 
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, remove_columns
+from Service.tables.web.ocd import WebOcdArticle
 
 
 class OasCreator(CreateInterface):
 
-    def __init__(self, article_items, program_name, program_path):
-        self.article_items = article_items
+    def __init__(self, *,
+                 articles: list[WebOcdArticle],
+                 program_name: str,
+                 program_path: Path):
+        self.articles = articles
         self.program_name = program_name
         self.tables = {}
         self.path = program_path / "DE" / "2" / "cat"
@@ -29,9 +35,9 @@ class OasCreator(CreateInterface):
             "@FOLDER;default;;IT;".split(";")
         ]
 
-        for article_item in self.article_items:
-            article_nr = article_item["articleNr"]
-            shorttext = article_item["shorttext"]
+        for article in self.articles:
+            article_nr = article.article_nr
+            shorttext = f"TODO {article.article_nr}"
 
             article_rows.append(f"{article_nr};default;0;;S;15;::kn::{self.program_name}".split(";"))
             structure_rows.append(f"{article_nr};default;2;A;".split(";"))

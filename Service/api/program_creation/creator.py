@@ -1,208 +1,134 @@
-import _csv
-import csv
-import re
-import shutil
-import time
 from pathlib import Path
-import pandas as pd
+from typing import Optional
 from Service import db
-from Service.api.program_creation import TableDict
+from Service.api import table_descriptions
+from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.go import GoCreator
 from Service.api.program_creation.oam import OamCreator
-from Service.api.program_creation.ocd import OcdCreator
 from Service.api.program_creation.oas import OasCreator
+from Service.api.program_creation.ocd import OcdCreator
 from Service.api.program_creation.odb import OdbCreator
 from Service.api.program_creation.ofml import OfmlCreator
-from Service.api.program_creation.util import remove_columns
-from Service.tables.oam import OamArticle2ofml, OamProperty2mat, OamArticle2odbparams
-from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr
-from Service.tables.odb import Odb2d, Odb3d, Funcs, Layer, Attpt, Oppattpt, Stdattpt
-from sqlalchemy.engine.base import Connection
-from Service.api import table_descriptions
+from Service.tables.web.ocd import WebOcdArticle
+from Service.api.program_creation.util import CreateProgramApiRequest
 from settings import Config
-from loguru import logger
 
 
-class ProgramCreator:
-    @property
-    def ocd(self):
-        return self.ocd_creator.tables
+class Creator:
 
-    @property
-    def oam(self):
-        return self.oam_creator.tables
+    def __init__(self, *,
+                 params: CreateProgramApiRequest):
 
-    @property
-    def oas(self):
-        return self.oas_creator.tables
+        self.params = params
+        self.connection = db.session.connection()
+        self.articles: list[WebOcdArticle] = self._get_articles()
+        self.articles_numbers = [a.article_nr for a in self.articles]
+        self.programs = [a.sql_db_program for a in self.articles]
+        self.export_path = Path(self.params.export_path) / self.params.program_name
+        self.import_plaintext_path = Config.IMPORT_PLAINTEXT_PATH
+        self.creators: dict[str, Optional[CreateInterface]] = {
+            "ocd": None,
+            "oam": None,
+            "oas": None,
+            "go": None,
+            "ofml": None,
+            "odb": None,
+        }
 
-    @property
-    def go(self):
-        return self.go_creator.tables
+    @staticmethod
+    def _run_creator_pipeline(c: CreateInterface):
+        c.load()
+        c.update()
+        c.export()
 
-    @property
-    def ofml(self):
-        return self.ofml_creator.tables
+    def run_export_pipeline(self):
+        if self.params.export_ocd:
+            self._run_creator_pipeline(self.build_ocd_creator())
+        if self.params.export_oas:
+            self._run_creator_pipeline(self.build_oas_creator())
+        if self.params.export_oam:
+            self._run_creator_pipeline(self.build_oam_creator())
+        if self.params.export_ofml:
+            self._run_creator_pipeline(self.build_ofml_creator())
+        if self.params.export_go:
+            self._run_creator_pipeline(self.build_go_creator())
+        if self.params.export_odb:
+            self._run_creator_pipeline(self.build_odb_creator())
+        if self.params.export_registry:
+            self.export_registry()
 
-    @property
-    def odb(self):
-        return self.odb_creator.tables
-
-    def make_program_path(self, delete_folder_if_exists=True):
-        base_path = Path(Config.CREATE_OFML_EXPORT_PATH)
-
-        if delete_folder_if_exists:
-            if (base_path / self.program_name).exists():
-                shutil.rmtree((base_path / self.program_name), ignore_errors=True)
-                time.sleep(0.1)
-
-        folder_name = (self.program_name
-                       if not (base_path / self.program_name).exists()
-                       else f"{self.program_name}_{time.time()}")
-
-        program_path = base_path / folder_name
-        program_path.mkdir()
-        self.export_program_path = program_path
-        self.export_program_path_windows = Path(r"B:\ofml_development\Tools\ofml_datenmacher") / folder_name
-
-    def __init__(self, body):
-        self.logs = []
-        logger.add(lambda msg: self.logs.append(msg))
-        logger.debug("ProgramCreator START")
-        self.body = body
-        self.program_name = body["programName"]
-        self.program_id = body["programID"]
-        self.articlenumbers = [_["articleNr"] for _ in body["articleItems"]]
-        self.programs = list(set([_["program"] for _ in body["articleItems"]]))
-        self.exports: {} = body["exports"]
-        logger.debug("read parameters")
-
-        self.import_plaintext_path: Path = Path(r"b:\ofml_development\repository\kn")  # TODO: env argument
-        self.export_program_path: None | Path = None
-        self.export_program_path_windows: None | Path = None
-        self.article_items = self.body["articleItems"]
-        self.property_items = self.body["propertyItems"]
-
-        self.depend_programs = self.programs if self.exports["odb"] else []
-        self.make_program_path()
-
-        self.ocd_creator = OcdCreator(
-            articlenumbers=self.articlenumbers,
-            programs=self.programs,
-            connection=db.session.connection(),
-            program_id=self.program_id,
-            program_path=self.export_program_path,
-            article_items=self.article_items,
-            property_items=self.property_items,
-            program_name=self.program_name
-        )
-        self.oam_creator = OamCreator(
-            articlenumbers=self.articlenumbers,
-            programs=self.programs,
-            connection=db.session.connection(),
-            program_path=self.export_program_path,
-            program_name=self.program_name,
-            exports_odb=self.exports["odb"]
-        )
-        self.oas_creator = OasCreator(
-            article_items=self.article_items,
-            program_name=self.program_name,
-            program_path=self.export_program_path
-        )
-        self.ofml_creator = OfmlCreator(
-            program_path=self.export_program_path,
-            program_name=self.program_name
-        )
-        self.go_creator = GoCreator(
-            articlenumbers=self.articlenumbers,
-            program_path=self.export_program_path,
-            program_name=self.program_name,
-            connection=db.session.connection(),
-            programs=self.programs
-        )
-        self.oam_creator.load()
-        for creator in [
-            self.ocd_creator,
-            # self.oam_creator,
-            self.oas_creator,
-            self.go_creator,
-            self.ofml_creator
-        ]:
-            creator.load()
-            creator.update()
-
-        assert self.oam_creator.tables
-
-        self.odb_creator = OdbCreator(
-            article_items=self.article_items,
-            program_path=self.export_program_path,
-            program_name=self.program_name,
-            connection=db.session.connection(),
-            programs=self.programs,
-            import_plaintext_path=self.import_plaintext_path,
-            oam=self.oam_creator.tables
-        )
-        if self.exports["odb"]:
-            self.odb_creator.load()
-            self.odb_creator.update()
-
-        self.oam_creator.update()
-
-        self.update_article_nr()
-        self.export_all()
-
-        logger.debug("ProgramCreator DONE")
-        log_file = self.export_program_path / f"{self.program_name}.logs"
-        log_file.write_text("".join(self.logs))
-
-    def export_all(self):
-        logger.debug("export :: BEGIN")
-        assert self.export_program_path
-        parts = [
-            self.ocd_creator,
-            self.oam_creator,
-            self.oas_creator,
-            self.go_creator,
-            self.ofml_creator,
-        ]
-        if self.export_odb:
-            parts.append(self.odb_creator)
-        for creator in parts:
-            creator.export()
-
-        registry_file = self.export_program_path / f"kn_{self.program_name}_DE_2.cfg"
+    def export_registry(self):
+        depend_programs = [] if self.params.export_odb else self.programs
+        registry_file = self.export_path / f"kn_{self.params.program_name}_DE_2.cfg"
+        registry_string = table_descriptions.registry.make_registry(self.params.program_name,
+                                                                    self.params.program_id,
+                                                                    depend_programs=depend_programs)
         registry_file.write_text(
-            table_descriptions.registry.make_registry(self.program_name,
-                                                      self.program_id,
-                                                      depend_programs=self.depend_programs),
+            registry_string,
             encoding="cp1252"
         )
-        logger.debug("export :: DONE")
 
-    def update_article_nr(self):
-        for article_item in self.article_items:
-            article_nr = article_item["articleNr"]
-            replacement = article_item["articleNrAlias"]
+    def _get_articles(self):
+        return WebOcdArticle.query.filter(
+            WebOcdArticle.web_program_name == self.params.web_program_name,
+            WebOcdArticle.web_filter == 0
+        ).all()
 
-            self.ocd["ocd_article"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
-            self.ocd["ocd_artbase"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
-            self.ocd["ocd_propertyclass"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
-            self.ocd["ocd_price"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
-            self.ocd["ocd_articletaxes"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
-            self.ocd["ocd_packaging"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
+    def build_ocd_creator(self):
+        self.creators["ocd"] = OcdCreator(
+            web_program_name=self.params.web_program_name,
+            program_name=self.params.program_name,
+            program_path=self.export_path,
+            program_id=self.params.program_id
+        )
+        return self.creators["ocd"]
 
-            self.oam["oam_article2ofml"].loc[lambda x: x["article"] == article_nr, "article"] = replacement
-            self.oam["oam_article2odbparams"].loc[lambda x: x["article"] == article_nr, "article"] = replacement
-            self.oam["oam_property2mat"].loc[lambda x: x["article"] == article_nr, "article"] = replacement
+    def build_oam_creator(self):
+        self.creators["oam"] = OamCreator(
+            web_program_name=self.params.web_program_name,
+            articlenumbers=self.articles_numbers,
+            programs=self.programs,
+            connection=self.connection,
+            program_path=self.export_path,
+            program_name=self.params.program_name,
+            exports_odb=self.params.export_odb
+        )
+        return self.creators["oam"]
 
-            self.oas["article"].loc[lambda x: x["p1"] == article_nr, "p1"] = replacement
-            self.oas["structure"].loc[lambda x: x["p1"] == article_nr, "p1"] = replacement
-            self.oas["text"].loc[lambda x: x["p1"] == article_nr, "p1"] = replacement
-            self.oas["resource"].loc[lambda x: x["p1"] == article_nr, "p1"] = replacement
+    def build_oas_creator(self):
+        self.creators["oas"] = OasCreator(
+            articles=self.articles,
+            program_name=self.params.program_name,
+            program_path=self.export_path
+        )
+        return self.creators["oas"]
 
-            self.go["go_articles"].loc[lambda x: x["article_nr"] == article_nr, "article_nr"] = replacement
+    def build_go_creator(self):
+        self.creators["go"] = GoCreator(
+            articlenumbers=self.articles_numbers,
+            program_path=self.export_path,
+            program_name=self.params.program_name,
+            connection=self.connection,
+            programs=self.programs
+        )
+        return self.creators["go"]
 
+    def build_ofml_creator(self):
+        self.creators["ofml"] = OfmlCreator(
+            program_path=self.export_path,
+            program_name=self.params.program_name
+        )
+        return self.creators["ofml"]
 
-
-
-
+    def build_odb_creator(self):
+        if self.creators["oam"] is None:
+            self.build_oam_creator()
+        self.creators["odb"] = OdbCreator(
+            program_path=self.export_path,
+            program_name=self.params.program_name,
+            connection=self.connection,
+            programs=self.programs,
+            import_plaintext_path=self.import_plaintext_path,
+            oam=self.creators["oam"].tables
+        )
+        return self.creators["odb"]

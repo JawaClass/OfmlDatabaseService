@@ -1,4 +1,19 @@
+from datetime import datetime
+
 from Service.tables import *
+
+
+class WebProgram(Base):
+
+    __tablename__ = 'web_program'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(255), nullable=False, unique=True)
+    creation_date = db.Column(db.DateTime, default=datetime.now)
+    edit_date = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    is_public = db.Column(db.Boolean(), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey('web_user.id'), nullable=False)
+    article_input = db.Column(db.Text, nullable=False)
 
 
 class WebOcdArtbase(Base):
@@ -210,6 +225,23 @@ class WebOcdPropertyvalue(Base):
 
 class WebOcdPropvaluetext(Base):
     __tablename__ = 'web_ocd_propvaluetext'
+
+    db_key = Column(Integer, primary_key=True)
+    textnr = Column(Text)
+    language = Column(Text)
+    line_nr = Column(SmallInteger)
+    line_fmt = Column(Text)
+    text = Column(Text)
+    sql_db_program = Column(Text)
+    sql_db_timestamp_modified = Column(Float(asdecimal=True))
+    sql_db_timestamp_read = Column(Text)
+
+    web_program_name: str = db.Column(Text)
+    web_filter: int = db.Column(SmallInteger)
+
+
+class WebOcdPropClasstext(Base):
+    __tablename__ = 'web_ocd_propclasstext'
 
     db_key = Column(Integer, primary_key=True)
     textnr = Column(Text)

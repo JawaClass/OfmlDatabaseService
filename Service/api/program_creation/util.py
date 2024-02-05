@@ -4,8 +4,24 @@ from pathlib import Path
 
 import pandas as pd
 from loguru import logger
+from pydantic import BaseModel
 
 from Service.api.program_creation import Tables
+
+
+class CreateProgramApiRequest(BaseModel):
+    web_program_name: str
+    program_name: str
+    program_id: str
+    export_path: str
+    export_ocd: bool
+    export_oam: bool
+    export_oas: bool
+    export_ofml: bool
+    export_go: bool
+    export_odb: bool
+    export_registry: bool
+    build_ebase: bool
 
 
 def remove_columns(ofml_part):

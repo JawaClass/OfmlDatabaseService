@@ -1,7 +1,7 @@
 import datetime
 
 
-def make_registry(program: str, program_id: str, depend_programs: list[str]) -> str:
+def make_registry(program: str, program_id: str, depend_programs: list[str], with_meta: bool) -> str:
 
     depend = ";".join([
         "::ofml::oi::1.29.0/ANY",
@@ -10,16 +10,21 @@ def make_registry(program: str, program_id: str, depend_programs: list[str]) -> 
     ])
 
     timestamp = datetime.datetime.now()
-
+    meta_tags = ""
+    if with_meta:
+        meta_tags = f"""
+series_type=go_meta
+meta_type=::ofml::go::GoMetaType;::ofml::go::goGetMetaType();::ofml::go::goSetup([[@FIRST, @{program}]])
+"""
     return __make_registry(
         program=program,
         program_name=program.upper(),
         program_id=program_id,
         release_date=timestamp.strftime("%Y-%m-%d"),
         release_timestamp=timestamp.strftime("%Y%m%d%H%M%S"),
-        depend=depend
-
-)
+        depend=depend,
+        meta_tags=meta_tags
+    )
 
 
 def __make_registry(**kwargs):
@@ -70,8 +75,7 @@ depend={depend}
 
 #--------------------------
 # additional settings
-series_type=go_meta
-meta_type=::ofml::go::GoMetaType;::ofml::go::goGetMetaType();::ofml::go::goSetup([[@FIRST, @{program}]])
+{meta_tags}
 geo_export_params=use_proxy_geometries
 persistency_form=STATECODES
 insertion_mode=APP_DEFAULT

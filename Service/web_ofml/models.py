@@ -4,7 +4,7 @@ from Service import db
 from datetime import datetime
 from sqlalchemy.dialects.mysql import JSON
 from sqlalchemy.event import listens_for
-Base = db.Model
+#Base = db.Model
 
 # DROP TABLE web_article_item; DROP TABLE web_property_item; DROP TABLE web_session; DROP TABLE web_user;
 
@@ -19,18 +19,8 @@ def _format_datetime(date: datetime):
         "second": date.second,
     }
 
+from Service.tables import Base
 
-class WebProgram(Base):
-
-    __tablename__ = 'web_program'
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(255), nullable=False, unique=True)
-    creation_date = db.Column(db.DateTime, default=datetime.now)
-    edit_date = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
-    is_public = db.Column(db.Boolean(), nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey('web_user.id'), nullable=False)
-    article_input = db.Column(db.Text, nullable=False)
 
 
 class ArticleItem(Base):
