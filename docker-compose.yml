@@ -1,0 +1,14 @@
+version: '3'
+services:
+  automatic_order_parser_streamlit:
+    restart: always
+    container_name: ofml_database_service_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ofml_database_service_backend
+    command: gunicorn --bind 0.0.0.0:9000 wsgi:app
+    ports:
+      - "9000:9000"
+    volumes:
+      - /mnt/knps_testumgebung:/mnt/knps_testumgebung
