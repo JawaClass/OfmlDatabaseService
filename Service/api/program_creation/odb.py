@@ -1,5 +1,6 @@
 import re
 import shutil
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,7 @@ from Service.api.program_creation import Tables
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
 from Service.tables.odb import Funcs, Layer, Attpt, Oppattpt, Odb2d, Stdattpt, Odb3d
+from settings import Config
 
 
 class OdbCreator(CreateInterface):
@@ -119,7 +121,7 @@ class OdbCreator(CreateInterface):
         )
 
     def update(self):
-        if self.tables.get("odb2d", None) and self.tables.get("odb3d", None):
+        if self.tables.get("odb2d", None) is not None and self.tables.get("odb3d", None) is not None:
             self._odb_funcs_make_properties_safe()
             self._copy_odb_graphic_files()
             self._unify_links()
@@ -213,6 +215,15 @@ class OdbCreator(CreateInterface):
                          tables=self.tables,
                          inp_descr_content=table_descriptions.odb.INP_DESCR,
                          inp_descr_filename="odb.inp_descr")
+
+    def build_ebase(self):
+        print("go build ebase!!")
+        tables_folder = self.path
+        inp_descr_filepath = tables_folder / "odb.inp_descr"
+        ebase_filepath = tables_folder / "odb.ebase"
+        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        print("odb command", command)
+        subprocess.run(command)
 
 
 class OdbLoader:

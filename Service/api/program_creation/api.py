@@ -11,7 +11,6 @@ def create_program():
 
     params = CreateProgramApiRequest(**request.json)
     print("create_program", params)
-    params.export_path = "TestOut"# Config.CREATE_OFML_EXPORT_PATH
     creator = Creator(params=params)
     creator.run_export_pipeline()
     print("creator export path ::", creator.export_path)

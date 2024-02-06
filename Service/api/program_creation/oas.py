@@ -1,10 +1,11 @@
 from pathlib import Path
 
 import pandas as pd
+from typing_extensions import Optional
 
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, remove_columns
-from Service.tables.web.ocd import WebOcdArticle
+from Service.tables.web.ocd import WebOcdArticle, WebOcdArtshorttext
 
 
 class OasCreator(CreateInterface):
@@ -17,6 +18,17 @@ class OasCreator(CreateInterface):
         self.program_name = program_name
         self.tables = {}
         self.path = program_path / "DE" / "2" / "cat"
+
+    def _get_text(self, article: WebOcdArticle) -> Optional[str]:
+        id(self)
+        row: WebOcdArtshorttext = WebOcdArtshorttext.query.filter(
+            WebOcdArtshorttext.web_program_name == article.web_program_name,
+            WebOcdArtshorttext.textnr == article.short_textnr,
+            WebOcdArtshorttext.language == "de"
+        ).first()
+        if row:
+            return row.text
+        return None
 
     def load(self):
         article_rows = [
@@ -37,7 +49,10 @@ class OasCreator(CreateInterface):
 
         for article in self.articles:
             article_nr = article.article_nr
-            shorttext = f"TODO {article.article_nr}"
+            text_or_none = self._get_text(article)
+            if not text_or_none:
+                text_or_none = ""
+            shorttext = f"{text_or_none} -- {article.article_nr}"
 
             article_rows.append(f"{article_nr};default;0;;S;15;::kn::{self.program_name}".split(";"))
             structure_rows.append(f"{article_nr};default;2;A;".split(";"))

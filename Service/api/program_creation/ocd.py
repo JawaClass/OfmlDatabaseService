@@ -1,3 +1,4 @@
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -9,6 +10,7 @@ from Service.api.program_creation.util import export_ofml_part, unify_column_lin
 #from Service.db import yield_all_tables
 from Service.deepcopy.ocd.utility import make_select_statement, WEB_OCD_TABLES
 from Service.mysql import db
+from settings import Config
 
 
 class OcdCreator(CreateInterface):
@@ -19,6 +21,25 @@ class OcdCreator(CreateInterface):
         self.program_name = program_name
         self.program_id = program_id
         self.path = program_path / "DE" / "2" / "db"
+
+    def _make_ocd_version(self):
+        non_prefix_table_names = [_.replace("ocd_", "") for _ in list(self.tables.keys())]
+        data = [
+            [
+                "4.1",
+                "SAP_4_6",
+                "2.16.1",
+                "20060801",
+                "99991231",
+                "DE",
+                "",
+                0,
+                ",".join(non_prefix_table_names),
+                ""
+            ]
+        ]
+        columns = "format_version rel_coding data_version date_from date_to region varcond_var placeholder_on tables comment".split()
+        return pd.DataFrame(data=data, columns=columns)
 
     def load(self):
         logger.debug("load")
@@ -38,11 +59,7 @@ class OcdCreator(CreateInterface):
                 # input(".")
             cursor.close()
 
-        # update ocd_version
-        # non_prefix_table_names = [_.replace("ocd_", "") for _ in list(self.tables.keys())]
-        # self.tables["ocd_version"] = pd.DataFrame(",".join(non_prefix_table_names))
-        # print(self.tables["ocd_version"].to_string())
-        # input(".")
+        self.tables["ocd_version"] = self._make_ocd_version()
 
     def update(self):
         logger.debug("update")
@@ -101,3 +118,10 @@ class OcdCreator(CreateInterface):
                          inp_descr_content=table_descriptions.ocd.INP_DESCR,
                          inp_descr_filename="pdata.inp_descr")
 
+    def build_ebase(self):
+        print("ocd build ebase!!")
+        tables_folder = self.path
+        inp_descr_filepath = tables_folder / "pdata.inp_descr"
+        ebase_filepath = tables_folder / "pdata.ebase"
+        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        subprocess.run(command)

@@ -25,7 +25,7 @@ class CreateProgramApiRequest(BaseModel):
 
 
 def remove_columns(ofml_part):
-    drop_columns = ["sql_db_program", "sql_db_timestamp_modified", "sql_db_timestamp_read", "db_key", "index"]
+    drop_columns = ["sql_db_program", "sql_db_timestamp_modified", "sql_db_timestamp_read", "db_key", "index", "web_filter", "web_program_name"]
 
     for table_name in ofml_part:
         if "sql_db_program" not in ofml_part[table_name].columns:

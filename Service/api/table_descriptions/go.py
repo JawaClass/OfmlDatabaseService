@@ -35,5 +35,9 @@ index btree name value
 index btree id name
 index btree id name value
 
-
+table	go_setup	go_setup.csv		csv
+fields	3
+field	1 id		vstring		delim ;	trim hidx link
+field	2 key		vstring		delim ; trim 
+field	3 value		vstring		delim ; trim 
 """

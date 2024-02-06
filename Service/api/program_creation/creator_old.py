@@ -77,7 +77,7 @@ class ProgramCreator:
         self.exports: {} = body["exports"]
         logger.debug("read parameters")
 
-        self.import_plaintext_path: Path = Path(r"b:\ofml_development\repository\kn")  # TODO: env argument
+        self.import_plaintext_path: Path = Config.IMPORT_PLAINTEXT_PATH
         self.export_program_path: None | Path = None
         self.export_program_path_windows: None | Path = None
         self.article_items = self.body["articleItems"]

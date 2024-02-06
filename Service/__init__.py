@@ -17,7 +17,6 @@ def create_app():
     app.json.sort_keys = False
     from settings import Config
     app.config.from_object(Config)
-    print("Config Path", Config.CREATE_OFML_EXPORT_PATH)
 
     CORS(app, origins=['*'])
 

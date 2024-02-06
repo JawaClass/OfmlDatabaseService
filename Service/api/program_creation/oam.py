@@ -1,3 +1,4 @@
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -7,6 +8,7 @@ from Service.api import table_descriptions
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, remove_columns
 from Service.tables.oam import OamArticle2odbparams, OamProperty2mat, OamArticle2ofml
+from settings import Config
 
 
 class OamCreator(CreateInterface):
@@ -100,3 +102,11 @@ class OamCreator(CreateInterface):
                          tables=self.tables,
                          inp_descr_content=table_descriptions.oam.INP_DESCR,
                          inp_descr_filename="oam.inp_descr")
+
+    def build_ebase(self):
+        print("oam build ebase!!")
+        tables_folder = self.path
+        inp_descr_filepath = tables_folder / "oam.inp_descr"
+        ebase_filepath = tables_folder / "oam.ebase"
+        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        subprocess.run(command)

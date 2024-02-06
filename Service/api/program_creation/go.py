@@ -1,3 +1,4 @@
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -5,7 +6,8 @@ import pandas as pd
 from Service.api import table_descriptions
 from Service.api.program_creation.create_interface import CreateInterface
 from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
-from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr
+from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr, GoSetup
+from settings import Config
 
 
 class GoCreator(CreateInterface):
@@ -47,6 +49,13 @@ class GoCreator(CreateInterface):
             ).statement,
             self.connection)
 
+        self.tables["go_setup"] = pd.read_sql(
+            GoSetup.query.filter(
+                GoSetup.id.in_(self.tables["go_types"]["id"].tolist()),
+                GoSetup.sql_db_program.in_(self.programs)
+            ).statement,
+            self.connection)
+
         # only take polymorphism "ch" and defining props
         self.tables["go_types"] = self.tables["go_types"].loc[
             lambda x: ((x["mode"] & 8) == 0) & (x["format"].isin(["ch", ""]))]
@@ -68,6 +77,7 @@ class GoCreator(CreateInterface):
             "go_types": ["id"],
             "go_articles": ["id", "prm_key"],
             "go_properties": ["id", "key"],
+            "go_setup": ["id"],
         }
 
         unify_column_linkages(go_links, self.tables)
@@ -79,3 +89,12 @@ class GoCreator(CreateInterface):
                          tables=self.tables,
                          inp_descr_content=table_descriptions.go.INP_DESCR,
                          inp_descr_filename="mt.inp_descr")
+
+    def build_ebase(self):
+        print("go build ebase!!")
+        tables_folder = self.path
+        inp_descr_filepath = tables_folder / "mt.inp_descr"
+        ebase_filepath = tables_folder / f"{self.program_name}.ebase"
+        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        print("go command", command)
+        subprocess.run(command)
