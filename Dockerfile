@@ -12,7 +12,7 @@ COPY . /app
 #    pip install --no-cache-dir -r requirements.txt
 
 # store mounted path in env
-ENV CREATE_OFML_EXPORT_PATH=/mnt/knps_testumgebung/ofml_development/Tools/ofml_datenmacher
+ENV W2_FS1_DRIVE_KNPS_TESTUMGEBUNG=/mnt/knps_testumgebung
 
 EXPOSE 9000
 

@@ -1,6 +1,6 @@
 version: '3'
 services:
-  automatic_order_parser_streamlit:
+  ofml_database_service_backend:
     restart: always
     container_name: ofml_database_service_backend
     build:
