@@ -1,13 +1,118 @@
+import os
+
+from mysql.connector import CMySQLConnection
+
 import Service.mysql.db as db
 from flask import Blueprint, request, jsonify
-from . import quey
+from . import quey_interface
 import time
-from .utility import make_delete_statement, DeepcopyRequest
+from .utility import make_delete_statement, DeepcopyRequest, MERGE_KEYS
+from ...tables.ocd import OcdArticle
 from ...tables.web.ocd import WebOcdArticle, WebProgram
 from Service import db as flask_db
 bp = Blueprint("deepcopy_ocd", __name__, url_prefix="/deepcopy/ocd")
 
 # http://localhost:5000/deepcopy/ocd
+
+
+def check_exists(row: dict[str, object], keys: list[str], into_table: str, cursor):
+    where_clause = " AND ".join([f"{k} = %s" for k in keys])
+    sql_check = f"SELECT 1 FROM {into_table} WHERE {where_clause}"
+    where_values = [row[key] for key in keys]
+    # print("sql_check::", sql_check, ":::", where_values)
+    cursor.execute(sql_check, where_values)
+    """ fetchone() throws "Unread result found" error sometimes, so we use fetchall() """
+    exists = bool(cursor.fetchall())
+    #print(exists, fetched, into_table)
+    return exists
+
+
+def merge_rows_into_table_based_on(keys: list[str],
+                                   new_rows: list[dict],
+                                   into_table: str,
+                                   web_program_name: str,
+                                   connection):
+    print(f"merge_rows_into_table_based_on :: {keys} = {len(new_rows)} ==> {into_table}")
+    with connection.cursor(dictionary=True) as c:
+        for row in new_rows:
+            del row["db_key"]
+            row["web_filter"] = 0
+            row["web_program_name"] = web_program_name
+            exists = check_exists(row, keys, into_table, c)
+
+            if exists:
+                continue
+
+            columns = ', '.join(row.keys())
+            values_template = ', '.join(['%s'] * len(row))
+            values = [str(_) for _ in row.values()]
+
+            sql_insert = f"INSERT INTO {into_table} ({columns}) VALUES ({values_template})"
+            print("sql_insert", sql_insert, "::", values)
+            c.execute(sql_insert, values)
+
+
+@bp.route("/merge", methods=["GET"])
+def merge_article_with_deepcopy():
+    start = time.perf_counter()
+    article = request.args.get("article")
+    program = request.args.get("program")
+    web_program_name = request.args.get("merge_with")
+    print(f"args :: article={article} ; program={program} ; merge_with={web_program_name}")
+    assert article and program and web_program_name, "article, program, merge_with need to be specified."
+    article = article.strip()
+    program = program.strip()
+    web_program_name = web_program_name.strip()
+    """ check if article already exists in program and return """
+    exists = flask_db.session.query(WebOcdArticle.query.filter(
+        WebOcdArticle.web_program_name == web_program_name,
+        WebOcdArticle.sql_db_program == program,
+        WebOcdArticle.article_nr == article
+    ).exists()).scalar()
+
+    if exists:
+        print(f"{article} {program} already exists in {web_program_name}")
+        return {
+                   "status": 0,
+                   "message": f"Article '{article}' von '{program}' bereits in '{web_program_name}' enthalten.",
+                   "time": round(time.perf_counter() - start, 2)
+               }, 200
+
+    """ check if article exists at all """
+    exists = flask_db.session.query(OcdArticle.query.filter(
+        OcdArticle.sql_db_program == program,
+        OcdArticle.article_nr == article
+    ).exists()).scalar()
+    if not exists:
+        print(f"{article} {program} doesnt exist.")
+        return {
+                   "status": 0,
+                   "message": f"Article '{article}' von '{program}' nicht gefunden.",
+                   "time": round(time.perf_counter() - start, 2)
+               }, 200
+
+    article_numbers_and_programs = [(article, program, )]
+
+    with db.new_connection() as read_connection:
+        with read_connection.cursor(dictionary=True) as c:
+            tables_2_yield = quey_interface.deepcopy_query(article_numbers_and_programs, c)
+            with db.new_connection() as write_connection:
+                for table_name, result_set in tables_2_yield:
+                    print("table_name::", table_name, len(result_set))
+                    merge_rows_into_table_based_on(
+                        MERGE_KEYS[table_name],
+                        result_set,
+                        f"web_{table_name}",
+                        web_program_name,
+                        write_connection
+                    )
+                write_connection.commit()
+
+    return {
+        "status": 1,
+        "message": f"Article '{article}' von '{program}' in '{web_program_name}' merged.",
+        "time": round(time.perf_counter() - start, 2)
+           }, 200
 
 
 @bp.route("/<string:name>", methods=["DELETE"])
@@ -47,7 +152,7 @@ def deepcopy():
     """ deepcopy ocd tables """
     with db.new_connection() as connection:
         c = connection.cursor(dictionary=True)
-        quey.deepcopy(body.articlenumbers_and_programs, c, body.name, fetch=True)
+        quey_interface.deepcopy_insert(body.articlenumbers_and_programs, c, body.name)
         connection.commit()
         c.close()
 

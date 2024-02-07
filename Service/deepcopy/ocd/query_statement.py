@@ -1,7 +1,5 @@
 import re
 
-from mysql.connector.cursor import MySQLCursor
-
 QUERIES = """
 --ocd_version-----------------------------------------------------------------------------------------------------
 SELECT ocd_version_TEMP.*
@@ -250,7 +248,7 @@ SELECT DISTINCT ocd_propvaluetext_TEMP.*
 FROM ocd_propvaluetext_TEMP
 JOIN ocd_propertyvalue_TEMP_LOCAL_1 ON ocd_propertyvalue_TEMP_LOCAL_1.pval_textnr = ocd_propvaluetext_TEMP.textnr  
 ;
-SELECT * FROM ocd_propvaluetext
+SELECT * FROM ocd_propvaluetext_TEMP_LOCAL_1
 ;
 INSERT INTO web_ocd_propvaluetext (textnr, language, line_nr, line_fmt, text, sql_db_program, sql_db_timestamp_modified, db_key, sql_db_timestamp_read, web_program_name, web_filter)
 SELECT                
@@ -328,6 +326,7 @@ FROM optpropvalue_txt_TEMP_LOCAL_1
 # and lines that only contain whitespace
 QUERIES = re.sub(r"(\s*--.*?\n)|(\s*?\n)", '\n', QUERIES, flags=re.MULTILINE)
 
+
 TABLES = """
     ocd_version
     ocd_article
@@ -354,83 +353,3 @@ TABLES = """
     optproperty_dat
     optpropvalue_txt
     """.split()
-
-
-def _querie_tables(articles: list, cursor: MySQLCursor, web_program_name: str, fetch: bool):
-    print("_querie_tables")
-    global QUERIES
-    placeholders = ', '.join(['%s'] * len(articles))
-    c: MySQLCursor
-    operation = QUERIES.format(placeholders=placeholders, web_program_name=web_program_name)
-    print("operation")
-    print(operation)
-    cursor_generator = cursor.execute(
-                operation=operation,
-                params=articles,
-                multi=True
-            )
-
-    # if not fetch:
-    #     return
-    print("_querie_tables cursor_generator = ", cursor_generator)
-    for i, c in enumerate(cursor_generator):
-        print(c.statement[0:30])
-        if c.statement.startswith("SELECT"):
-            table_name_idx = 4 if c.statement.startswith("SELECT DISTINCT") else 3
-            table_name = c.statement.split()[table_name_idx].replace("_TEMP_LOCAL_1", "").replace("_TEMP", "")
-            # yield c.fetchall(), table_name
-        elif c.statement.startswith("INSERT INTO"):
-            print("Statement...................")
-            print(c.statement)
-            print(".")
-
-
-def _create_temp_table(table_name: str, programs: list, cursor: MySQLCursor):
-    placeholders = ', '.join(['%s'] * len(programs))
-
-    sql = f"""
-    CREATE TEMPORARY TABLE {table_name}_TEMP
-    AS SELECT *
-    FROM {table_name}
-    WHERE sql_db_program IN ({placeholders});
-    """
-    cursor.execute(sql, programs)
-
-
-def _create_temporary_tables(programs: list, cursor: MySQLCursor):
-    print("_create_temporary_tables")
-    for table_name in TABLES:
-        _create_temp_table(table_name, programs, cursor)
-
-
-def _get_programs(articles: list, cursor: MySQLCursor):
-    placeholders = ', '.join(['%s'] * len(articles))
-    sql = f"""
-    SELECT DISTINCT sql_db_program FROM ocd_article WHERE article_nr IN ({placeholders})
-    """
-    cursor.execute(sql, articles)
-    result = list(map(lambda x: x['sql_db_program'], cursor.fetchall()))
-    return result
-
-
-# def execute(articles: list, cursor: MySQLCursor, programs: list = None):
-#     """
-#     if not program string list is given we fetch all programs where articles is present
-#     if programs is given we search articles in only these given programs
-#     """
-#     if programs is None:
-#         programs = _get_programs(articles, cursor)
-#     _create_temporary_tables(programs, cursor)
-#     return _querie_tables(articles, cursor)
-
-def deepcopy(articles_and_programs: list[(str, str,)], cursor: MySQLCursor, web_program_name: str, fetch: bool):
-    """
-    articles: list of article;program tuples
-    """
-    print("deepcopy")
-    articles = list(set([_[0] for _ in articles_and_programs]))
-    programs = list(set([_[1] for _ in articles_and_programs]))
-    _create_temporary_tables(programs, cursor)
-    rt = _querie_tables(articles, cursor, web_program_name, fetch)
-    # input(f"..... {rt}")
-    return rt
