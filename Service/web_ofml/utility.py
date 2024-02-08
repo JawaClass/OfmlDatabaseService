@@ -22,17 +22,10 @@ def query_table(*, table_class: Type[Base],
     assert (select_clause and make_json) or not (select_clause and make_json)
     assert issubclass(table_class, Base), f"table_class {table_class} is not supported"
     columns = {k for k in table_class.__dict__.keys() if not k.startswith("_")}
-    # print("columns", columns)
-    # select_clause = request.args.get("select", None)
-    # where_clause = request.args.get("where", None)
-    # limit = request.args.get("limit", None)
+
     if limit:
         limit = parse_string_to_int(limit)
         assert isinstance(limit, int), f"limit mus be integer, was {limit} ({type(limit)})"
-
-    # print("select_clause ::", select_clause)
-    # print("where_clause ::", where_clause)
-    # print("limit", limit)
 
     query = table_class.query
     requested_columns = None

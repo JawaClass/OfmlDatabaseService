@@ -46,14 +46,14 @@ def make_delete_statement(web_program_name: str):
 
 
 def make_select_statement(web_program_name: str):
-    return "\n".join([f"SELECT * FROM  {table} WHERE web_program_name = \"{web_program_name}\"; " for table in WEB_OCD_TABLES])
+    return "\n".join([f"SELECT * FROM  {table} WHERE web_program_name = \"{web_program_name}\" AND web_filter = 0; " for table in WEB_OCD_TABLES])
 
 # TODO: fix keys
 MERGE_KEYS = {
         "ocd_version": ["format_version", "web_program_name"],
         "ocd_article": ["article_nr", "sql_db_program", "web_program_name"],
         "ocd_artshorttext": ["textnr", "sql_db_program", "web_program_name"],
-        "ocd_artlongtext": ["textnr", "sql_db_program", "web_program_name"],
+        "ocd_artlongtext": ["textnr", "line_nr", "sql_db_program", "web_program_name"],
         "ocd_artbase": ["article_nr", "prop_class", "property", "prop_value", "sql_db_program", "web_program_name"],
         "ocd_codescheme": ["scheme_id", "sql_db_program", "web_program_name"],
         "ocd_packaging": ["article_nr", "sql_db_program", "web_program_name"],
@@ -67,10 +67,10 @@ MERGE_KEYS = {
         "ocd_propertytext": ["textnr", "sql_db_program", "web_program_name"],
         "ocd_propclasstext": ["textnr", "sql_db_program", "web_program_name"],
         "ocd_prophinttext": ["textnr", "sql_db_program", "web_program_name"],
-        "ocd_propertyvalue": ["prop_class", "property", "sql_db_program", "web_program_name"],
+        "ocd_propertyvalue": ["prop_class", "property", "value_from", "sql_db_program", "web_program_name"],
         "ocd_propvaluetext": ["textnr", "sql_db_program", "web_program_name"],
-        "ocd_relationobj": ["rel_obj", "sql_db_program", "web_program_name"],
-        "ocd_relation": ["rel_name", "sql_db_program", "web_program_name"],
+        "ocd_relationobj": ["rel_obj", "position", "rel_name", "rel_type", "rel_domain", "sql_db_program", "web_program_name"],
+        "ocd_relation": ["rel_name", "rel_blocknr", "sql_db_program", "web_program_name"],
         "optproperty_dat": ["prop_class", "property", "sql_db_program", "web_program_name"],
         "optpropvalue_txt": ["textnr", "sql_db_program", "web_program_name"],
     }

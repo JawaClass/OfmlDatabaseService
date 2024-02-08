@@ -167,13 +167,13 @@ def handle_article_details(*, select_clause, where_clause, limit):
                                     as_type=ReturnQueryType.TRIM
                                     )
 
-        a["langtext"] = query_table(table_class=get_model_class_by_table_name("web_ocd_artlongtext"),
-                                    where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND textnr = \"{a['long_textnr']}\" AND language = \"de\"",
-                                    make_json=True,
-                                    limit=None,
-                                    select_clause=None,
-                                    as_type=ReturnQueryType.LIST
-                                    )
+        # a["langtext"] = query_table(table_class=get_model_class_by_table_name("web_ocd_artlongtext"),
+        #                             where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND textnr = \"{a['long_textnr']}\" AND language = \"de\"",
+        #                             make_json=True,
+        #                             limit=None,
+        #                             select_clause=None,
+        #                             as_type=ReturnQueryType.LIST
+        #                             )
 
         a["klassen"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propertyclass"),
                                    where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND article_nr = \"{a['article_nr']}\"",
