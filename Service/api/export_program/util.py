@@ -1,5 +1,6 @@
 import _csv
 import csv
+import os
 import subprocess
 from pathlib import Path
 
@@ -36,6 +37,12 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
 
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
+
+    p = "/mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db"
+    logger.info(f"os_access talos_test W_OK = {os.access(p, os.W_OK)}")
+    logger.info(f"os_access talos_test R_OK = {os.access(p, os.R_OK)}")
+    logger.info(f"os_access talos_test R_OK = {os.access(p, os.X_OK)}")
+    logger.info(f"os_access talos_test stat = {Path(p).stat()}")
     try:
         logger.info("execute_build_ebase_command....")
         logger.info(f"COMMAND:: {command}")
@@ -43,11 +50,11 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
         logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
         logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
 
-        subprocess.run(str(ebmkdb), check=True)
+        subprocess.run(str(ebmkdb) + " " + "-d /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db/pdata.inp_descr my_ebase_lol_cry", check=True)
     except Exception as e:
         logger.error("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed:")
-        logger.error(str(e))
+        logger.error(str(e).split("\n")[0])
 
 
 def remove_columns(ofml_part):
