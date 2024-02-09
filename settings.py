@@ -31,14 +31,17 @@ class Config:
     ROOT_PROJECT_FOLDER = _root_project_path
     CREATE_EBASE_EXE = (_root_project_path / "tools" / "windows" / "ebmkdb.exe"
                         if OS_NAME == "windows"
-                        else Path("/app") / "tools" / "linux" / "ebmkdb"
+                        else _root_project_path / "tools" / "linux" / "ebmkdb"
                         )
 
 
-assert Config.W2_FS1_KNPS_TEST_ENV is not None and Path(Config.W2_FS1_KNPS_TEST_ENV).exists()
-assert Config.IMPORT_PLAINTEXT_PATH is not None and Path(Config.IMPORT_PLAINTEXT_PATH).exists()
+assert Config.W2_FS1_KNPS_TEST_ENV is not None and Path(Config.W2_FS1_KNPS_TEST_ENV).exists(), "W2_FS1_KNPS_TEST_ENV doesnt exit"
+assert Config.IMPORT_PLAINTEXT_PATH is not None and Path(Config.IMPORT_PLAINTEXT_PATH).exists(), "IMPORT_PLAINTEXT_PATH doesnt exit"
+assert Config.CREATE_EBASE_EXE.exists(), "CREATE_EBASE_EXE doesnt exist"
 print("Config.W2_FS1_KNPS_TEST_ENV", Config.W2_FS1_KNPS_TEST_ENV)
 print("Config.IMPORT_PLAINTEXT_PATH", Config.IMPORT_PLAINTEXT_PATH)
 print("Config.EXPORT_DATA_PATH_TEST_ENV", Config.EXPORT_DATA_PATH_TEST_ENV)
 print("Config.EXPORT_DATA_PATH_DEFAULT", Config.EXPORT_DATA_PATH_DEFAULT)
+print("Config.CREATE_EBASE_EXE", Config.CREATE_EBASE_EXE)
 
+input("waiting....")
