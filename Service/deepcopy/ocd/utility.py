@@ -1,5 +1,16 @@
 from pydantic import BaseModel
 
+from Service.tables.ocd import OcdArticle
+from Service.tables.web.ocd import WebOcdArticle
+from Service import db as flask_db
+
+
+class MergeAsRequest(BaseModel):
+    article: str
+    program: str
+    merge_with: str
+    merge_as: str
+
 
 class DeepcopyRequest(BaseModel):
     name: str
@@ -7,6 +18,25 @@ class DeepcopyRequest(BaseModel):
     is_public: bool
     article_input: str
     articlenumbers_and_programs: list[tuple[str, str]]
+
+
+def check_web_article_exists(*, web_program_name, program, article):
+    return bool(
+        flask_db.session.query(WebOcdArticle.query.filter(
+            WebOcdArticle.web_program_name == web_program_name,
+            WebOcdArticle.sql_db_program == program,
+            WebOcdArticle.article_nr == article
+        ).exists()).scalar()
+    )
+
+
+def check_article_exists(*, program, article):
+    return bool(
+        flask_db.session.query(OcdArticle.query.filter(
+            OcdArticle.sql_db_program == program,
+            OcdArticle.article_nr == article
+        ).exists()).scalar()
+    )
 
 
 WEB_OCD_TABLES = f"""

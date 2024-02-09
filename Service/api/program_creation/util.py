@@ -41,52 +41,70 @@ def remove_columns(ofml_part):
             inplace=True)
 
 
-def unify_column_linkages(links: dict[str, list[str]], tables: Tables):
+class HashMaker:
+    def __init__(self, start=1000):
+        self.hashes = {}
+        self.start = start
 
-    class HashMaker:
-        def __init__(self):
-            self.hashes = {}
+    def get(self, input_string: str) -> int:
 
-        def get(self, input_string: str) -> int:
+        if (stored_hash := self.hashes.get(input_string, None)) is not None:
+            return stored_hash
 
-            if (stored_hash := self.hashes.get(input_string, None)) is not None:
-                return stored_hash
+        self.hashes[input_string] = self.start + len(self.hashes)
+        return self.hashes[input_string]
 
-            self.hashes[input_string] = 1 + len(self.hashes)
-            return self.hashes[input_string]
 
+def update_table_links(*, table: pd.DataFrame,
+                       linking_columns: list[str],
+                       hash_maker: HashMaker,
+                       unify_by: str,
+                       unify_string: str):
+
+    assert unify_by in ["COLUMN", "VALUE"]
+
+    if table.empty:
+        return
+
+    def update_link(column: pd.Series):
+        """
+        apply the new links at column values where it's not an empty string / 0
+        """
+        assert type(column) is pd.Series
+
+        dtype_ = column.dtype
+        is_string = pd.api.types.is_string_dtype(dtype_)
+        idx = column.loc[column.astype(bool)].index
+        """ unique has based on input """
+        if is_string:
+            column[idx] = (
+                    column[idx] +
+                    (table[unify_string][idx].apply(lambda x: f"_{x.upper()}")
+                     if unify_by == "COLUMN"
+                     else unify_string)
+            )
+        else:
+            column[idx] = (
+                    column[idx].astype("string").fillna("") +
+                    (table[unify_string][idx] if unify_by == "COLUMN" else unify_string)
+            ).apply(hash_maker.get).astype(dtype_)
+        return column
+
+    table[linking_columns] = table[linking_columns].apply(update_link, axis=0)
+
+
+def unify_column_linkages(links: dict[str, list[str]], tables: Tables, unify_column="sql_db_program"):
     hash_maker = HashMaker()
-
     for table_name in links:
-
         if tables[table_name].empty:
             continue
-
+        table: pd.DataFrame = tables[table_name]
         linking_columns = links[table_name]
-
-        def update_link(column: pd.Series):
-            """
-            apply the new links at column values where it's not an empty string / 0
-            """
-            assert type(column) is pd.Series
-
-            dtype_ = column.dtype
-            is_string = pd.api.types.is_string_dtype(dtype_)
-            idx = column.loc[column.astype(bool)].index
-
-            if is_string:
-                column[idx] = (
-                        column[idx] +
-                        (tables[table_name]["sql_db_program"][idx].apply(lambda x: f"_{x.upper()}"))
-                )
-            else:
-                column[idx] = (
-                        column[idx].astype("string").fillna("") +
-                        tables[table_name]["sql_db_program"][idx]
-                ).apply(hash_maker.get).astype(dtype_)
-            return column
-
-        tables[table_name][linking_columns] = tables[table_name][linking_columns].apply(update_link, axis=0)
+        update_table_links(table=table,
+                           linking_columns=linking_columns,
+                           unify_by="COLUMN",
+                           unify_string=unify_column,
+                           hash_maker=hash_maker)
 
 
 def export_ofml_part(program_name: str,

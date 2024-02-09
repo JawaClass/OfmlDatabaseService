@@ -6,6 +6,7 @@ from loguru import logger
 
 from Service.api import table_descriptions
 from Service.api.program_creation.create_interface import CreateInterface
+from Service.api.program_creation.table_links import OCD_LINKS
 from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
 #from Service.db import yield_all_tables
 from Service.deepcopy.ocd.utility import make_select_statement, WEB_OCD_TABLES
@@ -68,31 +69,7 @@ class OcdCreator(CreateInterface):
         self._unify_links()
 
     def _unify_links(self):
-        ocd_links = {
-            "ocd_artbase": ["prop_class"],
-            "ocd_article": ["short_textnr", "long_textnr", "rel_obj", "scheme_id"],
-            "ocd_articletaxes": ["tax_id"],
-            "ocd_artlongtext": ["textnr"],
-            "ocd_artshorttext": ["textnr"],
-            "ocd_codescheme": ["scheme_id"],
-            "ocd_price": ["rounding_id"],
-            "ocd_pricetext": ["textnr"],
-            "ocd_propclasstext": ["textnr"],
-            "ocd_property": ["prop_textnr", "hint_text_id", "prop_class", "rel_obj"],
-            "ocd_propertyclass": ["textnr", "prop_class"],
-            "ocd_propertytext": ["textnr"],
-            "ocd_propertyvalue": ["pval_textnr", "rel_obj", "prop_class"],
-            "ocd_prophinttext": ["textnr"],
-            "ocd_propvaluetext": ["textnr"],
-            "ocd_relation": ["rel_name"],
-            "ocd_relationobj": ["rel_obj", "rel_name"],
-            "ocd_rounding": ["id"],
-            "ocd_taxscheme": ["tax_id"],
-
-            "optproperty_dat": ["prop_class", "prop_textnr"],
-            "optpropvalue_txt": ["textnr"],
-        }
-
+        ocd_links = OCD_LINKS
         unify_column_linkages(ocd_links, self.tables)
 
     def _update_id(self):
