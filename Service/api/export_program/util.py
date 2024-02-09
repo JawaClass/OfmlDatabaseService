@@ -37,12 +37,13 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
     try:
-        print("execute_build_ebase_command....")
-        print(command)
-        subprocess.run(command)
+        logger.info("execute_build_ebase_command....")
+        logger.info(f"COMMAND:: {command}")
+        subprocess.run(command, check=True)
     except Exception as e:
-        print("ERROR.................................")
-        logger.error(f"execute_build_ebase_command failed: '{command}'. {e}")
+        logger.error("ERROR.................................")
+        logger.error(f"execute_build_ebase_command failed:")
+        logger.error(str(e))
 
 
 def remove_columns(ofml_part):
