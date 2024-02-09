@@ -31,13 +31,13 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
         """ absolute path """
         return f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
     else:
-        """ /.//absolute_path"""
-        return f"/./{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        """ absolute_path """
+        return f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
 
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
     try:
-        subprocess.run(command, timeout=timeout_seconds)
+        subprocess.run(command)
     except Exception as e:
         logger.error(f"execute_build_ebase_command failed: '{command}'. {e}")
 
