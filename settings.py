@@ -31,7 +31,8 @@ class Config:
     ROOT_PROJECT_FOLDER = _root_project_path
     CREATE_EBASE_EXE = (_root_project_path / "tools" / "windows" / "ebmkdb.exe"
                         if OS_NAME == "windows"
-                        else _root_project_path / "tools" / "linux" / "ebmkdb")
+                        else Path("/app") / "tools" / "linux" / "ebmkdb"
+                        )
 
 
 assert Config.W2_FS1_KNPS_TEST_ENV is not None and Path(Config.W2_FS1_KNPS_TEST_ENV).exists()
