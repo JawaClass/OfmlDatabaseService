@@ -1,11 +1,9 @@
-import subprocess
-
 import pandas as pd
 from loguru import logger
 from Service.api import table_descriptions
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.util import export_ofml_part, remove_columns
-from settings import Config
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.util import export_ofml_part, remove_columns, build_ebase_command, \
+    execute_build_ebase_command
 
 
 class OfmlCreator(CreateInterface):
@@ -39,10 +37,7 @@ class OfmlCreator(CreateInterface):
                          inp_descr_filename="ofml.inp_descr")
 
     def build_ebase(self):
-        print("ofml build ebase!!")
-        tables_folder = self.path
-        inp_descr_filepath = tables_folder / "ofml.inp_descr"
-        ebase_filepath = tables_folder / "ofml.ebase"
-        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
-        print("ofml command", command)
-        subprocess.run(command)
+        command = build_ebase_command(tables_folder=self.path,
+                                      inp_descr_filepath=self.path / "ofml.inp_descr",
+                                      ebase_filepath=self.path / f"ofml.ebase")
+        execute_build_ebase_command(command)

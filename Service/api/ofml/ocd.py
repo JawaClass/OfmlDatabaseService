@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, abort, request
 from sqlalchemy import text, func
-from ..tables.ocd import OcdArticle, OcdPrice, OcdArtlongtext
+from Service.tables.ocd import OcdArticle, OcdPrice, OcdArtlongtext
 from .handler import handle_table
-from .. import db
+from Service import db
 import pandas as pd
 
 bp = Blueprint("ocd", __name__, url_prefix="/ocd")

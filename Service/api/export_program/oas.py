@@ -1,10 +1,8 @@
-from pathlib import Path
-
 import pandas as pd
+from pathlib import Path
 from typing_extensions import Optional
-
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.util import export_ofml_part, remove_columns
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.util import export_ofml_part, remove_columns
 from Service.tables.web.ocd import WebOcdArticle, WebOcdArtshorttext
 
 

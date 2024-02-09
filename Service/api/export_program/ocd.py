@@ -1,17 +1,13 @@
-import subprocess
+from Service.mysql import db
 from pathlib import Path
-
 import pandas as pd
 from loguru import logger
-
 from Service.api import table_descriptions
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.table_links import OCD_LINKS
-from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
-#from Service.db import yield_all_tables
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.table_links import OCD_LINKS
+from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
+    build_ebase_command, execute_build_ebase_command
 from Service.deepcopy.ocd.utility import make_select_statement, WEB_OCD_TABLES
-from Service.mysql import db
-from settings import Config
 
 
 class OcdCreator(CreateInterface):
@@ -96,9 +92,7 @@ class OcdCreator(CreateInterface):
                          inp_descr_filename="pdata.inp_descr")
 
     def build_ebase(self):
-        print("ocd build ebase!!")
-        tables_folder = self.path
-        inp_descr_filepath = tables_folder / "pdata.inp_descr"
-        ebase_filepath = tables_folder / "pdata.ebase"
-        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
-        subprocess.run(command)
+        command = build_ebase_command(tables_folder=self.path,
+                                      inp_descr_filepath=self.path / "pdata.inp_descr",
+                                      ebase_filepath=self.path / "pdata.ebase")
+        execute_build_ebase_command(command)

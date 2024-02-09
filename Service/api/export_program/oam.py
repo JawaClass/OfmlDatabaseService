@@ -1,14 +1,11 @@
-import subprocess
 from pathlib import Path
-
 import pandas as pd
 from loguru import logger
-
 from Service.api import table_descriptions
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.util import export_ofml_part, remove_columns
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.util import export_ofml_part, remove_columns, build_ebase_command, \
+    execute_build_ebase_command
 from Service.tables.oam import OamArticle2odbparams, OamProperty2mat, OamArticle2ofml
-from settings import Config
 
 
 class OamCreator(CreateInterface):
@@ -20,7 +17,7 @@ class OamCreator(CreateInterface):
                  connection,
                  program_path: Path,
                  program_name,
-                 exports_odb: bool):  # con: Connection = db.session.connection()
+                 exports_odb: bool):
         self.web_program_name = web_program_name
         self.articlenumbers = articlenumbers
         self.programs = programs
@@ -104,9 +101,7 @@ class OamCreator(CreateInterface):
                          inp_descr_filename="oam.inp_descr")
 
     def build_ebase(self):
-        print("oam build ebase!!")
-        tables_folder = self.path
-        inp_descr_filepath = tables_folder / "oam.inp_descr"
-        ebase_filepath = tables_folder / "oam.ebase"
-        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
-        subprocess.run(command)
+        command = build_ebase_command(tables_folder=self.path,
+                                      inp_descr_filepath=self.path / "oam.inp_descr",
+                                      ebase_filepath=self.path / f"oam.ebase")
+        execute_build_ebase_command(command)

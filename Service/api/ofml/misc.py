@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from .. import db
+from Service import db
 from sqlalchemy import text
 bp = Blueprint("misc", __name__, url_prefix="/misc")
 

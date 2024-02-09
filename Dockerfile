@@ -8,6 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
+# make ebase builder executable
+RUN chmod +x ./tools/linux/ebmkdb
+
 #RUN mkdir /mnt/knps_testumgebung && \
 #    pip install --no-cache-dir -r requirements.txt
 

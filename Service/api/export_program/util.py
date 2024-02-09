@@ -1,12 +1,14 @@
 import _csv
 import csv
+import subprocess
 from pathlib import Path
 
 import pandas as pd
 from loguru import logger
 from pydantic import BaseModel
 
-from Service.api.program_creation import Tables
+from Service.api.export_program import Tables
+from settings import Config
 
 
 class CreateProgramApiRequest(BaseModel):
@@ -22,6 +24,20 @@ class CreateProgramApiRequest(BaseModel):
     export_odb: bool
     export_registry: bool
     build_ebase: bool
+
+
+def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_filepath: Path):
+    if Config.OS_NAME == "windows":
+        return f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+    else:
+        return f"./{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+
+
+def execute_build_ebase_command(command: str, timeout_seconds=10):
+    try:
+        subprocess.run(command, timeout=timeout_seconds)
+    except Exception as e:
+        logger.error(f"execute_build_ebase_command failed: '{command}'. {e}")
 
 
 def remove_columns(ofml_part):

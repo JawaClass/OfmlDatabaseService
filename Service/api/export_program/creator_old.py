@@ -6,14 +6,14 @@ import time
 from pathlib import Path
 import pandas as pd
 from Service import db
-from Service.api.program_creation import TableDict
-from Service.api.program_creation.go import GoCreator
-from Service.api.program_creation.oam import OamCreator
-from Service.api.program_creation.ocd import OcdCreator
-from Service.api.program_creation.oas import OasCreator
-from Service.api.program_creation.odb import OdbCreator
-from Service.api.program_creation.ofml import OfmlCreator
-from Service.api.program_creation.util import remove_columns
+from Service.api.export_program import TableDict
+from Service.api.export_program.go import GoCreator
+from Service.api.export_program.oam import OamCreator
+from Service.api.export_program.ocd import OcdCreator
+from Service.api.export_program.oas import OasCreator
+from Service.api.export_program.odb import OdbCreator
+from Service.api.export_program.ofml import OfmlCreator
+from Service.api.export_program.util import remove_columns
 from Service.tables.oam import OamArticle2ofml, OamProperty2mat, OamArticle2odbparams
 from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr
 from Service.tables.odb import Odb2d, Odb3d, Funcs, Layer, Attpt, Oppattpt, Stdattpt

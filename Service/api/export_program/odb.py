@@ -1,18 +1,15 @@
 import re
 import shutil
-import subprocess
 from pathlib import Path
-
 import pandas as pd
 from loguru import logger
 from sqlalchemy.engine.base import Connection
-
 from Service.api import table_descriptions
-from Service.api.program_creation import Tables
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
+from Service.api.export_program import Tables
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
+    build_ebase_command, execute_build_ebase_command
 from Service.tables.odb import Funcs, Layer, Attpt, Oppattpt, Odb2d, Stdattpt, Odb3d
-from settings import Config
 
 
 class OdbCreator(CreateInterface):
@@ -217,13 +214,10 @@ class OdbCreator(CreateInterface):
                          inp_descr_filename="odb.inp_descr")
 
     def build_ebase(self):
-        print("go build ebase!!")
-        tables_folder = self.path
-        inp_descr_filepath = tables_folder / "odb.inp_descr"
-        ebase_filepath = tables_folder / "odb.ebase"
-        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
-        print("odb command", command)
-        subprocess.run(command)
+        command = build_ebase_command(tables_folder=self.path,
+                                      inp_descr_filepath=self.path / "odb.inp_descr",
+                                      ebase_filepath=self.path / f"odb.ebase")
+        execute_build_ebase_command(command)
 
 
 class OdbLoader:

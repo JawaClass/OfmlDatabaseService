@@ -20,15 +20,15 @@ def create_app():
 
     CORS(app, origins=['*'])
 
-    from Service.api import oap
-    from Service.api import ocd
-    from Service.api import oam
-    from Service.api import go
+    from Service.api.ofml import oap
+    from Service.api.ofml import ocd
+    from Service.api.ofml import oam
+    from Service.api.ofml import go
     #from Service.api import ocd_special
-    from Service.api import oas
+    from Service.api.ofml import oas
     from Service.deepcopy.ocd import api as deepcopy_ocd_api
-    from Service.api import misc
-    from Service.api.program_creation import api
+    from Service.api.ofml import misc
+    from Service.api.export_program import api
     #app.register_blueprint(ocd_special.bp)
 
     app.register_blueprint(deepcopy_ocd_api.bp)

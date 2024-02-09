@@ -1,13 +1,10 @@
-import subprocess
 from pathlib import Path
-
 import pandas as pd
-
 from Service.api import table_descriptions
-from Service.api.program_creation.create_interface import CreateInterface
-from Service.api.program_creation.util import export_ofml_part, unify_column_linkages, remove_columns
+from Service.api.export_program.create_interface import CreateInterface
+from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
+    build_ebase_command, execute_build_ebase_command
 from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr, GoSetup
-from settings import Config
 
 
 class GoCreator(CreateInterface):
@@ -17,7 +14,7 @@ class GoCreator(CreateInterface):
                  programs: list[str],
                  program_name: str,
                  connection,
-                 program_path: Path): # con: Connection = db.session.connection()
+                 program_path: Path):
         self.articlenumbers = articlenumbers
         self.programs = programs
         self.program_name = program_name
@@ -91,10 +88,7 @@ class GoCreator(CreateInterface):
                          inp_descr_filename="mt.inp_descr")
 
     def build_ebase(self):
-        print("go build ebase!!")
-        tables_folder = self.path
-        inp_descr_filepath = tables_folder / "mt.inp_descr"
-        ebase_filepath = tables_folder / f"{self.program_name}.ebase"
-        command = f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
-        print("go command", command)
-        subprocess.run(command)
+        command = build_ebase_command(tables_folder=self.path,
+                                      inp_descr_filepath=self.path / "mt.inp_descr",
+                                      ebase_filepath=self.path / f"{self.program_name}.ebase")
+        execute_build_ebase_command(command)

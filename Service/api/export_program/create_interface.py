@@ -1,8 +1,10 @@
-from Service.api.program_creation import Tables
+from pathlib import Path
+
+from Service.api.export_program import Tables
 
 
 class CreateInterface:
-
+    path: Path
     tables: Tables
 
     def load(self):  ...

@@ -9,8 +9,8 @@ from . import quey_interface
 import time
 from .utility import make_delete_statement, DeepcopyRequest, MERGE_KEYS, MergeAsRequest, check_web_article_exists, \
     check_article_exists
-from ...api.program_creation.table_links import OCD_LINKS
-from ...api.program_creation.util import update_table_links, HashMaker
+from ...api.export_program.table_links import OCD_LINKS
+from ...api.export_program.util import update_table_links, HashMaker
 from ...tables.ocd import OcdArticle
 from ...tables.web.ocd import WebOcdArticle, WebProgram
 from Service import db as flask_db

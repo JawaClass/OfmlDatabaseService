@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify, request
-from Service.api.program_creation.creator import Creator
-from Service.api.program_creation.util import CreateProgramApiRequest
+from Service.api.export_program.creator import Creator
+from Service.api.export_program.util import CreateProgramApiRequest
 from settings import Config
 
-bp = Blueprint("program_creation", __name__, url_prefix="/program_creation")
+bp = Blueprint("export_program", __name__, url_prefix="/export_program")
 
 
 @bp.route('/create', methods=["POST"])
