@@ -39,7 +39,11 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
     try:
         logger.info("execute_build_ebase_command....")
         logger.info(f"COMMAND:: {command}")
-        subprocess.run(command, check=True)
+        ebmkdb = Path("/app/tools/linux/ebmkdb")
+        logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
+        logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
+
+        subprocess.run(str(ebmkdb), check=True)
     except Exception as e:
         logger.error("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed:")
