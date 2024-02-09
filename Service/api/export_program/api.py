@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, request
 from Service.api.export_program.creator import Creator
 from Service.api.export_program.util import CreateProgramApiRequest
-from settings import Config
 
 bp = Blueprint("export_program", __name__, url_prefix="/export_program")
 

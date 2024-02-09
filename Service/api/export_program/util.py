@@ -28,9 +28,11 @@ class CreateProgramApiRequest(BaseModel):
 
 def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_filepath: Path):
     if Config.OS_NAME == "windows":
+        """ absolute path """
         return f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
     else:
-        return f"./{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
+        """ /.//absolute_path"""
+        return f"/./{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
 
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
