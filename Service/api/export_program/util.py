@@ -37,8 +37,11 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
     try:
+        print("execute_build_ebase_command....")
+        print(command)
         subprocess.run(command)
     except Exception as e:
+        print("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed: '{command}'. {e}")
 
 

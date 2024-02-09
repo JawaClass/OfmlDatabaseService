@@ -42,6 +42,5 @@ print("Config.W2_FS1_KNPS_TEST_ENV", Config.W2_FS1_KNPS_TEST_ENV)
 print("Config.IMPORT_PLAINTEXT_PATH", Config.IMPORT_PLAINTEXT_PATH)
 print("Config.EXPORT_DATA_PATH_TEST_ENV", Config.EXPORT_DATA_PATH_TEST_ENV)
 print("Config.EXPORT_DATA_PATH_DEFAULT", Config.EXPORT_DATA_PATH_DEFAULT)
-print("Config.CREATE_EBASE_EXE", Config.CREATE_EBASE_EXE)
+print("Config.CREATE_EBASE_EXE", Config.CREATE_EBASE_EXE, "exists:", Config.CREATE_EBASE_EXE.exists())
 
-input("waiting....")
