@@ -1,7 +1,7 @@
 import _csv
 import csv
 import os
-import subprocess
+import subprocess, shlex
 from pathlib import Path
 
 import pandas as pd
@@ -56,8 +56,9 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
         logger.error(f"execute_build_ebase_command failed:")
         logger.error(str(e).split("\n")[0])
     logger.info("run.......... START")
+    shlex_command = shlex.split(command)
     subprocess.run(
-        command,
+        shlex_command,
         check=True)
     logger.info("run.......... DONE")
 
