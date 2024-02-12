@@ -50,12 +50,16 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
         logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
         logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
 
-        subprocess.run(str(ebmkdb) + " " + "-d /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db/pdata.inp_descr my_ebase_lol_cry", check=True)
+        # subprocess.run(str(ebmkdb) + " " + "-d /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db/pdata.inp_descr my_ebase_lol_cry", check=True)
     except Exception as e:
         logger.error("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed:")
         logger.error(str(e).split("\n")[0])
-
+    logger.info("run.......... START")
+    subprocess.run(
+        command,
+        check=True)
+    logger.info("run.......... DONE")
 
 def remove_columns(ofml_part):
     drop_columns = ["sql_db_program", "sql_db_timestamp_modified", "sql_db_timestamp_read", "db_key", "index", "web_filter", "web_program_name"]
