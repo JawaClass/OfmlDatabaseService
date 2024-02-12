@@ -38,29 +38,32 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
 
 def execute_build_ebase_command(command: str, timeout_seconds=10):
 
-    p = "/mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db"
-    logger.info(f"os_access talos_test W_OK = {os.access(p, os.W_OK)}")
-    logger.info(f"os_access talos_test R_OK = {os.access(p, os.R_OK)}")
-    logger.info(f"os_access talos_test R_OK = {os.access(p, os.X_OK)}")
-    logger.info(f"os_access talos_test stat = {Path(p).stat()}")
+    # p = "/mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db"
+    # logger.info(f"os_access talos_test W_OK = {os.access(p, os.W_OK)}")
+    # logger.info(f"os_access talos_test R_OK = {os.access(p, os.R_OK)}")
+    # logger.info(f"os_access talos_test R_OK = {os.access(p, os.X_OK)}")
+    # logger.info(f"os_access talos_test stat = {Path(p).stat()}")
     try:
-        logger.info("execute_build_ebase_command....")
-        logger.info(f"COMMAND:: {command}")
-        ebmkdb = Path("/app/tools/linux/ebmkdb")
-        logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
-        logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
+        # logger.info("execute_build_ebase_command....")
+        # logger.info(f"COMMAND:: {command}")
+        # ebmkdb = Path("/app/tools/linux/ebmkdb")
+        # logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
+        # logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
 
-        # subprocess.run(str(ebmkdb) + " " + "-d /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db /mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db/pdata.inp_descr my_ebase_lol_cry", check=True)
+        logger.info("run.......... START")
+        shlex_command = shlex.split(command)
+        logger.info(f"run.......... {shlex_command}")
+        subprocess.run(
+            shlex_command,
+            check=True,
+            timeout=timeout_seconds)
+        logger.info("run.......... DONE")
+
     except Exception as e:
         logger.error("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed:")
-        logger.error(str(e).split("\n")[0])
-    logger.info("run.......... START")
-    shlex_command = shlex.split(command)
-    subprocess.run(
-        shlex_command,
-        check=True)
-    logger.info("run.......... DONE")
+        logger.error(f"Exception:: {e}")
+
 
 def remove_columns(ofml_part):
     drop_columns = ["sql_db_program", "sql_db_timestamp_modified", "sql_db_timestamp_read", "db_key", "index", "web_filter", "web_program_name"]
