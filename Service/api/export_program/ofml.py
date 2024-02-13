@@ -1,6 +1,5 @@
 import pandas as pd
 from loguru import logger
-from Service.api import table_descriptions
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, remove_columns, build_ebase_command, \
     execute_build_ebase_command
@@ -33,7 +32,7 @@ class OfmlCreator(CreateInterface):
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
-                         inp_descr_content=table_descriptions.ofml.INP_DESCR,
+                         inp_descr_content=Service.api.export_program.table_descriptions.ofml.INP_DESCR,
                          inp_descr_filename="ofml.inp_descr")
 
     def build_ebase(self):

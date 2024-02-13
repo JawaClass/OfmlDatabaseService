@@ -2,12 +2,11 @@ from Service.mysql import db
 from pathlib import Path
 import pandas as pd
 from loguru import logger
-from Service.api import table_descriptions
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.table_links import OCD_LINKS
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
     build_ebase_command, execute_build_ebase_command
-from Service.deepcopy.ocd.utility import make_select_statement, WEB_OCD_TABLES
+from Service.api.deepcopy.ocd.utility import make_select_statement, WEB_OCD_TABLES
 
 
 class OcdCreator(CreateInterface):
@@ -88,7 +87,7 @@ class OcdCreator(CreateInterface):
         export_ofml_part(program_name=self.web_program_name,
                          export_path=self.path,
                          tables=self.tables,
-                         inp_descr_content=table_descriptions.ocd.INP_DESCR,
+                         inp_descr_content=Service.api.export_program.table_descriptions.ocd.INP_DESCR,
                          inp_descr_filename="pdata.inp_descr")
 
     def build_ebase(self):

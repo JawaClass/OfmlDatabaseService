@@ -1,6 +1,5 @@
 from pathlib import Path
 from Service import db
-from Service.api import table_descriptions
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.go import GoCreator
 from Service.api.export_program.oam import OamCreator
@@ -67,10 +66,10 @@ class Creator:
     def export_registry(self):
         depend_programs = [] if self.params.export_odb else self.programs
         registry_file = self.export_path / f"kn_{self.params.program_name}_DE_2.cfg"
-        registry_string = table_descriptions.registry.make_registry(self.params.program_name,
-                                                                    self.params.program_id,
-                                                                    depend_programs=depend_programs,
-                                                                    with_meta=self.params.export_go)
+        registry_string = Service.api.export_program.table_descriptions.registry.make_registry(self.params.program_name,
+                                                                                               self.params.program_id,
+                                                                                               depend_programs=depend_programs,
+                                                                                               with_meta=self.params.export_go)
         registry_file.write_text(
             registry_string,
             encoding="cp1252"

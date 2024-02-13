@@ -4,7 +4,6 @@ from pathlib import Path
 import pandas as pd
 from loguru import logger
 from sqlalchemy.engine.base import Connection
-from Service.api import table_descriptions
 from Service.api.export_program import Tables
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
@@ -96,13 +95,10 @@ class OdbCreator(CreateInterface):
                         f"odb_loader.load_ :: Did not complete successful for both"
                         f"2D ({load_2d_success}) and 3D ({load_3d_success}). Replace oam mapping with AnyArticle. "
                     )
-                    # print("idx", idx)
-                    # print(row.values.tolist())
+
                     self.oam["oam_article2ofml"].loc[idx, ["ofml_type", "odb_name", "params"]] = (
                         "::ofml::xoi::xOiDummyArticle", "", ""
                     )
-                    # print(self.oam["oam_article2ofml"].to_string())
-                    # input("...")
             else:
                 logger.info(f"odb_loader.load_ :: IGNORE because odb_name is empty :: {row.to_dict()}")
         odb_loader.load_other_tables_from_programs(self.programs)
@@ -124,7 +120,6 @@ class OdbCreator(CreateInterface):
             self._unify_links()
 
     def _unify_links(self):
-        # odb
         odb_links = {
             "attpt": ["odb_name"],
             "funcs": ["name"],
@@ -210,7 +205,7 @@ class OdbCreator(CreateInterface):
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
-                         inp_descr_content=table_descriptions.odb.INP_DESCR,
+                         inp_descr_content=Service.api.export_program.table_descriptions.odb.INP_DESCR,
                          inp_descr_filename="odb.inp_descr")
 
     def build_ebase(self):

@@ -11,12 +11,9 @@ COPY . /app
 # make ebase builder executable
 RUN chmod +x ./tools/linux/ebmkdb
 
-#RUN mkdir /mnt/knps_testumgebung && \
-#    pip install --no-cache-dir -r requirements.txt
-
 # store mounted path in env
 ENV W2_FS1_DRIVE_KNPS_TESTUMGEBUNG=/mnt/knps_testumgebung
 
 EXPOSE 9000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:9000", "wsgi:app"]
+CMDgunicorn --bind 0.0.0.0:9000 --timeout 600 --workers 2 --threads 2 wsgi:app

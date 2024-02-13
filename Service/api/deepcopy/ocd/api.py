@@ -1,7 +1,4 @@
-import os
-
 import pandas as pd
-from mysql.connector import CMySQLConnection
 
 import Service.mysql.db as db
 from flask import Blueprint, request, jsonify
@@ -9,10 +6,9 @@ from . import quey_interface
 import time
 from .utility import make_delete_statement, DeepcopyRequest, MERGE_KEYS, MergeAsRequest, check_web_article_exists, \
     check_article_exists
-from ...api.export_program.table_links import OCD_LINKS
-from ...api.export_program.util import update_table_links, HashMaker
-from ...tables.ocd import OcdArticle
-from ...tables.web.ocd import WebOcdArticle, WebProgram
+from Service.api.export_program.table_links import OCD_LINKS
+from Service.api.export_program.util import update_table_links, HashMaker
+from Service.tables.web.ocd import WebOcdArticle, WebProgram
 from Service import db as flask_db
 bp = Blueprint("deepcopy_ocd", __name__, url_prefix="/deepcopy/ocd")
 

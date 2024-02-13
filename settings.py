@@ -1,15 +1,6 @@
 import os
 from pathlib import Path
-
-ENV = "W2_FS1_DRIVE_KNPS_TESTUMGEBUNG"
-_w2_fs1_knps_test_env = os.environ.get(ENV, None)
-assert _w2_fs1_knps_test_env, f"ENV missing: {ENV}"
-print("_w2_fs1_edv::", _w2_fs1_knps_test_env)
-_w2_fs1_knps_test_env = Path(_w2_fs1_knps_test_env)
-print(f"try connect to... {_w2_fs1_knps_test_env}")
-assert _w2_fs1_knps_test_env.exists(), f"{_w2_fs1_knps_test_env} does not exist."
-
-_root_project_path = Path(os.path.dirname(os.path.abspath(__file__)))
+from dotenv import load_dotenv
 
 
 def get_os_type_name():
@@ -20,11 +11,36 @@ def get_os_type_name():
     return "linux"
 
 
+def _resolve_env(name: str):
+    value = os.environ.get(name, None)
+    assert value is not None, f"ENV missing: {name}"
+    return value
+
+
+def _ensure_path_exists(path: Path):
+    assert path.exists(), f"Path '{path}' doesn't exist."
+
+""" project root absolute path """
+_root_project_path = Path(os.path.dirname(os.path.abspath(__file__)))
+
+""" assert connection to w2_fs1 drive """
+_w2_fs1_knps_test_env = _resolve_env("W2_FS1_DRIVE_KNPS_TESTUMGEBUNG")
+_w2_fs1_knps_test_env = Path(_w2_fs1_knps_test_env)
+_ensure_path_exists(_w2_fs1_knps_test_env)
+
+""" load environment variables """
+load_dotenv(_root_project_path / ".env")
+
+
 class Config:
     OS_NAME = get_os_type_name()
     W2_FS1_KNPS_TEST_ENV = _w2_fs1_knps_test_env
-    SECRET_KEY = "dev",
-    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:@172.22.253.244/ofml"
+    SECRET_KEY = "dev"
+    MYSQL_USER = _resolve_env("MYSQL_USER")
+    MYSQL_PASSWORD = _resolve_env("MYSQL_PASSWORD")
+    MYSQL_SERVER = _resolve_env("MYSQL_SERVER")
+    MYSQL_DATABASE = _resolve_env("MYSQL_DATABASE")
+    SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_SERVER}/{MYSQL_DATABASE}"
     IMPORT_PLAINTEXT_PATH = _w2_fs1_knps_test_env / "ofml_development" / "repository" / "kn"
     EXPORT_DATA_PATH_TEST_ENV = _w2_fs1_knps_test_env / "Testumgebung" / "EasternGraphics" / "kn"
     EXPORT_DATA_PATH_DEFAULT = _w2_fs1_knps_test_env / "ofml_development" / "Tools" / "ofml_datenmacher"
@@ -34,13 +50,8 @@ class Config:
                         else _root_project_path / "tools" / "linux" / "ebmkdb"
                         )
 
+""" make sure path we depend on exists """
+_ensure_path_exists(Config.IMPORT_PLAINTEXT_PATH)
+_ensure_path_exists(Config.CREATE_EBASE_EXE)
 
-assert Config.W2_FS1_KNPS_TEST_ENV is not None and Path(Config.W2_FS1_KNPS_TEST_ENV).exists(), "W2_FS1_KNPS_TEST_ENV doesnt exit"
-assert Config.IMPORT_PLAINTEXT_PATH is not None and Path(Config.IMPORT_PLAINTEXT_PATH).exists(), "IMPORT_PLAINTEXT_PATH doesnt exit"
-assert Config.CREATE_EBASE_EXE.exists(), "CREATE_EBASE_EXE doesnt exist"
-print("Config.W2_FS1_KNPS_TEST_ENV", Config.W2_FS1_KNPS_TEST_ENV)
-print("Config.IMPORT_PLAINTEXT_PATH", Config.IMPORT_PLAINTEXT_PATH)
-print("Config.EXPORT_DATA_PATH_TEST_ENV", Config.EXPORT_DATA_PATH_TEST_ENV)
-print("Config.EXPORT_DATA_PATH_DEFAULT", Config.EXPORT_DATA_PATH_DEFAULT)
-print("Config.CREATE_EBASE_EXE", Config.CREATE_EBASE_EXE, "exists:", Config.CREATE_EBASE_EXE.exists())
 

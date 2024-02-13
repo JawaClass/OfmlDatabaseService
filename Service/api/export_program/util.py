@@ -51,7 +51,7 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
         # logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
 
         logger.info("run.......... START")
-        shlex_command = shlex.split(command)
+        shlex_command = command.split() #shlex.split(command)
         logger.info(f"run.......... {shlex_command}")
         subprocess.run(
             shlex_command,
@@ -62,7 +62,7 @@ def execute_build_ebase_command(command: str, timeout_seconds=10):
     except Exception as e:
         logger.error("ERROR.................................")
         logger.error(f"execute_build_ebase_command failed:")
-        logger.error(f"Exception:: {e}")
+        # logger.error(f"Exception:: {e}") #  prints usage of ebmkdb
 
 
 def remove_columns(ofml_part):

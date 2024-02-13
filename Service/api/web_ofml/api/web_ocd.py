@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify, request, abort
 from Service import db
 from Service.tables.utility import get_model_class_by_table_name
 from loguru import logger
-from Service.web_ofml.utility import query_table, patch_items, patch_item, ReturnQueryType, resolve_limit
+from Service.api.web_ofml.utility import query_table, patch_items, patch_item, ReturnQueryType, resolve_limit
 
 bp = Blueprint("web_ofml_ocd", __name__, url_prefix="/web_ofml/ocd/")
 

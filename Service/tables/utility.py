@@ -7,7 +7,7 @@ import Service.tables.odb as odb
 import Service.tables.web.ocd as web_ocd
 import inspect
 
-from Service.web_ofml import models
+from Service.api.web_ofml import models
 
 _modules = [go, ocd, oam, oap, oas, odb, web_ocd, models]
 

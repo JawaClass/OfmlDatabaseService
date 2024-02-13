@@ -1,7 +1,7 @@
 import re
 
 from mysql.connector.cursor import MySQLCursor
-from Service.deepcopy.ocd.query_statement import QUERIES, TABLES
+from Service.api.deepcopy.ocd.query_statement import QUERIES, TABLES
 
 
 def _insert_tables(articles: list, cursor: MySQLCursor, web_program_name: str):

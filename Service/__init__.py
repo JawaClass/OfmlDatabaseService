@@ -26,7 +26,7 @@ def create_app():
     from Service.api.ofml import go
     #from Service.api import ocd_special
     from Service.api.ofml import oas
-    from Service.deepcopy.ocd import api as deepcopy_ocd_api
+    from Service.api.deepcopy.ocd import api as deepcopy_ocd_api
     from Service.api.ofml import misc
     from Service.api.export_program import api
     #app.register_blueprint(ocd_special.bp)
@@ -42,11 +42,11 @@ def create_app():
     app.register_blueprint(api.bp)
 
     # web ofml
-    from Service.web_ofml.api import session
-    from Service.web_ofml.api import user
-    from Service.web_ofml.api import article_item
-    from Service.web_ofml.api import property_item
-    from Service.web_ofml.api import web_ocd
+    from Service.api.web_ofml.api import session
+    from Service.api.web_ofml.api import user
+    from Service.api.web_ofml.api import article_item
+    from Service.api.web_ofml.api import property_item
+    from Service.api.web_ofml.api import web_ocd
     app.register_blueprint(session.bp)
     app.register_blueprint(user.bp)
     app.register_blueprint(article_item.bp)
@@ -55,7 +55,6 @@ def create_app():
 
     # Initialize Database Plugin
     db.init_app(app)
-    from .web_ofml import models
 
     with app.app_context():
         """
