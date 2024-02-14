@@ -47,11 +47,13 @@ def create_app():
     from Service.api.web_ofml.api import article_item
     from Service.api.web_ofml.api import property_item
     from Service.api.web_ofml.api import web_ocd
+    from Service.api.web_ofml.api import web_ocd_batch
     app.register_blueprint(session.bp)
     app.register_blueprint(user.bp)
     app.register_blueprint(article_item.bp)
     app.register_blueprint(property_item.bp)
     app.register_blueprint(web_ocd.bp)
+    app.register_blueprint(web_ocd_batch.bp)
 
     # Initialize Database Plugin
     db.init_app(app)

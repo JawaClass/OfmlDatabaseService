@@ -7,6 +7,7 @@ from Service.api.export_program.oas import OasCreator
 from Service.api.export_program.ocd import OcdCreator
 from Service.api.export_program.odb import OdbCreator
 from Service.api.export_program.ofml import OfmlCreator
+from Service.api.export_program.table_descriptions.registry import make_registry
 from Service.tables.web.ocd import WebOcdArticle
 from Service.api.export_program.util import CreateProgramApiRequest
 from settings import Config
@@ -66,10 +67,10 @@ class Creator:
     def export_registry(self):
         depend_programs = [] if self.params.export_odb else self.programs
         registry_file = self.export_path / f"kn_{self.params.program_name}_DE_2.cfg"
-        registry_string = Service.api.export_program.table_descriptions.registry.make_registry(self.params.program_name,
-                                                                                               self.params.program_id,
-                                                                                               depend_programs=depend_programs,
-                                                                                               with_meta=self.params.export_go)
+        registry_string = make_registry(self.params.program_name,
+                                        self.params.program_id,
+                                        depend_programs=depend_programs,
+                                        with_meta=self.params.export_go)
         registry_file.write_text(
             registry_string,
             encoding="cp1252"

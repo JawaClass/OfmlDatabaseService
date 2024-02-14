@@ -76,9 +76,9 @@ def make_delete_statement(web_program_name: str):
 
 
 def make_select_statement(web_program_name: str):
-    return "\n".join([f"SELECT * FROM  {table} WHERE web_program_name = \"{web_program_name}\" AND web_filter = 0; " for table in WEB_OCD_TABLES])
+    return "\n".join([f"SELECT * FROM  {table} WHERE web_program_name = \"{web_program_name}\" AND (web_filter = 0 OR web_filter IS NULL);" for table in WEB_OCD_TABLES])
 
-# TODO: fix keys
+
 MERGE_KEYS = {
         "ocd_version": ["format_version", "web_program_name"],
         "ocd_article": ["article_nr", "sql_db_program", "web_program_name"],
@@ -89,7 +89,7 @@ MERGE_KEYS = {
         "ocd_packaging": ["article_nr", "sql_db_program", "web_program_name"],
         "ocd_articletaxes": ["article_nr", "sql_db_program", "web_program_name"],
         "ocd_taxscheme": ["tax_id", "sql_db_program", "web_program_name"],
-        "ocd_price": ["article_nr", "sql_db_program", "web_program_name"],
+        "ocd_price": ["article_nr", "var_cond", "price_type", "price_level", "sql_db_program", "web_program_name"],
         "ocd_pricetext": ["textnr", "sql_db_program", "web_program_name"],
         "ocd_rounding": ["id", "sql_db_program", "web_program_name"],
         "ocd_propertyclass": ["article_nr", "prop_class", "sql_db_program", "web_program_name"],

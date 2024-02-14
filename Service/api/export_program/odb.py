@@ -9,6 +9,7 @@ from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
     build_ebase_command, execute_build_ebase_command
 from Service.tables.odb import Funcs, Layer, Attpt, Oppattpt, Odb2d, Stdattpt, Odb3d
+from Service.api.export_program.table_descriptions.odb import INP_DESCR
 
 
 class OdbCreator(CreateInterface):
@@ -205,7 +206,7 @@ class OdbCreator(CreateInterface):
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
-                         inp_descr_content=Service.api.export_program.table_descriptions.odb.INP_DESCR,
+                         inp_descr_content=INP_DESCR,
                          inp_descr_filename="odb.inp_descr")
 
     def build_ebase(self):

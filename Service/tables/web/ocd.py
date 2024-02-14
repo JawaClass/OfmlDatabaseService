@@ -32,7 +32,7 @@ class WebOcdArtbase(Base):
     sql_db_timestamp_read: str = Column(Text)
 
     web_program_name: str = db.Column(Text)
-    web_filter: int = db.Column(SmallInteger)
+    web_filter: int = db.Column(SmallInteger, nullable=True)
 
 
 class WebOcdArticle(Base):

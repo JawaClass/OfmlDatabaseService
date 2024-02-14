@@ -1,9 +1,11 @@
 from pathlib import Path
 import pandas as pd
+
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
     build_ebase_command, execute_build_ebase_command
 from Service.tables.go import GoArticles, GoProperties, GoTypes, GoDeSr, GoSetup
+from Service.api.export_program.table_descriptions.go import INP_DESCR
 
 
 class GoCreator(CreateInterface):
@@ -83,7 +85,7 @@ class GoCreator(CreateInterface):
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
-                         inp_descr_content=Service.api.export_program.table_descriptions.go.INP_DESCR,
+                         inp_descr_content=INP_DESCR,
                          inp_descr_filename="mt.inp_descr")
 
     def build_ebase(self):

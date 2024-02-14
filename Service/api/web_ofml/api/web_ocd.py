@@ -239,16 +239,16 @@ def patch_item_(table_name: str):
     where_clause = request.args.get("where", None)
     assert where_clause, "not supported"
     table_class = get_model_class_by_table_name(table_name)
-    articles: list[table_class] = query_table(table_class=table_class,
-                                              select_clause=None,
-                                              where_clause=where_clause,
-                                              limit=None,
-                                              make_json=False
-                                              )
+    items: list[table_class] = query_table(table_class=table_class,
+                                           select_clause=None,
+                                           where_clause=where_clause,
+                                           limit=None,
+                                           make_json=False
+                                           )
     patch_body = request.json
     assert patch_body
-    logger.debug(f"PATCH {len(articles)} articles with f{patch_body}")
-    patch_items(articles, patch_body)
+    logger.debug(f"PATCH {len(items)} items with f{patch_body}")
+    patch_items(items, patch_body)
     db.session.commit()
     return {}, 204
 
@@ -340,7 +340,7 @@ def put_item_(table_name: str, identifier: int):
         return jsonify(), 404
 
     item: table_class
-    # delete fields except the identifier
+    # patch fields except the identifier
     item_as_json = item.to_json()
     del item_as_json["db_key"]
     patch_item(item, {k: None for k in item_as_json})
