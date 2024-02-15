@@ -16,4 +16,4 @@ ENV W2_FS1_DRIVE_KNPS_TESTUMGEBUNG=/mnt/knps_testumgebung
 
 EXPOSE 9000
 
-CMDgunicorn --bind 0.0.0.0:9000 --timeout 600 --workers 2 --threads 2 wsgi:app
+CMD gunicorn --bind 0.0.0.0:9000 --timeout 600 --workers 2 --threads 2 wsgi:app
