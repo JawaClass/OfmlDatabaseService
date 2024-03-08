@@ -49,7 +49,6 @@ class Creator:
 
         self.import_plaintext_path: Path = Config.IMPORT_PLAINTEXT_PATH
 
-        time.sleep(3)
         self.logger.info(f"export_path: {self.export_path}")
         self.logger.info(f"import_plaintext_path: {self.import_plaintext_path}")
 
