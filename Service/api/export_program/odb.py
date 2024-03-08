@@ -2,7 +2,6 @@ import re
 import shutil
 from pathlib import Path
 import pandas as pd
-from loguru import logger
 from sqlalchemy.engine.base import Connection
 from Service.api.export_program import Tables
 from Service.api.export_program.create_interface import CreateInterface
@@ -20,7 +19,8 @@ class OdbCreator(CreateInterface):
                  oam,
                  programs,
                  import_plaintext_path,
-                 program_path):
+                 program_path,
+                 logger):
         self.program_name = program_name
         self.tables = {}
         self.connection = connection
@@ -29,9 +29,10 @@ class OdbCreator(CreateInterface):
         self.import_plaintext_path = import_plaintext_path
         self.program_path = program_path
         self.path = self.program_path / "2"
+        self.logger = logger
 
     def _copy_odb_graphic_files(self):
-        logger.debug("copy_odb_graphic_files ::BEGIN")
+        self.logger.debug("copy_odb_graphic_files ::BEGIN")
 
         self.path.mkdir(parents=True, exist_ok=True)
 
@@ -50,7 +51,7 @@ class OdbCreator(CreateInterface):
             fields = field.split("::")
             program_name = fields[2].lower()
             file_name = fields[3].lower()
-            logger.debug("copy file")
+            self.logger.debug("copy file")
             graphics_root_folder = self.import_plaintext_path / program_name / "2"
             for file_ext in file_ext:
                 graphics_path = graphics_root_folder / f"{file_name}.{file_ext}"
@@ -59,14 +60,14 @@ class OdbCreator(CreateInterface):
                 copied_tracker.add(graphics_path)
                 graphics_path_exists = graphics_path.exists()
                 if not graphics_path_exists:
-                    logger.warning(
+                    self.logger.warning(
                         f"Referenced Graphics file '{graphics_path}' not found in path"
                         f"'{graphics_root_folder}' referenced in '{field}'."
                     )
                     continue
 
                 graphics_path_dst = self.path / f"{file_name}_{program_name}.{file_ext}"  # TODO: (not sure) program_name shoudl come from self.odb["odb2d"]["sql_db_program"]
-                logger.debug(f"copy {graphics_path} ... {graphics_path_dst}")
+                self.logger.debug(f"copy {graphics_path} ... {graphics_path_dst}")
                 shutil.copyfile(src=graphics_path, dst=graphics_path_dst)
 
         graphics_3d = (
@@ -80,19 +81,19 @@ class OdbCreator(CreateInterface):
                 self.tables["odb2d"]["ctor"].apply(lambda x: graphic_or_none(x, graphics_pattern_2d)).dropna().unique())
         )
         graphics_2d.apply(lambda x: copy_graphic_file(x, ["egms", "dwg"]))
-        logger.debug("copy_odb_graphic_files ::DONE")
+        self.logger.debug("copy_odb_graphic_files ::DONE")
 
     def load(self):
 
         assert len(self.oam)
 
-        odb_loader = OdbLoader(self.connection)
+        odb_loader = OdbLoader(con=self.connection, logger=self.logger)
         for idx, row in self.oam["oam_article2ofml"].iterrows():
             if len(row["odb_name"].strip()):
                 load_2d_success = odb_loader.load_odb2d_object(odb_name_path=row["odb_name"])
                 load_3d_success = odb_loader.load_odb3d_object(odb_name_path=row["odb_name"])
                 if not (load_2d_success and load_3d_success):
-                    logger.warning(
+                    self.logger.warning(
                         f"odb_loader.load_ :: Did not complete successful for both"
                         f"2D ({load_2d_success}) and 3D ({load_3d_success}). Replace oam mapping with AnyArticle. "
                     )
@@ -101,7 +102,7 @@ class OdbCreator(CreateInterface):
                         "::ofml::xoi::xOiDummyArticle", "", ""
                     )
             else:
-                logger.info(f"odb_loader.load_ :: IGNORE because odb_name is empty :: {row.to_dict()}")
+                self.logger.info(f"odb_loader.load_ :: IGNORE because odb_name is empty :: {row.to_dict()}")
         odb_loader.load_other_tables_from_programs(self.programs)
 
         self.tables = odb_loader.odb
@@ -202,7 +203,7 @@ class OdbCreator(CreateInterface):
         unify_column_linkages(odb_links, self.tables)
 
     def export(self):
-        remove_columns(self.tables)
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
@@ -213,14 +214,15 @@ class OdbCreator(CreateInterface):
         command = build_ebase_command(tables_folder=self.path,
                                       inp_descr_filepath=self.path / "odb.inp_descr",
                                       ebase_filepath=self.path / f"odb.ebase")
-        execute_build_ebase_command(command)
+        execute_build_ebase_command(command=command, logger=self.logger)
 
 
 class OdbLoader:
 
-    def __init__(self, con: Connection):
+    def __init__(self, *, con: Connection, logger):
         self.con = con
         self.odb: Tables = {}
+        self.logger = logger
 
     def load_other_tables_from_programs(self, programs: [str]):
         for cls in [Funcs, Layer, Attpt, Oppattpt, Stdattpt]:
@@ -234,11 +236,11 @@ class OdbLoader:
             self.con)
 
     def load_odb2d_object(self, odb_name_path: str):
-        logger.debug(f"load_odb2d_object:: {odb_name_path}")
+        self.logger.debug(f"load_odb2d_object:: {odb_name_path}")
         return self._load_odb_object(odb_name_path, Odb2d)
 
     def load_odb3d_object(self, odb_name_path: str):
-        logger.debug(f"load_odb3d_object:: {odb_name_path}")
+        self.logger.debug(f"load_odb3d_object:: {odb_name_path}")
         return self._load_odb_object(odb_name_path, Odb3d)
 
     def _load_odb_object(self, odb_name_path: str, cls: Odb3d | Odb2d) -> bool:
@@ -247,14 +249,14 @@ class OdbLoader:
         returns False otherwise
         """
         program, odb_name = odb_name_path.split("::")[2:4]
-        logger.debug(f"_load_odb_object:: {odb_name_path} :program={program} :odb_name={odb_name}")
+        self.logger.debug(f"_load_odb_object:: {odb_name_path} :program={program} :odb_name={odb_name}")
 
         odb_start_row: cls = cls.query.filter(
             cls.odb_name == odb_name,
             cls.sql_db_program == program
         ).first()
         if odb_start_row is None:
-            logger.warning(f"_load_odb_object:: {odb_name_path} :program={program} :odb_name={odb_name} not found.")
+            self.logger.warning(f"_load_odb_object:: {odb_name_path} :program={program} :odb_name={odb_name} not found.")
             return False
 
         start_idx = odb_start_row.db_key
@@ -291,6 +293,6 @@ class OdbLoader:
                 #   self.odb[cls.__tablename__] = pd.concat([self.odb[cls.__tablename__], df]).reset_index(drop=True)
                 if df.empty:
                     print("df EMPTY !!!!", odb_name_path, cls)
-                    input("________")
+                    # input("________")
                 self.odb[cls.__tablename__] = pd.concat([self.odb[cls.__tablename__], df]).reset_index(drop=True)
         return True

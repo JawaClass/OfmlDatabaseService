@@ -1,5 +1,4 @@
 import pandas as pd
-from loguru import logger
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, remove_columns, build_ebase_command, \
     execute_build_ebase_command
@@ -8,14 +7,15 @@ from Service.api.export_program.table_descriptions.ofml import INP_DESCR
 
 class OfmlCreator(CreateInterface):
 
-    def __init__(self, program_name, program_path):
+    def __init__(self, *, program_name, program_path, logger):
         self.program_name = program_name
         self.tables = {}
         self.program_path = program_path
         self.path = program_path / "2"
+        self.logger = logger
 
     def load(self):
-        logger.debug("make_ofml_tables")
+        self.logger.debug("make_ofml_tables")
         self.tables["epdfproductdb"] = pd.DataFrame(
             data=["@SafePropertyNames;;1".split(";")],
             columns="type;args;value".split(";")
@@ -29,7 +29,7 @@ class OfmlCreator(CreateInterface):
         ...
 
     def export(self):
-        remove_columns(self.tables)
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
@@ -40,4 +40,4 @@ class OfmlCreator(CreateInterface):
         command = build_ebase_command(tables_folder=self.path,
                                       inp_descr_filepath=self.path / "ofml.inp_descr",
                                       ebase_filepath=self.path / f"ofml.ebase")
-        execute_build_ebase_command(command)
+        execute_build_ebase_command(command=command, logger=self.logger)

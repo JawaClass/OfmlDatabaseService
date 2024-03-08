@@ -177,6 +177,7 @@ def delete_deepcopy(name: str):
     return {}, 200
 
 
+@bp.route("", methods=["POST"])
 @bp.route("/", methods=["POST"])
 def deepcopy():
     """

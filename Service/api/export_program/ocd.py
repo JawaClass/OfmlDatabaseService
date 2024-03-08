@@ -1,7 +1,6 @@
 from Service.mysql import db
 from pathlib import Path
 import pandas as pd
-from loguru import logger
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.table_links import OCD_LINKS
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
@@ -12,12 +11,13 @@ from Service.api.export_program.table_descriptions.ocd import INP_DESCR
 
 class OcdCreator(CreateInterface):
 
-    def __init__(self, *, web_program_name, program_name: str, program_path: Path, program_id: str):
+    def __init__(self, *, web_program_name, program_name: str, program_path: Path, program_id: str, logger):
         self.tables = {}
         self.web_program_name = web_program_name
         self.program_name = program_name
         self.program_id = program_id
         self.path = program_path / "DE" / "2" / "db"
+        self.logger = logger
 
     def _make_ocd_version(self):
         non_prefix_table_names = [_.replace("ocd_", "") for _ in list(self.tables.keys())]
@@ -39,7 +39,7 @@ class OcdCreator(CreateInterface):
         return pd.DataFrame(data=data, columns=columns)
 
     def load(self):
-        logger.debug("load")
+        self.logger.debug("load")
         multi_stmt_select_all = make_select_statement(self.web_program_name)
         with db.new_connection() as connection:
             cursor = connection.cursor(dictionary=True)
@@ -59,7 +59,7 @@ class OcdCreator(CreateInterface):
         self.tables["ocd_version"] = self._make_ocd_version()
 
     def update(self):
-        logger.debug("update")
+        self.logger.debug("update")
         self._remove_farb_tabellen_relations()
         self._update_id()
         self._unify_links()
@@ -83,8 +83,8 @@ class OcdCreator(CreateInterface):
         self.tables["ocd_relation"] = self.tables["ocd_relation"].drop(df_relations_where_table_is_defined.index)
 
     def export(self):
-        logger.debug("export")
-        remove_columns(self.tables)
+        self.logger.debug("export")
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.web_program_name,
                          export_path=self.path,
                          tables=self.tables,
@@ -95,4 +95,4 @@ class OcdCreator(CreateInterface):
         command = build_ebase_command(tables_folder=self.path,
                                       inp_descr_filepath=self.path / "pdata.inp_descr",
                                       ebase_filepath=self.path / "pdata.ebase")
-        execute_build_ebase_command(command)
+        execute_build_ebase_command(command=command, logger=self.logger)

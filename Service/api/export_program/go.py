@@ -1,6 +1,5 @@
 from pathlib import Path
 import pandas as pd
-
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, unify_column_linkages, remove_columns, \
     build_ebase_command, execute_build_ebase_command
@@ -15,7 +14,8 @@ class GoCreator(CreateInterface):
                  programs: list[str],
                  program_name: str,
                  connection,
-                 program_path: Path):
+                 program_path: Path,
+                 logger):
         self.articlenumbers = articlenumbers
         self.programs = programs
         self.program_name = program_name
@@ -23,6 +23,7 @@ class GoCreator(CreateInterface):
         self.connection = connection
         self.program_path = program_path
         self.path = program_path / "2"
+        self.logger = logger
 
     def load(self):
 
@@ -81,7 +82,7 @@ class GoCreator(CreateInterface):
         unify_column_linkages(go_links, self.tables)
 
     def export(self):
-        remove_columns(self.tables)
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
@@ -92,4 +93,4 @@ class GoCreator(CreateInterface):
         command = build_ebase_command(tables_folder=self.path,
                                       inp_descr_filepath=self.path / "mt.inp_descr",
                                       ebase_filepath=self.path / f"{self.program_name}.ebase")
-        execute_build_ebase_command(command)
+        execute_build_ebase_command(command=command, logger=self.logger)

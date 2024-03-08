@@ -1,5 +1,6 @@
-from pathlib import Path
-from Service import db
+import copy
+import sys
+
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.go import GoCreator
 from Service.api.export_program.oam import OamCreator
@@ -11,6 +12,11 @@ from Service.api.export_program.table_descriptions.registry import make_registry
 from Service.tables.web.ocd import WebOcdArticle
 from Service.api.export_program.util import CreateProgramApiRequest
 from settings import Config
+from pathlib import Path
+import subprocess
+from Service import db
+import threading
+import time
 
 
 class Creator:
@@ -22,14 +28,30 @@ class Creator:
 
     def __init__(self, *,
                  params: CreateProgramApiRequest):
+        self.thread_id = threading.get_ident()
+
+        """ create a new loguru logger instance for creator-logs and write to STDOUT and FILE"""
+        from Service.util import template_logger
+        self.logger = template_logger.new_loguru_logger()
+
+        self.logger.add(sink=sys.stdout, level=0)
 
         self.params = params
+        self.export_path: Path = self._translate_export_path() / self.params.program_name
+
+        self.logger.add(sink=self.export_path / "datenmacher.logs", level=0, mode="w+")
+        self.logger.info("Init parameters")
+
         self.connection = db.session.connection()
         self.articles: list[WebOcdArticle] = self._get_articles()
         self.articles_numbers = [a.article_nr for a in self.articles]
-        self.programs = [a.sql_db_program for a in self.articles]
-        self.export_path: Path = self._translate_export_path() / self.params.program_name
+        self.programs = list(set([a.sql_db_program for a in self.articles]))
+
         self.import_plaintext_path: Path = Config.IMPORT_PLAINTEXT_PATH
+
+        time.sleep(3)
+        self.logger.info(f"export_path: {self.export_path}")
+        self.logger.info(f"import_plaintext_path: {self.import_plaintext_path}")
 
     def _run_creator_pipeline(self, c: CreateInterface):
         c.load()
@@ -55,14 +77,10 @@ class Creator:
         if self.params.export_registry:
             self.export_registry()
         if self.params.build_ebase:
-            # "B:\ofml_development\Tools\create_ebase.bat"
-            print("build ebase 1")
-            import subprocess
             command = Config.CREATE_EBASE_EXE
             param = str(self.export_path)
-            ""
             subprocess.Popen([command, param])
-            print("build ebase 2")
+        self.logger.info("DONE.")
 
     def export_registry(self):
         depend_programs = [] if self.params.export_odb else self.programs
@@ -87,7 +105,8 @@ class Creator:
             web_program_name=self.params.web_program_name,
             program_name=self.params.program_name,
             program_path=self.export_path,
-            program_id=self.params.program_id
+            program_id=self.params.program_id,
+            logger=self.logger
         )
 
     def build_oam_creator(self):
@@ -98,14 +117,16 @@ class Creator:
             connection=self.connection,
             program_path=self.export_path,
             program_name=self.params.program_name,
-            exports_odb=self.params.export_odb
+            exports_odb=self.params.export_odb,
+            logger=self.logger
         )
 
     def build_oas_creator(self):
         return OasCreator(
             articles=self.articles,
             program_name=self.params.program_name,
-            program_path=self.export_path
+            program_path=self.export_path,
+            logger=self.logger
         )
 
     def build_go_creator(self):
@@ -114,13 +135,15 @@ class Creator:
             program_path=self.export_path,
             program_name=self.params.program_name,
             connection=self.connection,
-            programs=self.programs
+            programs=self.programs,
+            logger=self.logger
         )
 
     def build_ofml_creator(self):
         return OfmlCreator(
             program_path=self.export_path,
-            program_name=self.params.program_name
+            program_name=self.params.program_name,
+            logger=self.logger
         )
 
     def build_odb_creator(self):
@@ -132,5 +155,6 @@ class Creator:
             connection=self.connection,
             programs=self.programs,
             import_plaintext_path=self.import_plaintext_path,
-            oam=oam_creator.tables
+            oam=oam_creator.tables,
+            logger=self.logger
         )

@@ -1,9 +1,12 @@
 """Initialize Flask app."""
+import copy
+import sys
 
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy.extension import SQLAlchemy as SQLAlchemyFlask
 from flask_cors import CORS
+from Service.util import template_logger
 
 db: SQLAlchemyFlask = SQLAlchemy()
 
@@ -42,16 +45,10 @@ def create_app():
     app.register_blueprint(api.bp)
 
     # web ofml
-    from Service.api.web_ofml.api import session
     from Service.api.web_ofml.api import user
-    from Service.api.web_ofml.api import article_item
-    from Service.api.web_ofml.api import property_item
     from Service.api.web_ofml.api import web_ocd
     from Service.api.web_ofml.api import web_ocd_batch
-    app.register_blueprint(session.bp)
     app.register_blueprint(user.bp)
-    app.register_blueprint(article_item.bp)
-    app.register_blueprint(property_item.bp)
     app.register_blueprint(web_ocd.bp)
     app.register_blueprint(web_ocd_batch.bp)
 
@@ -84,6 +81,6 @@ def create_app():
 
     @app.route("/")
     def hello():
-        return "hello (app is running)"
+        return "Ofml Database Service is running."
 
     return app

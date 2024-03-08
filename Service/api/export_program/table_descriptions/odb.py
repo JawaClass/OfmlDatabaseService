@@ -26,7 +26,7 @@ field	2	attributes	vstring		delim ; trim
 
 table	odb2d	odb2d.csv	csv
 fields	10
-field	1	odb_name	string	43	trim hidx
+field	1	odb_name	string	255	trim hidx
 field	2	level	uint16		
 field	3	visible	string	255	trim
 field	4	x_offs	string	255	trim

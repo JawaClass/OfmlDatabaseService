@@ -14,7 +14,8 @@ class ReturnQueryType(Enum):
 def query_table(*, table_class: Type[Base],
                 select_clause: str | None,
                 where_clause: str | None,
-                limit: int | None,
+                order_by: str | None = None,
+                limit: int | None = None,
                 make_json: bool,
                 as_type: ReturnQueryType = ReturnQueryType.TRIM
                 ) -> list[dict | Type[Base]] | dict | Type[Base] | None:
@@ -41,6 +42,9 @@ def query_table(*, table_class: Type[Base],
 
         base_columns = [getattr(table_class, c) for c in requested_columns]
         query = query.with_entities(*base_columns)
+
+    if order_by:
+        query = query.order_by(text(order_by))
 
     if limit:
         res = query.limit(limit).all()

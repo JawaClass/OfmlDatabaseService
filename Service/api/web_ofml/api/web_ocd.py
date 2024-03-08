@@ -70,12 +70,13 @@ bp = Blueprint("web_ofml_ocd", __name__, url_prefix="/web_ofml/ocd/")
 #     #             ;
 #     #                 """.format(program="talos", prop_class="TISCH82_B")
 
-def handle_propertyclass_details(*, select_clause, where_clause, limit):
+def handle_propertyclass_details(*, select_clause, where_clause, order_by, limit):
     table_class = get_model_class_by_table_name("web_ocd_propertyclass")
 
     property_class_result = query_table(table_class=table_class,
                                         select_clause=select_clause,
                                         where_clause=where_clause,
+                                        order_by=order_by,
                                         limit=limit,
                                         make_json=True,
                                         as_type=ReturnQueryType.LIST
@@ -93,6 +94,7 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
 
         p_class["properties"] = query_table(table_class=get_model_class_by_table_name("web_ocd_property"),
                                             where_clause=f"web_program_name = \"{p_class['web_program_name']}\" AND sql_db_program = \"{p_class['sql_db_program']}\" AND prop_class = \"{p_class['prop_class']}\" AND (scope = \"C\" OR scope = \"G\") ",
+                                            order_by=order_by,
                                             make_json=True,
                                             limit=None,
                                             select_clause=None,
@@ -102,6 +104,7 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
 
             prop["text"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propertytext"),
                                        where_clause=f"web_program_name = \"{prop['web_program_name']}\" AND sql_db_program = \"{prop['sql_db_program']}\" AND textnr = \"{prop['prop_textnr']}\" AND language = \"de\" ",
+                                       order_by=order_by,
                                        make_json=True,
                                        limit=1,
                                        select_clause=None,
@@ -109,6 +112,7 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
                                        )
             prop["values"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propertyvalue"),
                                          where_clause=f"web_program_name = \"{prop['web_program_name']}\" AND sql_db_program = \"{prop['sql_db_program']}\" AND prop_class = \"{prop['prop_class']}\" AND property = \"{prop['property']}\" ",
+                                         order_by=order_by,
                                          make_json=True,
                                          limit=None,
                                          select_clause=None,
@@ -118,6 +122,7 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
             for val in prop["values"]:
                 val["text"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propvaluetext"),
                                           where_clause=f"web_program_name = \"{val['web_program_name']}\" AND sql_db_program = \"{val['sql_db_program']}\" AND textnr = \"{val['pval_textnr']}\" AND language = \"de\" ",
+                                          order_by=order_by,
                                           make_json=True,
                                           limit=1,
                                           select_clause=None,
@@ -126,12 +131,13 @@ def handle_propertyclass_details(*, select_clause, where_clause, limit):
     return property_class_result
 
 
-def handle_program_details(*, select_clause, where_clause, limit):
+def handle_program_details(*, select_clause, where_clause, order_by, limit):
     table_class = get_model_class_by_table_name("web_program")
 
     web_program_result = query_table(table_class=table_class,
                                      select_clause=select_clause,
                                      where_clause=where_clause,
+                                     order_by=order_by,
                                      limit=limit,
                                      make_json=True,
                                      as_type=ReturnQueryType.LIST
@@ -139,6 +145,7 @@ def handle_program_details(*, select_clause, where_clause, limit):
     for p in web_program_result:
         p["owner"] = query_table(table_class=get_model_class_by_table_name("web_user"),
                                  where_clause=f"id = {p['owner_id']}",
+                                 order_by=order_by,
                                  make_json=True,
                                  limit=1,
                                  select_clause=None,
@@ -147,12 +154,13 @@ def handle_program_details(*, select_clause, where_clause, limit):
     return web_program_result
 
 
-def handle_article_details(*, select_clause, where_clause, limit):
+def handle_article_details(*, select_clause, where_clause, order_by, limit):
     table_class = get_model_class_by_table_name("web_ocd_article")
 
     articles_result = query_table(table_class=table_class,
                                   select_clause=select_clause,
                                   where_clause=where_clause,
+                                  order_by=order_by,
                                   limit=limit,
                                   make_json=True,
                                   as_type=ReturnQueryType.LIST
@@ -161,6 +169,7 @@ def handle_article_details(*, select_clause, where_clause, limit):
     for a in articles_result:
         a["kurztext"] = query_table(table_class=get_model_class_by_table_name("web_ocd_artshorttext"),
                                     where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND textnr = \"{a['short_textnr']}\" AND language = \"de\"",
+                                    order_by=order_by,
                                     make_json=True,
                                     limit=1,
                                     select_clause=None,
@@ -177,6 +186,7 @@ def handle_article_details(*, select_clause, where_clause, limit):
 
         a["klassen"] = query_table(table_class=get_model_class_by_table_name("web_ocd_propertyclass"),
                                    where_clause=f"web_program_name = \"{a['web_program_name']}\" AND sql_db_program = \"{a['sql_db_program']}\" AND article_nr = \"{a['article_nr']}\"",
+                                   order_by=order_by,
                                    make_json=True,
                                    limit=None,
                                    select_clause=None,
@@ -195,6 +205,7 @@ def get_item_details_(table_name: str):
     kwargs = {
         "select_clause": request.args.get("select", None),
         "where_clause": request.args.get("where", None),
+        "order_by": request.args.get("order_by", None),
         "limit": request.args.get("limit", None),
     }
 
@@ -225,6 +236,7 @@ def get_item_(table_name: str):
         query_table(table_class=table_class,
                     select_clause=request.args.get("select", None),
                     where_clause=request.args.get("where", None),
+                    order_by=request.args.get("order_by", None),
                     limit=request.args.get("limit", None),
                     make_json=True
                     )
@@ -242,6 +254,7 @@ def patch_item_(table_name: str):
     items: list[table_class] = query_table(table_class=table_class,
                                            select_clause=None,
                                            where_clause=where_clause,
+                                           order_by=None,
                                            limit=None,
                                            make_json=False
                                            )
@@ -262,6 +275,7 @@ def delete_item_(table_name: str, identifier: int):
     item: table_class | None = query_table(table_class=table_class,
                                            select_clause=None,
                                            where_clause=f"db_key = {identifier}",
+                                           order_by=None,
                                            limit=1,
                                            make_json=False)
     logger.debug(f"DELETE {item} ")
@@ -286,6 +300,7 @@ def delete_items_(table_name: str):
     items: list[table_class] = query_table(table_class=table_class,
                                            select_clause=None,
                                            where_clause=where_clause,
+                                           order_by=None,
                                            make_json=False,
                                            limit=None)
     logger.debug(f"DELETE {len(items)} items from {table_name}")
@@ -333,6 +348,7 @@ def put_item_(table_name: str, identifier: int):
     item: table_class | None = query_table(table_class=table_class,
                                            select_clause=None,
                                            where_clause=f"db_key = {identifier}",
+                                           order_by=None,
                                            limit=1,
                                            make_json=False
                                            )

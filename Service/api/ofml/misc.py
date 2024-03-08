@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from Service import db
 from sqlalchemy import text
+from loguru import logger
 bp = Blueprint("misc", __name__, url_prefix="/misc")
 
 
@@ -16,6 +17,7 @@ def timestamp():
 
 @bp.route('/all')
 def all_values():
+    logger.info("call misc/all")
     res = db.session.execute(
         text("SELECT * FROM timestamp;"),
 

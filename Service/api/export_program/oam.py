@@ -1,6 +1,5 @@
 from pathlib import Path
 import pandas as pd
-from loguru import logger
 from Service.api.export_program.create_interface import CreateInterface
 from Service.api.export_program.util import export_ofml_part, remove_columns, build_ebase_command, \
     execute_build_ebase_command
@@ -17,7 +16,8 @@ class OamCreator(CreateInterface):
                  connection,
                  program_path: Path,
                  program_name,
-                 exports_odb: bool):
+                 exports_odb: bool,
+                 logger):
         self.web_program_name = web_program_name
         self.articlenumbers = articlenumbers
         self.programs = programs
@@ -27,6 +27,7 @@ class OamCreator(CreateInterface):
         self.program_name = program_name
         self.path = self.program_path / "DE" / "2" / "oam"
         self.exports_odb = exports_odb
+        self.logger = logger
 
     def load(self):
 
@@ -64,7 +65,7 @@ class OamCreator(CreateInterface):
 
         def replace_odb_name_in_oam(odb_name: str):
             fields = odb_name.split("::")
-            logger.debug(f"replace_odb_name_in_oam:: ({len(fields)}) :: {fields}")
+            self.logger.debug(f"replace_odb_name_in_oam:: ({len(fields)}) :: {fields}")
             if len(fields) == 4:
                 program = fields[2]  # use program from odb_name_path
                 return "::".join(fields[:2]) + f"::{self.program_name}" + f"::{fields[3].strip()}_{program.upper()}"
@@ -93,7 +94,7 @@ class OamCreator(CreateInterface):
             axis=1))
 
     def export(self):
-        remove_columns(self.tables)
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables,
@@ -104,4 +105,4 @@ class OamCreator(CreateInterface):
         command = build_ebase_command(tables_folder=self.path,
                                       inp_descr_filepath=self.path / "oam.inp_descr",
                                       ebase_filepath=self.path / f"oam.ebase")
-        execute_build_ebase_command(command)
+        execute_build_ebase_command(command=command, logger=self.logger)

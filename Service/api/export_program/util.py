@@ -1,13 +1,9 @@
 import _csv
 import csv
-import os
-import subprocess, shlex
+import subprocess
 from pathlib import Path
-
 import pandas as pd
-from loguru import logger
 from pydantic import BaseModel
-
 from Service.api.export_program import Tables
 from settings import Config
 
@@ -36,36 +32,26 @@ def build_ebase_command(*, tables_folder: Path, inp_descr_filepath: Path, ebase_
         return f"{Config.CREATE_EBASE_EXE} -d {tables_folder} {inp_descr_filepath} {ebase_filepath}"
 
 
-def execute_build_ebase_command(command: str, timeout_seconds=10):
-
-    # p = "/mnt/knps_testumgebung/Testumgebung/EasternGraphics/kn/talos_test/DE/2/db"
-    # logger.info(f"os_access talos_test W_OK = {os.access(p, os.W_OK)}")
-    # logger.info(f"os_access talos_test R_OK = {os.access(p, os.R_OK)}")
-    # logger.info(f"os_access talos_test R_OK = {os.access(p, os.X_OK)}")
-    # logger.info(f"os_access talos_test stat = {Path(p).stat()}")
+def execute_build_ebase_command(*, command: str, logger, timeout_seconds=10):
+    logger.info("build ebase...START")
     try:
-        # logger.info("execute_build_ebase_command....")
-        # logger.info(f"COMMAND:: {command}")
-        # ebmkdb = Path("/app/tools/linux/ebmkdb")
-        # logger.info(f"ebmkdb.exists()::: {ebmkdb.exists()}")
-        # logger.info(f"ebmkdb.stat()::: {ebmkdb.stat()}")
-
-        logger.info("run.......... START")
-        shlex_command = command.split() #shlex.split(command)
-        logger.info(f"run.......... {shlex_command}")
-        subprocess.run(
+        shlex_command = command.split()
+        completed_process = subprocess.run(
             shlex_command,
             check=True,
             timeout=timeout_seconds)
-        logger.info("run.......... DONE")
-
+        complete_message = "SUCCESS" if completed_process.returncode == 0 else "FAILED"
+        logger.info(f"Complete: {completed_process}")
+        code = completed_process.returncode
+        if code == 0:
+            logger.info(f"build ebase... [{code}] {complete_message}")
+        else:
+            logger.error(f"build ebase... [{code}] {complete_message}")
     except Exception as e:
-        logger.error("ERROR.................................")
-        logger.error(f"execute_build_ebase_command failed:")
-        # logger.error(f"Exception:: {e}") #  prints usage of ebmkdb
+        logger.error(f"build ebase...FAILED with Exception: {e}")
 
 
-def remove_columns(ofml_part):
+def remove_columns(*, ofml_part, logger):
     drop_columns = ["sql_db_program", "sql_db_timestamp_modified", "sql_db_timestamp_read", "db_key", "index", "web_filter", "web_program_name"]
 
     for table_name in ofml_part:

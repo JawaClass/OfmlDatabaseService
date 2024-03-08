@@ -11,11 +11,13 @@ class OasCreator(CreateInterface):
     def __init__(self, *,
                  articles: list[WebOcdArticle],
                  program_name: str,
-                 program_path: Path):
+                 program_path: Path,
+                 logger):
         self.articles = articles
         self.program_name = program_name
         self.tables = {}
         self.path = program_path / "DE" / "2" / "cat"
+        self.logger = logger
 
     def _get_text(self, article: WebOcdArticle) -> Optional[str]:
         id(self)
@@ -67,7 +69,7 @@ class OasCreator(CreateInterface):
         ...
 
     def export(self):
-        remove_columns(self.tables)
+        remove_columns(ofml_part=self.tables, logger=self.logger)
         export_ofml_part(program_name=self.program_name,
                          export_path=self.path,
                          tables=self.tables)
