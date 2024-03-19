@@ -7,10 +7,9 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ofml_database_service_backend
-    command: ./run.sh
     ports:
       - "9000:9000"
     volumes:
       - /mnt/knps_testumgebung:/mnt/knps_testumgebung
-    celery_worker_1:
+
 
